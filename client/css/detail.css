@@ -1,0 +1,30 @@
+*{
+    margin:0;
+    padding:0;
+}
+.modify{
+    float:left;
+    list-style: none;
+    margin-right: 20px;
+}
+.header{
+    width: auto;
+    height: 64px;;
+    background-color:aqua;
+}
+
+li a {
+    text-decoration: none;
+    color:white;
+    line-height: 60px;
+}
+
+li a:hover{
+    color:orange;
+}
+.container{
+    margin-left: 200px;
+}
+li a h2{
+    
+}
