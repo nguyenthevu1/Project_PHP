@@ -10,10 +10,10 @@
 .header{
     width: auto;
     height: 64px;;
-    background-color:aqua;
+    background-color:rgb(0,60,113);
 }
 
-li a {
+.list li a {
     text-decoration: none;
     color:white;
     line-height: 60px;
@@ -22,9 +22,92 @@ li a {
 li a:hover{
     color:orange;
 }
-.container{
+.container-header{
     margin-left: 200px;
 }
 li a h2{
     
+}
+.right-header{
+    margin-left:1000px;
+}
+.container-hidden{
+    width:1170px;
+    height:56px;
+    margin-left:174.6px;
+    padding-left: 15px;
+}
+.container-hidden li{
+    list-style: none;
+    float: left;
+}
+.container-hidden li a{
+    text-decoration: none;
+    color:#40a6f2;
+    border-right:solid 2px aqua;
+    padding-left:10px;  
+    
+}
+.active span{
+    color: #777;
+    margin-left: 10px;
+}
+.body-section{
+    width:1170px;
+    height:100px;
+    margin-left:174.6px;
+}
+.body-left{
+    width:300px;
+    float:left;
+  
+}
+.img-rounded{
+    width:70px;
+    height:70px;
+    border-radius:6px;
+}
+.media-body h4 a{
+    text-decoration: none;
+    margin-left: 10px;
+}
+.media-left{
+    float:left;
+}
+.tourPanelHeading{
+    margin-bottom: 20px;
+}
+.star1{
+    margin-left:10px;
+    margin-top:10px;
+}
+.star{
+    margin-top:10px;
+}
+.body-right{
+    width:870px;
+    float:left;
+    
+}
+.first-left{
+    width:641.25px;
+    float:left;
+}
+.star2{
+    margin-top:10px;
+}
+.first-right{
+    width:213.75px;
+    float:left;
+}
+.button-first{
+    background-color:#F79321;
+    border-radius:5px;
+    width:183.75px;
+    height:40.4px;
+    color:white;
+    font-weight: bold;
+    font-size:16px;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
+    border: 1px solid #F79321;
 }
