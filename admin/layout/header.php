@@ -54,9 +54,6 @@ if (!$_SESSION['user']) {
         ***********************************-->
         <div class="nav-header">
             <a href="index.php" class="brand-logo">
-                <img class="logo-abbr" src="./images/logo.png" alt="">
-                <img class="logo-compact" src="./images/logo-text.png" alt="">
-                <img class="brand-title" src="./images/logo-text.png" alt="">
             </a>
 
             <div class="nav-control">
@@ -130,14 +127,14 @@ if (!$_SESSION['user']) {
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-person-video"></i><span class="nav-text">Quản trị viên</span></a>
                         <ul aria-expanded="false">
                             <li><a href="../admin/admin-table.php">Danh sách quản trị</a></li>
-                            <li><a href="./ui-alert.php">Thêm quản trị</a></li>
+                            <li><a href="../admin/addAdmin.php">Thêm quản trị</a></li>
                         </ul>
                     </li>
                     <li class="nav-label">Quản lý người dùng</li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-people"></i><span class="nav-text">Người dùng</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="./ui-accordion.php">Danh sách người dùng</a></li>
-                            <li><a href="./ui-alert.php">Thêm người dùng</a></li>
+                            <li><a href="./user-table.php">Danh sách người dùng</a></li>
+                            <li><a href="./addUser.php">Thêm người dùng</a></li>
                         </ul>
                     </li>
                     <li class="nav-label">Ứng dụng</li>

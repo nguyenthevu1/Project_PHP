@@ -4,7 +4,7 @@ include_once('./layout/header.php');
 ?>
 
 <div class="content-body" style="color: black;">
-    <a href=""><button class="btn btn-primary" style="margin-left: 20px;">Thêm quản trị viên</button></a>
+    <a href="./addAdmin.php"><button class="btn btn-primary" style="margin-left: 20px;">Thêm quản trị viên</button></a>
     <table class="table mt-4" style="color: black;">
         <thead>
             <tr>
@@ -25,13 +25,23 @@ include_once('./layout/header.php');
             ?>
                 <tr>
                     <td><?php echo $i; ?></td>
-                    <td><img src="<?php echo $row['avatarAdmin']; ?>" alt="avatar" style="width: 100px;"></td>
+                    <td><img src="<?php echo $row['avatarAdmin']; ?>" alt="avatar" style="width: 60px;"></td>
                     <td><?php echo $row['email']; ?></td>
                     <td><?php echo $row['fullName']; ?></td>
                     <td>
-                        <a href=""><button class="btn btn-primary">Đổi mật khẩu</button></a>
-                        <a href=""><button class="btn btn-success">cập nhật</button></a>
-                        <a href=""><button class="btn btn-danger">xóa</button></a>
+                    <?Php 
+                    if($_SESSION['user']['role'] == 1) {
+                        echo '<a href=""><button class="btn btn-primary">Đổi mật khẩu</button></a>
+                              <a href="./capnhat_admin.php?id='.($row['adminId']).'"><button class="btn btn-success">cập nhật</button></a>
+                              <a href="./xoa_admin.php?id='.($row['adminId']).'"><button class="btn btn-danger">xóa</button></a>';
+                    }
+                    else {
+                        echo '<button disabled class="btn btn-primary">Đổi mật khẩu</button>
+                              <button disabled class="btn btn-success">cập nhật</button>
+                              <button disabled class="btn btn-danger">xóa</button>';
+                    }
+                ?>
+                       
                     </td>
                 </tr>
             <?php } ?>
