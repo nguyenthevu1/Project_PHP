@@ -4,6 +4,7 @@
     <title>Chi tiết</title>
     <link href="css/detail.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -131,8 +132,88 @@
                         </div> 
                                          
                     </div>
-                                      
+                    <div class="img-content">
+                        <img src="images/unnamed-800x450.jpg" class="img-body-content" style="width:870px;height:465px;">
+                    </div> 
+                    <div class="main-content">
+                        <h2 class="tag-h2">Hơi Thở Đại Ngàn 2N1Đ + Bữa sáng + Voucher 500,000VND | 
+                            <span class="price">
+                                1.699.000 VND/Khách
+                            </span>
+                        </h2>
+                         <div class="main-left">
+                                <h3>
+                                    <b>Combo bao gồm</b>
+                                </h3>
+                                
+                                - 01 đêm nghỉ tại hạng phòng Premium Executive Bungalow với tầm nhìn thung lũng
+                                <br>
+                                - Bữa sáng tự chọn tại nhà hàng The Stilt House
+                                <br>
+                                - Tặng 500,000 VND cho mỗi phòng mỗi đêm sử dụng dịch vụ ăn uống tại Khu nghỉ
+                                <br>
+                                - Miễn phí đồ uống ngắm hoàng hôn (từ 17h-18h hàng ngày)
+                                <br>
+                                - Dịch vụ dọn phòng buổi tối kèm quà ngọt
+                                <br>
+                                - Thưởng thức những thước phim ngoài trời trong điều kiện thời tiết thuận lợi
+                                <br>
+                                - Miễn phí sử dụng xe đạp dạo quanh Khu nghỉ
+                                <br>
+                                - Tận hưởng giây phút thư giãn cùng hồ bơi vô cực bốn mùa giữa làn không khí se lạnh của Sapa và ruộng bậc thang bạt ngàn
+                                <br>
+                                - Cơ hội dạo bước trong làn sương mờ ảo lơ lửng buông xuống
+                                <br>
+                                - Cảm nhận không gian trong lành của núi rừng Tây Bắc và âm thanh trong trẻo của thiên nhiên
+                                <br>
+                                - Mua 1 Tặng 1 đồ uống Happy Hour 16:00 – 18:00 tại Pool Bar
+                                <br>
+                                - Sử dụng Shuttle Bus miễn phí từ thị trấn Sapa đến khu nghỉ và ngược lại (đặt trước 24 tiếng và tùy thuộc tình trạng chỗ)
+                                <h3>Ghi chú đặc biệt<h3>		
+                                    <p>
+                                        <strong class="mod">Lưu trú từ 3 đêm: Miễn phí nâng hạng phòng</strong>                                     
+                                    </p>
+                                <div class="footer-content">
+                                    <h3>Điều kiện áp dụng</h3>
+                                    - Đặt tối thiểu 02 khách/phòng
+                                    <br>
+                                    - Áp dụng cho khách hàng lưu trú/tạm trú tại các tỉnh thành không áp dụng chỉ thị 15 và 16
+                                    <br>
+                                    - Cuối tuần thứ 6, 7 không phụ thu thêm
+                                    <br>
+                                    - Miễn phí đổi ngày lưu trú trước 7 ngày check in
+                                    <br>
+                                    - Hạn lưu trú đến hết 31/10/2021 
+                                </div>
+                                
+
+                         </div>
+                         <div class="main-right">
+                            <h5 class="v-margin-bottom-15">
+                                <b>Đặt ngay, chỉ mất 2 phút. Hoặc gọi 
+                                    <span id="hotelinefs">
+                                        1900 2045
+                                    </span>.
+                                </b>
+                            </h5>
+                            <div class="order">
+                                <div class="datepicker">
+                                    <div class="date-left">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <input type="date">
+                                    <input type="date">
+                                    </div>
+                                </div>                            
+                            </div>
+                           
+                         </div>   
+                         
+                    </div>    
+                    <div class="title">
+                        <h3 class="font-size-16 font-bold vcolor-primary">Bảng giá Khu nghỉ dưỡng Topas Ecolodge Sapa</h3>
+                    </div>           
                 </div>
+                
             </section>
         </div>
         
