@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2021 at 09:38 AM
+-- Generation Time: Oct 27, 2021 at 11:15 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -41,8 +41,9 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adminId`, `email`, `password`, `fullName`, `avatarAdmin`, `role`) VALUES
-(1, 'nguyenthevu2602@gmail.com', '123456', 'Nguyễn Thế Vũ', NULL, 1),
-(3, 'thevu2468@gmail.com', '123456', 'the vu', NULL, 0);
+(1, 'nguyenthevu2602@gmail.com', '123456', 'Nguyễn Thế Vũ', 'uploads/37110701057192.jpg', 1),
+(9, 'luongchithanh@gmail.com', '123456', 'Lương Chí Thành', 'uploads/incognito.png', 0),
+(10, 'vunguyen2602@gmail.com', '123456', 'nguyễn thế vũ', 'uploads/incognito.png', 0);
 
 -- --------------------------------------------------------
 
@@ -164,7 +165,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`userId`, `email`, `passWord`, `fullName`, `avatarUser`, `status`, `timeRegister`) VALUES
 (1, 'thevu2468@gmail.com', '123456', 'Nguyễn Thế Vũ', NULL, 1, '2021-10-23 13:19:11'),
-(3, 'nguyenthevu2602@gmail.com', '123456', 'Nguyễn Thế Vũ', NULL, 1, '2021-10-23 13:19:11');
+(4, 'luongchithanh@gmail.com', '123456', 'Lương Chí Thành', 'uploads/incognito.png', 1, '2021-10-27 08:53:37');
 
 --
 -- Indexes for dumped tables
@@ -226,7 +227,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `adminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `adminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -262,7 +263,7 @@ ALTER TABLE `service`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
