@@ -24,7 +24,7 @@
             <div class="menu">
                 <div class="empty"></div>
                 <div class="book">
-                    <span><i class="fa fa-search fix-icon search-icon"  aria-hidden="true"></i>BOOK<span>
+                    <span><i class="fa fa-search fix-icon search-icon" aria-hidden="true"></i>BOOK<span>
                 </div>
                 <div class="infor">
                     <span>Thông tin về LOTTE Hotel Hà Nội</span>
@@ -172,6 +172,7 @@
                 <div class="menu-footer">
                     Điều tra phát triển<br>
                     Bản đồ website<br>
+
                 </div>  
             </div>
         </div>
