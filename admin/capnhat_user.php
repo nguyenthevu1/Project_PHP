@@ -42,8 +42,7 @@ if (isset($_POST['update_user'])) {
         }
     }
     else{
-        $path = 'uploads/incognito.png';
-        $add = "UPDATE users set email = '$email',fullName = '$fullName', avatarUser='$path' where userId = '$id'";
+        $add = "UPDATE users set email = '$email',fullName = '$fullName' where userId = '$id'";
     }
     
     mysqli_query($conn, $add);

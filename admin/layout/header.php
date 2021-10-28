@@ -89,7 +89,8 @@ if (!$_SESSION['user']) {
                         <ul class="navbar-nav header-right">
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                <i class="bi bi-person-circle"></i>
+                                    <img class="avatar" src="<?php
+                                                echo $_SESSION['user']['avatarAdmin']; ?>" alt="">
                                     <span><?php echo $_SESSION['user']['fullName']; ?></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
@@ -97,7 +98,6 @@ if (!$_SESSION['user']) {
                                         <span class="ml-2">Quản trị viên</span>
                                     </a>
                                     <a href="./logout.php" class="dropdown-item">
-                                        <i class="icon-key"></i>
                                         <span class="ml-2">Đăng xuất</span>
                                     </a>
                                 </div>
@@ -137,18 +137,11 @@ if (!$_SESSION['user']) {
                             <li><a href="./addUser.php">Thêm người dùng</a></li>
                         </ul>
                     </li>
-                    <li class="nav-label">Ứng dụng</li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-columns-gap"></i><span class="nav-text">Ứng dụng</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./app-profile.php">Hồ sơ</a></li>
-                        </ul>
-                    </li>
-
                     <li class="nav-label">Các thành phần</li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-bookmarks"></i><span class="nav-text">Danh mục</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="./ui-accordion.php">Danh sách danh mục</a></li>
-                            <li><a href="./ui-alert.php">Thêm danh mục</a></li>
+                            <li><a href="./categories-table.php">Danh sách danh mục</a></li>
+                            <li><a href="./addCategories.php">Thêm danh mục</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-shop"></i><span class="nav-text">Khách sạn</span></a>
