@@ -100,6 +100,7 @@ li a h2{
     width:213.75px;
     float:left;   
     margin-bottom: 10px;
+
 }
 .button-first{
     background-color:#F79321;
@@ -151,5 +152,174 @@ br{
 }
 .title{
     margin-top: 10px;
+    margin-bottom: 10px;
+}
+.search-2{
+    width:841px;
+    border:solid 1px red;
+    border-radius:5px;
+    background-color: rgb(229,229,229);
+    height:80px;
+
+}
+.search-detail-left{
+    float:left;
+    width:412px;
+}
+.search-detail-mid{
+    float:left;
+}
+.left-1{
+    float:left;
+}
+.left-2{
+    float:left;
+    margin-left:5px;
+}
+.search-detail-right button{
+    float:left;
+    background-color: #F79321;
+    border-radius: 5px;
+    width:107.5px;
+    height:60px;
+}
+.fix{
+    text-decoration:none;
+    color: #2574A9
+}
+.datepicker input{
+    width:120px;
+}
+.search-content-items {
+    justify-content: space-between;
+    background-color: rgba(221, 221, 221, 0.5);
+    padding: 12px;
+    border-radius: 5px;
+} 
+.mini{
+    margin-top: 10px;
+    background-color: rgb(234,240,231);
+    width:845px;
+    height:50px;
+    text-align: center;
+    line-height: 60px;
+    border-left: solid 1px orange;
+}
+.mini strong{
+    color: #40a6f2 ;
+}
+.fix-2 tr{
+    background-color: #e6e7ea;
+}
+.title-room{
+    border: solid 2px #36bb62;
+    width:705px;
+    height:870px;
+}
+.footer-left{
+    margin-left: 10px;
+}
+.mid-left{
+    margin-left: 10px;
+}
+.header-left{
+    margin-left: 10px;
+}
+.condition-left{
+    margin-bottom: 280px;
+    margin-left: 10px;
+}
+.container-left{
+    margin-bottom:250px;
+}
+.container-mid{
+    margin-bottom: 500px;
+}
+.color{
+   color: #40a6f2;
+   text-decoration: none;
+   font-size: 20px;
+   font-weight: bold;
+}
+.container-right{
+    margin-bottom: 460px;
+    margin-left: 10px;
+}
+.container-right button{ 
+    background-color: #F79321;
+    width:100px;
+    height:40px;
+    border-radius: 5px;
+    color:white;
+    font-weight: bold;
+}
+.ep{
+    border: solid 1px red;
+}
+   
+
+.rate{
+    border-top: solid 5px #40a6f2;
+    margin-bottom: 440px;
+}
+.second-left{
+    border-top: solid 5px #40a6f2; 
+    margin-bottom:687px;
+}
+.second-price{
+    border-top: solid 5px #40a6f2; 
+    margin-bottom:625px;
+}
+.second-price h5{
+    margin-top:5px
+}
+.second-order{
+    
+    margin-bottom: 625px;
+    border-top: solid 5px #40a6f2;
+}
+.second-order button{
+    background-color: #F79321;
+    width:100px;
+    height:40px;
+    border-radius: 5px;
+    color:white;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top:5px
+}
+.second-order p{
+    margin-left: 10px;
+}
+.float{
+    float:left;
+    margin-right: 50px;
+}
+.Utilities{
+    width:600px;
+    margin-top:10px;
+}
+.float-1{
+    margin-left: 10px;
+}
+.float-2 li{
+    margin-left: 20px;
+}
+.Utilities-detail{
+    margin-left:15px;
+}
+.header-left h3{
+    color: rgb(79,201,223);
+}
+.condition-left h3{
+    color: rgb(79,201,223);
+}
+.rate h3{
+    color: rgb(79,201,223);
+}
+.condition-left p{
+    margin-bottom: 10px;
+}
+.rate p{
     margin-bottom: 10px;
 }
