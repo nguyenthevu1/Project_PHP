@@ -32,8 +32,8 @@ include_once('./layout/header.php');
                     <?Php 
                     if($_SESSION['user']['role'] == 1) {
                         echo '<a href=""><button class="btn btn-primary">Đổi mật khẩu</button></a>
-                              <a href="./capnhat_admin.php?id='.($row['adminId']).'"><button class="btn btn-success">cập nhật</button></a>
-                              <a href="./xoa_admin.php?id='.($row['adminId']).'"><button class="btn btn-danger">xóa</button></a>';
+                              <a href="./update_admin.php?id='.($row['adminId']).'"><button class="btn btn-success">cập nhật</button></a>
+                              <a href="./delete_admin.php?id='.($row['adminId']).'"><button class="btn btn-danger">xóa</button></a>';
                     }
                     else {
                         echo '<button disabled class="btn btn-primary">Đổi mật khẩu</button>

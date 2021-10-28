@@ -31,7 +31,6 @@ if (isset($_POST['add_admin'])) {
 
                 $tmp = $_FILES['file']['tmp_name'];
 
-                echo $img;
 
                 $ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
 
