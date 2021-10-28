@@ -212,7 +212,9 @@ br{
     background-color: #e6e7ea;
 }
 .title-room{
-    border: solid 1px rgba(221, 221, 221, 0.5);
+    border: solid 2px #36bb62;
+    width:705px;
+    height:870px;
 }
 .footer-left{
     margin-left: 10px;
@@ -228,7 +230,7 @@ br{
     margin-left: 10px;
 }
 .container-left{
-    margin-bottom:200px;
+    margin-bottom:250px;
 }
 .container-mid{
     margin-bottom: 500px;
@@ -257,21 +259,24 @@ br{
    
 
 .rate{
-    border-top: solid 5px red;
-    margin-bottom: 500px;
+    border-top: solid 5px #40a6f2;
+    margin-bottom: 440px;
 }
 .second-left{
-    border-top: solid 5px red; 
+    border-top: solid 5px #40a6f2; 
     margin-bottom:687px;
 }
 .second-price{
-    border-top: solid 5px red; 
-    margin-bottom:630px;
+    border-top: solid 5px #40a6f2; 
+    margin-bottom:625px;
+}
+.second-price h5{
+    margin-top:5px
 }
 .second-order{
     
-    margin-bottom: 630px;
-    border-top: solid 5px red;
+    margin-bottom: 625px;
+    border-top: solid 5px #40a6f2;
 }
 .second-order button{
     background-color: #F79321;
@@ -281,7 +286,40 @@ br{
     color:white;
     font-weight: bold;
     margin-left: 10px;
+    margin-top:5px
 }
 .second-order p{
     margin-left: 10px;
+}
+.float{
+    float:left;
+    margin-right: 50px;
+}
+.Utilities{
+    width:600px;
+    margin-top:10px;
+}
+.float-1{
+    margin-left: 10px;
+}
+.float-2 li{
+    margin-left: 20px;
+}
+.Utilities-detail{
+    margin-left:15px;
+}
+.header-left h3{
+    color: rgb(79,201,223);
+}
+.condition-left h3{
+    color: rgb(79,201,223);
+}
+.rate h3{
+    color: rgb(79,201,223);
+}
+.condition-left p{
+    margin-bottom: 10px;
+}
+.rate p{
+    margin-bottom: 10px;
 }

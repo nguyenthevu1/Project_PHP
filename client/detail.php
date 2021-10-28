@@ -278,12 +278,13 @@
                                         <td class="condition">
                                             <div class="condition-left">
                                                 <h3>Gồm ăn sáng + Voucher</h3>
-                                                <p>Miễn phí xe Limousine Topas<br>Moutain Express cho 2 người<br>lớn/phòng đưa đón từ Hà Nội cho<br>đặt phòng từ 2 đêm trong tuần<br>(tuỳ theo tình trạng chỗ, không áp<br>dụng Lễ Tết)</p>
-                                                <p>Tặng 1,000,000VND/phòng/<br>đêm sử dụng cho dịch vụ ăn uống</p>
-                                                <p>Miễn phí sử dụng xe đạp trong<br> khu nghỉ</p>
-                                                <p>Đặt từ 3 đêm giảm thêm 10%</p>
-                                                <p>Đã bao gồm thuế & phí</p>
-                                                <p>Giá rẻ (không hủy/thay đổi)</p>
+                                               
+                                                <p><i class="fab fa-angellist"></i>Miễn phí xe Limousine Topas<br>Moutain Express cho 2 người<br>lớn/phòng đưa đón từ Hà Nội cho<br>đặt phòng từ 2 đêm trong tuần<br>(tuỳ theo tình trạng chỗ, không áp<br>dụng Lễ Tết)</p>
+                                                <p><i class="fab fa-angellist"></i>Tặng 1,000,000VND/phòng/<br>đêm sử dụng cho dịch vụ ăn uống</p>
+                                                <p><i class="fab fa-angellist"></i>Miễn phí sử dụng xe đạp trong<br> khu nghỉ</p>
+                                                <p><i class="fab fa-angellist"></i>Đặt từ 3 đêm giảm thêm 10%</p>
+                                                <p><i class="fab fa-angellist"></i>Đã bao gồm thuế & phí</p>
+                                                <p><i class="fab fa-angellist"></i>Giá rẻ (không hủy/thay đổi)</p>
                                             </div>
                                                 
                                         </td>
@@ -310,13 +311,13 @@
                                         <td>
                                             <div class="rate">
                                                 <h3>Gồm ăn sáng</h3>
-                                                <p>1 giường cỡ queen và 1 sofa<br>giường đơn lớn</p>
-                                                <p>Phòng suite</p>
-                                                <p>1 giường cỡ queen và 1 sofa<br> giường đơn lớn</p>
-                                                <p>Bãi đậu xe tự phục vụ miễn phí</p>
-                                                <p>Bữa sáng miễn phí</p>
-                                                <p>Đã bao gồm thuế & phí</p>
-                                                <p>Giá rẻ (không hủy/thay đổi)</p>
+                                                <p><i class="fab fa-angellist"></i>1 giường cỡ queen và 1 sofa<br>giường đơn lớn</p>
+                                                <p><i class="fab fa-angellist"></i>Phòng suite</p>
+                                                <p><i class="fab fa-angellist"></i>1 giường cỡ queen và 1 sofa<br> giường đơn lớn</p>
+                                                <p><i class="fab fa-angellist"></i>Bãi đậu xe tự phục vụ miễn phí</p>
+                                                <p><i class="fab fa-angellist"></i>Bữa sáng miễn phí</p>
+                                                <p><i class="fab fa-angellist"></i>Đã bao gồm thuế & phí</p>
+                                                <p><i class="fab fa-angellist"></i>Giá rẻ (không hủy/thay đổi)</p>
                                             </div>
                                             
                                         </td>
@@ -339,10 +340,38 @@
                             </table>
                         </div>
                     </div>
+                    <div class="Utilities">
+                        <p>Tiện ích của Khu nghỉ dưỡng Topas Ecolodge Sapa</p>
+                        <div class="Utilities-detail">
+                            <ul>
+                                <div class="float">
+                                    <li>Dịch vụ thu đổi ngoại tệ</li>     
+                                </div>                       
+                                <div class="float">
+                                    <li>Dịch vụ thu đổi ngoại tệ</li>     
+                                </div>
+                            
+                                <div class="float">
+                                    <li>Nhà hàng, Khu ăn uống</li>     
+                                </div>       
+                                <div class="float">
+                                    <li>Hồ bơi</li>     
+                                </div>  
+                                <div class="float-1">
+                                    <li>Cửa hàng đồ lưu niệm</li>     
+                                </div>  
+                                <div class="float-2">
+                                    <li>Hồ bơi ngoài trời - nước nóng</li>     
+                                </div>  
+                            </ul>
+                        </div>
+                        
+                    </div>
                 </div>
                 
             </section>  
         </div>
+        
         
     </div>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
