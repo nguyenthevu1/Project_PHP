@@ -146,8 +146,8 @@ if (!$_SESSION['user']) {
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-shop"></i><span class="nav-text">Khách sạn</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="./ui-accordion.php">Danh sách các khách sạn</a></li>
-                            <li><a href="./ui-alert.php">Thêm</a></li>
+                            <li><a href="./room-table.php">Danh sách các khách sạn</a></li>
+                            <li><a href="./addRoom.php">Thêm khách sạn</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-microsoft"></i><span class="nav-text">dịch vụ</span></a>

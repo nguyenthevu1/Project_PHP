@@ -25,8 +25,8 @@ include_once('./layout/header.php');
                     <td><?php echo $i; ?></td>
                     <td><?php echo $row['catName']; ?></td>
                     <td>
-                        <a href="./capnhat_categories.php?id=<?php echo $row['catId']?>"><button class="btn btn-success">cập nhật</button></a>
-                        <a href="./xoa_category.php?id=<?php echo $row['catId']?>"><button class="btn btn-danger">xóa</button></a>
+                        <a href="./update_categories.php?id=<?php echo $row['catId']?>"><button class="btn btn-success">cập nhật</button></a>
+                        <a href="./delete_category.php?id=<?php echo $row['catId']?>"><button class="btn btn-danger">xóa</button></a>
                     </td>
                 </tr>
             <?php } ?>

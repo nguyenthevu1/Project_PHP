@@ -4,7 +4,7 @@ include_once('./layout/header.php');
 ?>
 
 <div class="content-body" style="color: black;">
-    <a href="./addUser"><button class="btn btn-primary" style="margin-left: 20px;">Thêm người dùng</button></a>
+    <a href="./addUser.php"><button class="btn btn-primary" style="margin-left: 20px;">Thêm người dùng</button></a>
     <table class="table mt-4" style="color: black;">
         <thead>
             <tr>
@@ -31,8 +31,8 @@ include_once('./layout/header.php');
                     <td><?php echo $row['fullName']; ?></td>
                     <td><?php echo $row['timeRegister']; ?></td>
                     <td>
-                        <a href="./capnhat_user.php?id=<?php echo $row['userId'];?>"><button class="btn btn-success">cập nhật</button></a>
-                        <a href="./xoa_user.php?id=<?php echo $row['userId'];?>"><button class="btn btn-danger">xóa</button></a>
+                        <a href="./update_user.php?id=<?php echo $row['userId'];?>"><button class="btn btn-success">cập nhật</button></a>
+                        <a href="./delete_user.php?id=<?php echo $row['userId'];?>"><button class="btn btn-danger">xóa</button></a>
                     </td>
                 </tr>
             <?php } ?>
