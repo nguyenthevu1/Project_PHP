@@ -1,14 +1,13 @@
 <?php
   include('../db/config.php');
-  if(isset($_POST['name'])){
+  if(isset($_POST['btnRegister'])){
     $name = $_POST['name'];
     $email = $_POST['email'];
     $pwd = $_POST['password'];
     $repwd = $_POST['repeatpassword'];
 
     $takeEmail="SELECT * FROM users WHERE email like '%$email'";
-    $queryDb = mysqli_connect($conn,$takeEmail);
-    $convertData = mysqli_fetch_assoc($queryDb);
+    $queryDb = mysqli_query($conn,$takeEmail);
     $checkEmail = mysqli_num_rows($queryDb);
     $err = [];
     if(empty($name)){
@@ -23,13 +22,13 @@
     if($pwd !== $repwd){
       $err['pwdNotMatch'] = 'Mật khẩu nhập lại không đúng';
     }
-    if($checkEmail == 1){
+    if($checkEmail > 0){
       $err['existEmail'] = 'Email đã tồn tại trong hệ thống';
     }
     if(empty($err)){
       $hashpwd = password_hash($pwd,PASSWORD_DEFAULT);
       $sql = "INSERT INTO users(email , passWord,fullname) VALUES('$email' , '$hashpwd' , '$name')"; 
-      $query = mysqli_connect($conn , $sql);
+      $query = mysqli_query($conn , $sql);
       if($query){
         header('location : login-users.php');
       }
@@ -75,7 +74,7 @@
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>               
-                <form class="mx-1 mx-md-4"  method="post" action="test.php">
+                <form class="mx-1 mx-md-4"  method="post" >
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
