@@ -19,20 +19,24 @@ include_once('./layout/header.php');
         </thead>
         <tbody>
             <?php
-            $selectAd = "SELECT * from admin";
-            $admin = mysqli_query($conn, $selectAd);
+            $selectAd = "SELECT * from img_product, categories, product WHERE categories.catId = product.catId and product.productId = img_product.productId GROUP by img_product.productId";
+            $product = mysqli_query($conn, $selectAd);
             $i = 0;
-            while ($row = mysqli_fetch_assoc($admin)) {
+            while ($row = mysqli_fetch_assoc($product)) {
                 $i++;
             ?>
                 <tr>
                     <td><?php echo $i; ?></td>
-                    <td><img src="<?php echo $row['avatarAdmin']; ?>" alt="avatar" style="width: 60px;"></td>
-                    <td><?php echo $row['email']; ?></td>
-                    <td><?php echo $row['fullName']; ?></td>
+                    <td><?php echo $row['catName']; ?></td>
+                    <td><?php echo $row['productName']; ?></td>
+                    <td><?php echo $row['price']; ?></td>
+                    <td><?php echo $row['level']; ?></td>
+                    <td><img src="<?php echo $row['img']?>" alt="img" style="width: 150px;"></td>
+                    	
+
                     <td>
-                        <a href="./update_hotel.php?id='.($row['adminId']).'"><button class="btn btn-success">cập nhật</button></a>
-                        <a href="./delete_hotel.php?id='.($row['adminId']).'"><button class="btn btn-danger">xóa</button></a>
+                        <a href="./update_hotel.php?id=<?php echo $row['productId']; ?>"><button class="btn btn-success">cập nhật</button></a>
+                        <a href="./delete_hotel.php?id=<?php echo $row['productId']; ?>"><button class="btn btn-danger">xóa</button></a>
                     </td>
                 </tr>
             <?php } ?>

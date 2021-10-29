@@ -3,10 +3,6 @@ include('./layout/header.php');
 require('../db/config.php');
 
 $error = [];
-$error['email'] = '';
-$error['fullName'] = '';
-$error['password'] = '';
-$error['file'] = '';
 
 if (isset($_POST['add_user'])) {
 
@@ -80,17 +76,17 @@ if (isset($_POST['add_user'])) {
                 <div class="mb-3">
                     <label for="email" class="form-label">Địa chỉ email</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Nhập email">
-                    <div class="form-text"><?php echo $error['email'] ? $error['email'] : ''; ?></div>
+                    <div class="form-text"><?php echo isset($error['email']) ? $error['email'] : ''; ?></div>
                 </div>
                 <div class="mb-3">
                     <label for="fullName" class="form-label">Họ và Tên</label>
                     <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Nhập họ và tên">
-                    <div class="form-text"><?php echo $error['fullName'] ? $error['fullName'] : ''; ?></div>
+                    <div class="form-text"><?php echo isset($error['fullName']) ? $error['fullName'] : ''; ?></div>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Mật khẩu</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu">
-                    <div class="form-text"><?php echo $error['password'] ? $error['password'] : ''; ?></div>
+                    <div class="form-text"><?php echo isset($error['password']) ? $error['password'] : ''; ?></div>
                 </div>
                 <div class="mb-3 ">
                     <div id="preview">

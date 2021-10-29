@@ -3,7 +3,6 @@ include('./layout/header.php');
 require('../db/config.php');
 
 $error = [];
-$error['category'] = '';
 if (isset($_POST['add_cat'])) {
     $catName = $_POST['category'];
 
@@ -43,7 +42,7 @@ if (isset($_POST['add_cat'])) {
                 <div class="mb-3">
                     <label for="category" class="form-label">Tên danh mục</label>
                     <input type="category" class="form-control" id="category" name="category" placeholder="Nhập danh mục">
-                    <div class="form-text"><?php echo $error['category'] ? $error['category'] : ''; ?></div>
+                    <div class="form-text"><?php echo isset($error['category']) ? $error['category'] : ''; ?></div>
                 </div>
                 <button type="submit" class="btn btn-primary" name="add_cat">Thêm</button>
             </form>

@@ -3,10 +3,6 @@ include('./layout/header.php');
 require('../db/config.php');
 
 $error = [];
-$error['title'] = '';
-$error['price'] = '';
-$error['content'] = '';
-$error['file'] = '';
 if (isset($_POST['add_hotel'])) {
     $title = $_POST['title'];
     $price = $_POST['price'];
@@ -22,11 +18,12 @@ if (isset($_POST['add_hotel'])) {
     if ($title != '' && $price != '' && $content != '') {
 
         $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp', 'pdf', 'doc', 'ppt');
+
         $path = 'uploads/';
-        
+
         $img = $_FILES['files']['name'];
         $tmp = $_FILES['files']['tmp_name'];
-        
+        $pathImg = [];
         foreach ($img as $key => $value) {
             $tmp = $_FILES['files']['tmp_name'][$key];
             $ext = strtolower(pathinfo($value, PATHINFO_EXTENSION));
@@ -35,21 +32,20 @@ if (isset($_POST['add_hotel'])) {
 
             if (in_array($ext, $valid_extensions)) {
                 $path = $path . strtolower($final_image);
+                $pathImg[$key] = $path;
                 move_uploaded_file($tmp, $path);
             }
         }
         $add = "INSERT into product(catId, productName, price, content,level)
                         values('$catId','$title','$price','$content','$level')";
         mysqli_query($conn, $add);
-
+        $images = [];
         $id_pro =  mysqli_insert_id($conn);
-        foreach ($img as $key => $value) {
-            $path = $path . strtolower($value);
-            mysqli_query($conn,"INSERT into img_product(productId,img) values('$id_pro','$path')");
+        foreach ($pathImg as $key => $value) {
+            mysqli_query($conn, "INSERT into img_product(productId,img) values('$id_pro','$value')");
         }
     }
 }
-
 
 
 ?>
@@ -75,23 +71,23 @@ if (isset($_POST['add_hotel'])) {
                 <div class="mb-3">
                     <label for="title" class="form-label">Tiêu đề</label>
                     <input type="text" class="form-control" id="title" name="title" placeholder="Nhập tiêu đề">
-                    <div class="form-text"><?php echo $error['title'] ? $error['title'] : ''; ?></div>
+                    <div class="form-text"><?php echo isset($error['title']) ? $error['title'] : ''; ?></div>
                 </div>
                 <div class="mb-3">
                     <label for="price" class="form-label">Giá tiền phòng</label>
                     <input type="text" class="form-control" id="price" name="price" placeholder="Nhập giá tiền">
-                    <div class="form-text"><?php echo $error['price'] ? $error['price'] : ''; ?></div>
+                    <div class="form-text"><?php echo isset($error['price']) ? $error['price'] : ''; ?></div>
                 </div>
                 <div class="mb-3">
                     <textarea name="content" id="content" class="form-control" placeholder="Nhận nội dung" style="height: 146px;"></textarea>
-                    <div class="form-text"><?php echo $error['content'] ? $error['content'] : ''; ?></div>
+                    <div class="form-text"><?php echo isset($error['content']) ? $error['content'] : ''; ?></div>
                 </div>
 
                 <div class="mb-3 ">
                     <div id="preview">
                     </div>
                     <input type="file" class="form-control" id="files" name="files[]" multiple>
-                    <div class="form-text"><?php echo $error['file'] ? $error['file'] : ''; ?></div>
+                    <div class="form-text"><?php echo isset($error['file']) ? $error['file'] : ''; ?></div>
                 </div>
 
                 <div class="mb-3">
