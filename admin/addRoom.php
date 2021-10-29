@@ -39,7 +39,6 @@ if (isset($_POST['add_hotel'])) {
         $add = "INSERT into product(catId, productName, price, content,level)
                         values('$catId','$title','$price','$content','$level')";
         mysqli_query($conn, $add);
-        $images = [];
         $id_pro =  mysqli_insert_id($conn);
         foreach ($pathImg as $key => $value) {
             mysqli_query($conn, "INSERT into img_product(productId,img) values('$id_pro','$value')");
@@ -110,9 +109,9 @@ if (isset($_POST['add_hotel'])) {
                         <option>
                             --Chọn Mức phòng--
                         </option>
-                        <option value="Tiêu chuẩn" selected>Tiêu chuẩn</option>
-                        <option value="Phòng club">Phòng club</option>
-                        <option value="Suite">Suite</option>
+                        <option value="1" selected>Tiêu chuẩn</option>
+                        <option value="2">Phòng club</option>
+                        <option value="3">Suite</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary" name="add_hotel">Thêm</button>

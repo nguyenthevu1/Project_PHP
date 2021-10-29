@@ -35,7 +35,7 @@ include_once('./layout/header.php');
                     	
 
                     <td>
-                        <a href="./update_hotel.php?id=<?php echo $row['productId']; ?>"><button class="btn btn-success">cập nhật</button></a>
+                        <a href="./update_room.php?id=<?php echo $row['productId']; ?>"><button class="btn btn-success">cập nhật</button></a>
                         <a href="./delete_room.php?id=<?php echo $row['productId']; ?>"><button class="btn btn-danger">xóa</button></a>
                     </td>
                 </tr>
