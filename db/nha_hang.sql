@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2021 at 03:48 PM
+-- Generation Time: Oct 29, 2021 at 03:51 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `hotel`
+-- Database: `nha_hang`
 --
 
 -- --------------------------------------------------------
@@ -41,8 +41,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adminId`, `email`, `password`, `fullName`, `avatarAdmin`, `role`) VALUES
-(1, 'nguyenthevu2602@gmail.com', '123456', 'Nguyễn Thế Vũ', 'uploads/8497108822501057192.jpg', 0),
-(20, 'thevu2468@gmail.com', '$2y$10$vLsZ9UZjthL1M7MsnFP.yO0h2.jAeFucw6QkwwGfCckggALu5HvUK', 'nguyễn thế vũ', 'uploads/incognito.png', 1);
+(1, 'nguyenthevu2602@gmail.com', '123456', 'Nguyễn Thế Vũ', 'uploads/18546601057192.jpg', 1),
+(20, 'thevu2468@gmail.com', '$2y$10$yPGFgl.XCTw/qFRF2lOoIuw7ELnHG.tx5NQegaOEOgQd1viLuNTGi', 'nguyễn thế vũ', 'uploads/incognito.png', 0);
 
 -- --------------------------------------------------------
 
@@ -90,14 +90,6 @@ CREATE TABLE `img_product` (
   `img` varchar(200) COLLATE utf8_vietnamese_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
---
--- Dumping data for table `img_product`
---
-
-INSERT INTO `img_product` (`imgId`, `productId`, `img`) VALUES
-(80, 58, 'uploads/852787462583180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
-(81, 58, 'uploads/852787462583180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg479430462583180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg465417180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg');
-
 -- --------------------------------------------------------
 
 --
@@ -122,7 +114,7 @@ CREATE TABLE `product` (
 INSERT INTO `product` (`productId`, `catId`, `productName`, `productImg`, `price`, `status`, `content`, `level`) VALUES
 (5, 9, 'Phòng Deluxe', NULL, '3290000', 0, 'Tại tất cả các phòng Deluxe nằm từ tầng 40 đến tầng 53 của toà nhà Lotte, khách hàng đều có thể tận hưởng tầm nhìn tuyệt đẹp bao quát thành phố Hà Nội. Các tiện nghi cao cấp bao gồm hệ thống điều hoà độc đáo với 4 ống sẽ bảo đảm cho khách hàng những giờ phút nghỉ ngơi thoải mái tại khách sạn.\r\n\r\n.Hai hãng thiết kế nội thất Wilson Associates và HBA đã tạo ra hai phong cách thiết kế Á -Âu riêng biệt nhằm đáp ứng nhu cầu đa dạng của khách hàng.\r\n', 'Tiêu chuẩn'),
 (6, 9, 'Phòng Deluxe', NULL, '4230000', 0, 'Club Floor là không gian riêng biệt dành cho những doanh nhân tìm kiếm một nơi làm việc yên tĩnh. Đội ngũ nhân viên thông minh, dịch vụ đáng tin cậy, các thiết kế đơn giản mà hiệu quả, và dịch vụ ăn uống cao cấp chính là những lý do bạn nên chọn để ở lại Club Floor.', 'Tầng Club'),
-(58, 9, 'ađấ', NULL, '8460000', 0, 'adấđá', 'Tiêu chuẩn');
+(54, 9, 'Phòng Deluxe', NULL, '4230000', 0, 'Club Floor là không gian riêng biệt dành cho những doanh nhân tìm kiếm một nơi làm việc yên tĩnh. Đội ngũ nhân viên thông minh, dịch vụ đáng tin cậy, các thiết kế đơn giản mà hiệu quả, và dịch vụ ăn uống cao cấp chính là những lý do bạn nên chọn để ở lại Club Floor.', 'Phòng club');
 
 -- --------------------------------------------------------
 
@@ -136,6 +128,24 @@ CREATE TABLE `producttaken` (
   `productId` int(11) DEFAULT NULL,
   `dateStart` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `dateEnd` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `service`
+--
+
+CREATE TABLE `service` (
+  `serviceId` int(11) NOT NULL,
+  `catId` int(11) DEFAULT NULL,
+  `serviceName` varchar(100) COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `serviceImg` varchar(50) COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `content` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `comment` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `star` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 -- --------------------------------------------------------
@@ -211,6 +221,13 @@ ALTER TABLE `producttaken`
   ADD KEY `productId` (`productId`);
 
 --
+-- Indexes for table `service`
+--
+ALTER TABLE `service`
+  ADD PRIMARY KEY (`serviceId`),
+  ADD KEY `catId` (`catId`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -242,19 +259,25 @@ ALTER TABLE `comment`
 -- AUTO_INCREMENT for table `img_product`
 --
 ALTER TABLE `img_product`
-  MODIFY `imgId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `imgId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `producttaken`
 --
 ALTER TABLE `producttaken`
   MODIFY `proTakenId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `service`
+--
+ALTER TABLE `service`
+  MODIFY `serviceId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -291,6 +314,12 @@ ALTER TABLE `product`
 ALTER TABLE `producttaken`
   ADD CONSTRAINT `producttaken_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`),
   ADD CONSTRAINT `producttaken_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`);
+
+--
+-- Constraints for table `service`
+--
+ALTER TABLE `service`
+  ADD CONSTRAINT `service_ibfk_1` FOREIGN KEY (`catId`) REFERENCES `categories` (`catId`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
