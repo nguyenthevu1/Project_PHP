@@ -1,22 +1,36 @@
 <?php
 require('../db/config.php');
 session_start();
-$token = [];
+$error = [];
 if(isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $login = "SELECT * from admin where email = '$email' and password = '$password'";
+    if(empty($email)) $error['email'] = 'Vui lòng nhập trường này!';
+    if(empty($password)) $error['password'] = 'Vui lòng nhập trường này!';
+    
+    $login = "SELECT * from admin where email = '$email'";
     $select = mysqli_query($conn,$login);
 
-    $user = mysqli_fetch_assoc($select);
-
+    
     if(mysqli_num_rows($select) > 0) {
-        $_SESSION['user'] = $user;
-        header('location: index.php');
+        $user = mysqli_fetch_assoc($select);
+        $pass_hash = $user['password'];
+
+        if(password_verify($password,$pass_hash)){
+            $_SESSION['user'] = $user;
+            header('location: index.php');
+        }else{
+            $error['user'] = 'Tài khoản hoặc mật khẩu sai!';
+        }
+        
+    }
+    else {
+        $error['user'] = 'Tài khoản chưa tồn tại!';
     }
 }
 ?>
+
 
 
 <!DOCTYPE html>
@@ -44,13 +58,16 @@ if(isset($_POST['login'])) {
                                 <div class="auth-form">
                                     <h4 class="text-center mb-4">Đăng nhập tài khoản của bạn Lưu</h4>
                                     <form action="" method="POST">
+                                        <p style="color:red;"><?php echo isset($error['user'])?$error['user']:''; ?></p>
                                         <div class="form-group">
                                             <label><strong>Email</strong></label>
                                             <input type="email" class="form-control" placeholder="Nhập Email" name="email">
+                                            <p style="color:red;"><?php echo isset($error['email'])?$error['email']:''; ?></p>
                                         </div>
                                         <div class="form-group">
                                             <label><strong>Password</strong></label>
                                             <input type="password" class="form-control" placeholder="Nhập mật khẩu" name="password">
+                                            <p style="color:red;"><?php echo isset($error['password'])?$error['password']:''; ?></p>
                                         </div>
                                         <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                             <div class="form-group">

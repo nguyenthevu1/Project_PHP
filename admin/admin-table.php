@@ -12,6 +12,7 @@ include_once('./layout/header.php');
                 <th scope="col">ảnh</th>
                 <th scope="col">email</th>
                 <th scope="col">Họ Tên</th>
+                <th scope="col">Quyền</th>
                 <th scope="col">Hành Động</th>
             </tr>
         </thead>
@@ -28,6 +29,25 @@ include_once('./layout/header.php');
                     <td><img src="<?php echo $row['avatarAdmin']; ?>" alt="avatar" style="width: 60px;"></td>
                     <td><?php echo $row['email']; ?></td>
                     <td><?php echo $row['fullName']; ?></td>
+                    <td>
+                        <?php
+                        if ($row['role'] == 1) $role = 'Quản lý';
+                        if ($row['role'] == 0) $role = 'admin';
+
+                        if ($_SESSION['user']['role'] == 1) {
+                            echo '<a href="update_role.php?id=' . ($row['adminId']) . ' class="update_role">
+                                        <span class="btn btn-info">
+                                            ' . ($role) . '
+                                        </span>
+                                    </a>';
+                        } else {
+                            echo '
+                            <span class="btn btn-info">
+                                ' . ($role) . '
+                            </span>';
+                        }
+                        ?>
+                    </td>
                     <td>
                         <?Php
                         if ($_SESSION['user']['role'] == 1) {

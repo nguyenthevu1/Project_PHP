@@ -92,7 +92,7 @@ if (isset($_POST['add_user'])) {
                     <div id="preview">
                     </div>
                     <input type="file" class="form-control" id="file" name="file">
-                    <div class="form-text"><?php echo $error['file'] ? $error['file'] : ''; ?></div>
+                    <div class="form-text"><?php echo isset($error['file']) ? $error['file'] : ''; ?></div>
                 </div>
                 <button type="submit" class="btn btn-primary" name="add_user">Thêm</button>
             </form>

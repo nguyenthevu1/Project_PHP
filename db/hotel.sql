@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2021 at 11:15 AM
+-- Generation Time: Oct 29, 2021 at 11:08 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `nha_hang`
+-- Database: `hotel`
 --
 
 -- --------------------------------------------------------
@@ -41,9 +41,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adminId`, `email`, `password`, `fullName`, `avatarAdmin`, `role`) VALUES
-(1, 'nguyenthevu2602@gmail.com', '123456', 'Nguyễn Thế Vũ', 'uploads/37110701057192.jpg', 1),
-(9, 'luongchithanh@gmail.com', '123456', 'Lương Chí Thành', 'uploads/incognito.png', 0),
-(10, 'vunguyen2602@gmail.com', '123456', 'nguyễn thế vũ', 'uploads/incognito.png', 0);
+(1, 'nguyenthevu2602@gmail.com', '123456', 'Nguyễn Thế Vũ', 'uploads/32819218546601057192.jpg', 1),
+(20, 'vunguyen2602@gmail.com', '$2y$10$xIyR5NLRyWbckVE6voy9A.ndZOS3bXerFpzgGDA9130r6uLVZ4hgC', 'nguyễn thế', 'uploads/incognito.png', 0);
 
 -- --------------------------------------------------------
 
@@ -76,6 +75,18 @@ CREATE TABLE `comment` (
   `productId` int(11) DEFAULT NULL,
   `content` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
   `comtData` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `img_product`
+--
+
+CREATE TABLE `img_product` (
+  `imgId` int(11) NOT NULL,
+  `productId` int(11) DEFAULT NULL,
+  `img` varchar(200) COLLATE utf8_vietnamese_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 -- --------------------------------------------------------
@@ -165,7 +176,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`userId`, `email`, `passWord`, `fullName`, `avatarUser`, `status`, `timeRegister`) VALUES
 (1, 'thevu2468@gmail.com', '123456', 'Nguyễn Thế Vũ', NULL, 1, '2021-10-23 13:19:11'),
-(4, 'luongchithanh@gmail.com', '123456', 'Lương Chí Thành', 'uploads/incognito.png', 1, '2021-10-27 08:53:37');
+(4, 'luongchithanh@gmail.com', '123456', 'Lương Chí Thành', 'uploads/incognito.png', 1, '2021-10-27 08:53:37'),
+(11, 'satthumaulanh2001@gmail.com', '$2y$10$qWrsHRml9o73ff7nWYGwXu0GribEW9SCUStXTPyYbjzB3zezgPXy2', 'Thành Lương', NULL, 0, '2021-10-29 04:48:45');
 
 --
 -- Indexes for dumped tables
@@ -189,6 +201,13 @@ ALTER TABLE `categories`
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`comtId`),
   ADD KEY `userId` (`userId`),
+  ADD KEY `productId` (`productId`);
+
+--
+-- Indexes for table `img_product`
+--
+ALTER TABLE `img_product`
+  ADD PRIMARY KEY (`imgId`),
   ADD KEY `productId` (`productId`);
 
 --
@@ -227,7 +246,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `adminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `adminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -240,6 +259,12 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `comment`
   MODIFY `comtId` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `img_product`
+--
+ALTER TABLE `img_product`
+  MODIFY `imgId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -263,7 +288,7 @@ ALTER TABLE `service`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
@@ -275,6 +300,12 @@ ALTER TABLE `users`
 ALTER TABLE `comment`
   ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`),
   ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`);
+
+--
+-- Constraints for table `img_product`
+--
+ALTER TABLE `img_product`
+  ADD CONSTRAINT `img_product_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`);
 
 --
 -- Constraints for table `product`
