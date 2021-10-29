@@ -20,10 +20,10 @@ if (isset($_POST['update_pass'])) {
 
     if (password_verify($currentPass, $pass_hash['password'])) {
         if ($currentPass != '' && $newPass != '' && $confirmPass != '') {
-            if($newPass == $confirmPass) {
+            if($newPass === $confirmPass) {
                 $hasPwd = password_hash($newPass, PASSWORD_DEFAULT);
                 $changePass = "UPDATE admin set password = '$hasPwd' where adminId='$id'";
-                
+                mysqli_query($conn,$changePass);
             }
             else{
                 $error['confirmPass'] = "Vui lòng nhập lại!";
