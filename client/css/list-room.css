@@ -4,8 +4,9 @@
 }
 .header{
     display: grid;
-    grid-template-columns: 969px 1fr 150px 1fr 1fr;
+    grid-template-columns: 500px 1fr 1fr 1fr 1fr 1fr 1fr;
     border: solid 1px gray;
+    background-color: rgb(230,230,230);
 }
 .container a{
     text-decoration: none;
@@ -150,4 +151,49 @@
 }
 .under-header .search-icon:hover{
     color:#F79321;
+}
+.sub-menu-1{
+    display: none;
+}
+.hover-me:hover .sub-menu-1{
+    display: block;
+    position:absolute;
+}
+.hover-me{
+    list-style: none;
+    
+}
+.hover-me .sub-menu-1 ul li{
+    list-style: none;
+}
+.header a:hover{
+    background-color: rgb(255,87,34);
+    border-radius: 5px;
+    color:#fff
+}
+.header a span{
+    color:#666;
+    margin-left: 50px;
+}
+.span{
+    margin-left:20px
+}
+.header a{
+    color:#666;
+    text-align: center;
+}
+.hover-me:hover{
+    background-color: rgb(255,87,34);
+    border-radius: 5px;
+}
+.sub-menu-1{
+    background-color: rgb(255,87,34);
+    width:170px;
+    border-radius: 5px;
+}
+.header a span:hover{
+    color:#fff;
+}
+.hover-me a{
+    margin-left: 16px;
 }
