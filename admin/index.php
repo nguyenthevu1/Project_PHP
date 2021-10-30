@@ -10,9 +10,9 @@ require('../db/config.php');
 
 <div class="content-body">
     <!-- row -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-3 col-sm-6">
+    <div class="container-fluid" >
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-lg-3 col-sm-6" >
                 <div class="card" style="height:150px;">
                     <div class="stat-widget-two card-body">
                         <div class="stat-content">
@@ -55,8 +55,14 @@ require('../db/config.php');
                 <div class="card" style="height:150px;">
                     <div class="stat-widget-two card-body">
                         <div class="stat-content">
-                            <div class="stat-text">Task Completed</div>
-                            <div class="stat-digit">500</div>
+                            <div class="stat-text">Số dịch vụ</div>
+                            <?php
+                            $sql = "SELECT * from product";
+                            $select = mysqli_query($conn, $sql);
+
+                            $count = mysqli_num_rows($select);
+                            ?>
+                            <div class="stat-digit"><?php echo $count; ?></div>
                         </div>
                     </div>
                 </div>

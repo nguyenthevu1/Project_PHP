@@ -24,6 +24,10 @@ if (isset($_POST['update_pass'])) {
                 $hasPwd = password_hash($newPass, PASSWORD_DEFAULT);
                 $changePass = "UPDATE admin set password = '$hasPwd' where adminId='$id'";
                 mysqli_query($conn,$changePass);
+                if($_SESSION['user'] == $id){
+                    session_destroy();
+                }
+                header('location: index.php');
             }
             else{
                 $error['confirmPass'] = "Vui lòng nhập lại!";
@@ -48,7 +52,7 @@ if (isset($_POST['update_pass'])) {
 <div class="content-body">
     <div class="container-fluid">
         <div class="container">
-            <form method="POST" action="" enctype="multipart/form-data" style="color:black;">
+            <form method="POST" action="./test.php" enctype="multipart/form-data" style="color:black;">
                 <div class="mb-3">
                     <label for="currentPass" class="form-label">Mật khẩu hiện tại</label>
                     <input type="password" class="form-control" id="currentPass" name="currentPass" placeholder="Nhập mật khẩu hiện tại">

@@ -1059,12 +1059,12 @@ div.cs-select{
   margin-bottom: 40px;
   @include flex();
   @media screen and (max-width: $screen-sm) {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     width: 100%;
   }
   .f-hotel {
     float: left;
-    width: 50%;
+    width: 30%;
     position: relative;
     overflow: hidden;
     @include flex();

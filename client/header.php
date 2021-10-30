@@ -9,27 +9,12 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Luxe &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+	<title>LOTTE HOTEL</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 	<meta name="author" content="FREEHTML5.CO" />
 
-	<!-- 
-	//////////////////////////////////////////////////////
-
-	FREE HTML5 TEMPLATE 
-	DESIGNED & DEVELOPED by FREEHTML5.CO
-		
-	Website: 		http://freehtml5.co/
-	Email: 			info@freehtml5.co
-	Twitter: 		http://twitter.com/fh5co
-	Facebook: 		https://www.facebook.com/fh5co
-
-	//////////////////////////////////////////////////////
-	 -->
-
-	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content="" />
 	<meta property="og:image" content="" />
 	<meta property="og:url" content="" />
@@ -64,16 +49,13 @@
 	<link rel="stylesheet" href="css/icomoon.css">
 	<!-- Flexslider  -->
 	<link rel="stylesheet" href="css/flexslider.css">
-
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<!-- Style -->
 	<link rel="stylesheet" href="css/style.css">
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+	
 
 </head>
 
@@ -85,34 +67,26 @@
 					<div class="container">
 						<div class="nav-header">
 							<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-							<h1 id="fh5co-logo"><a href="index.php">Luxe</a></h1>
+							<h1 id="fh5co-logo"><a href="index.php">LOTTE HOTEL</a></h1>
 							<nav id="fh5co-menu-wrap" role="navigation">
 								<ul class="sf-menu" id="fh5co-primary-menu">
-									<li><a href="index.php">Home</a></li>
+									<li><a href="index.php">Trang Chủ</a></li>
 									<li>
-										<a href="hotel.php" class="fh5co-sub-ddown">Hotel</a>
+										<a href="hotel.php" class="fh5co-sub-ddown">Phòng</a>
+									</li>
+									<li><a href="services.php">Dịch vụ</a></li>
+									<li><a href="contact.php">Liên hệ</a></li>
+									<li><a href="hotel.php" class="fh5co-sub-ddown">Phòng</a>
 										<ul class="fh5co-sub-menu">
 											<li><a href="#">Luxe Hotel</a></li>
 											<li><a href="#">Deluxe Hotel</a></li>
-											<li>
-												<a href="#" class="fh5co-sub-ddown">King Hotel</a>
-												<ul class="fh5co-sub-menu">
-													<li><a href="http://freehtml5.co/preview/?item=build-free-html5-bootstrap-template" target="_blank">Build</a></li>
-													<li><a href="http://freehtml5.co/preview/?item=work-free-html5-template-bootstrap" target="_blank">Work</a></li>
-													<li><a href="http://freehtml5.co/preview/?item=light-free-html5-template-bootstrap" target="_blank">Light</a></li>
-													<li><a href="http://freehtml5.co/preview/?item=relic-free-html5-template-using-bootstrap" target="_blank">Relic</a></li>
-													<li><a href="http://freehtml5.co/preview/?item=display-free-html5-template-using-bootstrap" target="_blank">Display</a></li>
-													<li><a href="http://freehtml5.co/preview/?item=sprint-free-html5-template-bootstrap" target="_blank">Sprint</a></li>
-												</ul>
-											</li>
 											<li><a href="#">Five Star Hotel</a></li>
 										</ul>
 									</li>
-									<li><a href="services.php">Services</a></li>
-									<li><a class="active" href="blog.php">Blog</a></li>
-									<li><a href="contact.php">Contact</a></li>
 								</ul>
 							</nav>
 						</div>
 					</div>
 				</header>
+
+

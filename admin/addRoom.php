@@ -109,9 +109,9 @@ if (isset($_POST['add_hotel'])) {
                         <option>
                             --Chọn Mức phòng--
                         </option>
-                        <option value="1" selected>Tiêu chuẩn</option>
-                        <option value="2">Phòng club</option>
-                        <option value="3">Suite</option>
+                        <option value="Tiêu chuẩn" selected>Tiêu chuẩn</option>
+                        <option value="Phòng club">Phòng club</option>
+                        <option value="Suite">Suite</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary" name="add_hotel">Thêm</button>

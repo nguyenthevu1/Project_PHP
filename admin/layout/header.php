@@ -93,7 +93,7 @@ if (!$_SESSION['user']) {
                                                 echo $_SESSION['user']['avatarAdmin']; ?>" alt="">
                                     <span><?php echo $_SESSION['user']['fullName']; ?></span>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right">
+                                <div class="dropdown-menu dropdown-menu-right" style="margin-top: -11px;">
                                     <a href="./app-profile.php" class="dropdown-item">
                                         <span class="ml-2">Quản trị viên</span>
                                     </a>
@@ -144,21 +144,15 @@ if (!$_SESSION['user']) {
                             <li><a href="./addCategories.php">Thêm danh mục</a></li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-shop"></i><span class="nav-text">Khách sạn</span></a>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-shop"></i><span class="nav-text">Dịch vụ</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="./room-table.php">Danh sách các khách sạn</a></li>
-                            <li><a href="./addRoom.php">Thêm khách sạn</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-microsoft"></i><span class="nav-text">dịch vụ</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./ui-accordion.php">Danh sách dịch vụ</a></li>
-                            <li><a href="./ui-alert.php">Thêm dịch vụ</a></li>
+                            <li><a href="./room-table.php">Danh sách dịch vụ</a></li>
+                            <li><a href="./addRoom.php">Thêm dịch vụ</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-cart2"></i><span class="nav-text">Đơn hàng</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="./ui-accordion.php">Danh sách đơn hàng</a></li>
+                            <li><a href="./order-table.php">Danh sách đơn hàng</a></li>
                             <li><a href="./ui-alert.php">Cập nhật đơn hàng</a></li>
                         </ul>
                     </li>
@@ -169,9 +163,9 @@ if (!$_SESSION['user']) {
                         </ul>
                     </li>
                     <li class="nav-label">Khác</li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-door-open"></i><span class="nav-text">Đăng nhập</span></a>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-door-open"></i><span class="nav-text">Đăng xuất</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="./page-login.php">Đăng nhập</a></li>
+                            <li><a href="./logout.php">Đăng xuất</a></li>
                         </ul>
                     </li>
                 </ul>

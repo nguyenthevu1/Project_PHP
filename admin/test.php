@@ -1,57 +1,39 @@
 <?php
 // include('./layout/header.php');
 require('../db/config.php');
-
+session_start();
 $error = [];
-if (isset($_POST['update_room'])) {
-    $title = $_POST['title'];
-    $price = $_POST['price'];
-    $content = $_POST['content'];
-    $file = $_FILES['files'];
-    $catId = $_POST['catId'];
-    $level = $_POST['level'];
+if (isset($_POST['update_pass'])) {
 
+    $currentPass = $_POST['currentPass'];
+    $newPass = $_POST['newPass'];
+    $confirmPass = $_POST['confirmPass'];
     $id = $_POST['id'];
-    // echo $level;
-    // print_r($_POST['id']);
-    // die();
-    if (empty($title)) $error['title'] = "Vui lòng nhập trường này!";
-    if (empty($price)) $error['price'] = "Vui lòng nhập trường này!";
-    if (empty($content)) $error['content'] = "Vui lòng nhập trường này!";
 
-    if ($title != '' && $price != '' && $content != '') {
+    if (empty($currentPass)) $error['currentPass'] = "Vui lòng nhập trường này!";
+    if (empty($newPass)) $error['newPass'] = "Vui lòng nhập trường này!";
+    if (empty($confirmPass)) $error['confirmPass'] = "Vui lòng nhập trường này!";
 
-        $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp', 'pdf', 'doc', 'ppt');
+    $select_pass = "SELECT * from admin where adminId = '$id'";
+    $forgotPas = mysqli_query($conn, $select_pass);
+    $pass_hash = mysqli_fetch_assoc($forgotPas);
 
-        $path = 'uploads/';
-
-        $img = $_FILES['files']['name'];
-        $tmp = $_FILES['files']['tmp_name'];
-        $pathImg = [];
-        foreach ($img as $key => $value) {
-            $tmp = $_FILES['files']['tmp_name'][$key];
-            $ext = strtolower(pathinfo($value, PATHINFO_EXTENSION));
-
-            $final_image = rand(1000, 1000000) . $value;
-
-            if (in_array($ext, $valid_extensions)) {
-                $path = $path . strtolower($final_image);
-                $pathImg[$key] = $path;
-                move_uploaded_file($tmp, $path);
+    if (password_verify($currentPass, $pass_hash['password'])) {
+        if ($currentPass != '' && $newPass != '' && $confirmPass != '') {
+            if($newPass === $confirmPass) {
+                $hasPwd = password_hash($newPass, PASSWORD_DEFAULT);
+                $changePass = "UPDATE admin set password = '$hasPwd' where adminId='$id'";
+                mysqli_query($conn,$changePass);
+                if($_SESSION['user']['adminId'] == $id){
+                    session_destroy();
+                }
+                header('location: index.php');
             }
-        }
-
-        // print_r($pathImg);
-        // die();
-
-        $update = "UPDATE product set catId = '$catId', productName = '$title', price = '$price',
-                content = '$content',level = '$level' where productId = '$id'";
-        mysqli_query($conn, $update);
-
-        // $id_pro =  mysqli_insert_id($conn);
-        
-        foreach ($pathImg as $key => $value) {
-            mysqli_query($conn, "INSERT into img_product(productId,img) values('$id','$value')");
-        }
+            else{
+                $error['confirmPass'] = "Vui lòng nhập lại!";
+            }
+        } 
+    } else {
+        $error['currentPass'] = 'Mật khẩu sai!';
     }
 }
