@@ -19,7 +19,8 @@ if (isset($_POST['add_user'])) {
         $select_email = "SELECT * from users where email = '$email'";
         $email_q = mysqli_query($conn, $select_email);
 
-        if (mysqli_num_rows($email_q) > 1) {
+        if (mysqli_num_rows($email_q) <1 ) {
+            $hasPwd = password_hash($password, PASSWORD_DEFAULT);
             $img = $_FILES['file']['name'];
 
             if ($img != '') {
@@ -40,15 +41,16 @@ if (isset($_POST['add_user'])) {
                     $path = $path . strtolower($final_image);
                     if (move_uploaded_file($tmp, $path)) {
                         $addUser = "INSERT into users(email,fullName,passWord,avatarUser)
-                                values('$email','$fullName','$password','$path')";
+                                values('$email','$fullName','$hasPwd','$path')";
                     }
                 } else {
                     $error['file'] = 'file lỗi định dạng';
                 }
             } else {
+
                 $path = 'uploads/incognito.png';
                 $addUser = "INSERT into users(email,fullName,passWord,avatarUser)
-                                values('$email','$fullName','$password','$path')";
+                                values('$email','$fullName','$hasPwd','$path')";
             }
             mysqli_query($conn, $addUser);
             header('location: user-table.php');
