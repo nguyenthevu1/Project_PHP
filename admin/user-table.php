@@ -11,6 +11,7 @@ include_once('./layout/header.php');
                 <th scope="col">#</th>
                 <th scope="col">ảnh</th>
                 <th scope="col">email</th>
+                <th scope="col">Số điện thoại</th>
                 <th scope="col">Họ Tên</th>
                 <th scope="col">Thời gian tạo</th>
                 <th scope="col">Hành động</th>
@@ -28,6 +29,7 @@ include_once('./layout/header.php');
                     <td><?php echo $i; ?></td>
                     <td><img src="<?php echo $row['avatarUser']; ?>" alt="avatar" style="width: 60px;"></td>
                     <td><?php echo $row['email']; ?></td>
+                    <td><?php echo $row['phone']; ?></td>
                     <td><?php echo $row['fullName']; ?></td>
                     <td><?php echo $row['timeRegister']; ?></td>
                     <td>

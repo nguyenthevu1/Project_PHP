@@ -1,7 +1,7 @@
 <?php
 include('./layout/header.php');
 require('../db/config.php');
-
+session_start();
 $error = [];
 if (isset($_POST['update_pass'])) {
 
@@ -24,10 +24,10 @@ if (isset($_POST['update_pass'])) {
                 $hasPwd = password_hash($newPass, PASSWORD_DEFAULT);
                 $changePass = "UPDATE admin set password = '$hasPwd' where adminId='$id'";
                 mysqli_query($conn,$changePass);
-                if($_SESSION['user'] == $id){
-                    session_destroy();
+                if($_SESSION['admin']['adminId'] == $id){
+                    unset($_SESSION['admin']);
                 }
-                header('location: index.php');
+                header('location: login.php');
             }
             else{
                 $error['confirmPass'] = "Vui lòng nhập lại!";
@@ -37,14 +37,13 @@ if (isset($_POST['update_pass'])) {
         $error['currentPass'] = 'Mật khẩu sai!';
     }
 }
-
+header('location: login.php');
 
 ?>
 <style>
     .form-text {
         color: red;
     }
-
     #preview img {
         width: 150px;
     }
@@ -52,7 +51,7 @@ if (isset($_POST['update_pass'])) {
 <div class="content-body">
     <div class="container-fluid">
         <div class="container">
-            <form method="POST" action="./test.php" enctype="multipart/form-data" style="color:black;">
+            <form method="POST" action="" enctype="multipart/form-data" style="color:black;">
                 <div class="mb-3">
                     <label for="currentPass" class="form-label">Mật khẩu hiện tại</label>
                     <input type="password" class="form-control" id="currentPass" name="currentPass" placeholder="Nhập mật khẩu hiện tại">
@@ -72,10 +71,15 @@ if (isset($_POST['update_pass'])) {
                 if (isset($_GET['id'])) {
                     $id = $_GET['id'];
                     echo '<input type="hidden" value = ' . ($id) . ' name="id">';
+                    if($id == $_SESSION['admin']['adminId']) {
+                        echo '<button type="submit" class="btn btn-primary" name="update_pass">cập nhật</button>';
+                    }
+                    else {
+                        echo '<button type="button" class="btn btn-primary" name="update_pass" disabled>cập nhật</button>';
+                    }
                 }
                 ?>
 
-                <button type="submit" class="btn btn-primary" name="update_pass">cập nhật</button>
             </form>
         </div>
     </div>

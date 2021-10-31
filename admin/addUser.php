@@ -9,11 +9,13 @@ if (isset($_POST['add_user'])) {
     $email = $_POST['email'];
     $fullName = $_POST['fullName'];
     $password = $_POST['password'];
+    $phone = $_POST['phone'];
     $file = $_FILES['file'];
 
     if (empty($email)) $error['email'] = "Vui lòng nhập trường này!";
     if (empty($fullName)) $error['fullName'] = "Vui lòng nhập trường này!";
     if (empty($password)) $error['password'] = "Vui lòng nhập trường này!";
+    if (empty($phone)) $error['phone'] = "Vui lòng nhập trường này!";
 
     if ($email != '' && $fullName != '' && $password != '') {
         $select_email = "SELECT * from users where email = '$email'";
@@ -33,8 +35,8 @@ if (isset($_POST['add_user'])) {
                 if (in_array($ext, $valid_extensions)) {
                     $path = $path . strtolower($img);
                     if (move_uploaded_file($tmp, $path)) {
-                        $addUser = "INSERT into users(email,fullName,passWord,avatarUser)
-                                values('$email','$fullName','$hasPwd','$path')";
+                        $addUser = "INSERT into users(email,fullName,passWord,avatarUser,phone)
+                                values('$email','$fullName','$hasPwd','$path','$phone')";
                     }
                 } else {
                     $error['file'] = 'file lỗi định dạng';
@@ -42,8 +44,8 @@ if (isset($_POST['add_user'])) {
             } else {
 
                 $path = 'uploads/incognito.png';
-                $addUser = "INSERT into users(email,fullName,passWord,avatarUser)
-                                values('$email','$fullName','$hasPwd','$path')";
+                $addUser = "INSERT into users(email,fullName,passWord,avatarUser,phone)
+                                values('$email','$fullName','$hasPwd','$path','$phone')";
             }
             mysqli_query($conn, $addUser);
             
@@ -78,6 +80,11 @@ if (isset($_POST['add_user'])) {
                     <label for="fullName" class="form-label">Họ và Tên</label>
                     <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Nhập họ và tên">
                     <div class="form-text"><?php echo isset($error['fullName']) ? $error['fullName'] : ''; ?></div>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Số điện thoại</label>
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Nhập số điện thoại">
+                    <div class="form-text"><?php echo isset($error['phone']) ? $error['phone'] : ''; ?></div>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Mật khẩu</label>
