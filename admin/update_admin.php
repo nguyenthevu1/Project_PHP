@@ -40,12 +40,12 @@ if (isset($_POST['update_admin'])) {
         $update = "UPDATE admin set email = '$email',fullName = '$fullName' where adminId = '$id'";
     }
 
-    $id = $_SESSION['user']['adminId'];
+    $id = $_SESSION['admin']['adminId'];
     $selectImg = "SELECT * FROM admin where adminId = '$id'";
     $update_img = mysqli_query($conn, $selectImg);
-    $user = mysqli_fetch_assoc($update_img);
+    $admin = mysqli_fetch_assoc($update_img);
     if ($update_img) {
-        $_SESSION['user'] = $user;
+        $_SESSION['admin'] = $admin;
     }
 
     if (mysqli_query($conn, $update)) {

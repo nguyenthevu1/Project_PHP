@@ -27,12 +27,10 @@ if (isset($_POST['add_hotel'])) {
         foreach ($img as $key => $value) {
             $tmp = $_FILES['files']['tmp_name'][$key];
             $ext = strtolower(pathinfo($value, PATHINFO_EXTENSION));
-
-            $final_image = rand(1000, 1000000) . $value;
-
             if (in_array($ext, $valid_extensions)) {
-                $path = $path . strtolower($final_image);
+                $path = $path . strtolower($value);
                 $pathImg[$key] = $path;
+
                 move_uploaded_file($tmp, $path);
             }
         }

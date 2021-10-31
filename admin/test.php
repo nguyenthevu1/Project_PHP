@@ -1,39 +1,58 @@
 <?php
-// include('./layout/header.php');
 require('../db/config.php');
-session_start();
+
 $error = [];
-if (isset($_POST['update_pass'])) {
+if (isset($_POST['add_admin'])) {
+    $email = $_POST['email'];
+    $fullName = $_POST['fullName'];
+    $password = $_POST['password'];
+    $file = $_FILES['file'];
 
-    $currentPass = $_POST['currentPass'];
-    $newPass = $_POST['newPass'];
-    $confirmPass = $_POST['confirmPass'];
-    $id = $_POST['id'];
+    if (empty($email)) $error['email'] = "Vui lòng nhập trường này!";
+    if (empty($fullName)) $error['fullName'] = "Vui lòng nhập trường này!";
+    if (empty($password)) $error['password'] = "Vui lòng nhập trường này!";
 
-    if (empty($currentPass)) $error['currentPass'] = "Vui lòng nhập trường này!";
-    if (empty($newPass)) $error['newPass'] = "Vui lòng nhập trường này!";
-    if (empty($confirmPass)) $error['confirmPass'] = "Vui lòng nhập trường này!";
+    
 
-    $select_pass = "SELECT * from admin where adminId = '$id'";
-    $forgotPas = mysqli_query($conn, $select_pass);
-    $pass_hash = mysqli_fetch_assoc($forgotPas);
+    $select_email = "SELECT * from admin where email = '$email'";
+    $email_q = mysqli_query($conn, $select_email);
 
-    if (password_verify($currentPass, $pass_hash['password'])) {
-        if ($currentPass != '' && $newPass != '' && $confirmPass != '') {
-            if($newPass === $confirmPass) {
-                $hasPwd = password_hash($newPass, PASSWORD_DEFAULT);
-                $changePass = "UPDATE admin set password = '$hasPwd' where adminId='$id'";
-                mysqli_query($conn,$changePass);
-                if($_SESSION['user']['adminId'] == $id){
-                    session_destroy();
+    if ($email != '' && $fullName != '' && $password != '') {
+
+        if (mysqli_num_rows($email_q) < 1) {
+            $img = $_FILES['file']['name'];
+            $hasPwd = password_hash($password, PASSWORD_DEFAULT);
+            if ($img != '') {
+
+                $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp', 'pdf', 'doc', 'ppt');
+                $path = 'uploads/';
+
+                $tmp = $_FILES['file']['tmp_name'];
+
+
+                $ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
+
+                if (in_array($ext, $valid_extensions)) {
+
+                    $path = $path . strtolower($final_image);
+                    if (move_uploaded_file($tmp, $path)) {
+                        $addAdmin = "INSERT into admin(email,fullName,password,avatarAdmin)
+                                values('$email','$fullName','$hasPwd`','$path')";
+                    }
+                } else {
+                    $error['file'] = 'file lỗi định dạng';
                 }
-                header('location: index.php');
+            } else {
+                $path = 'uploads/incognito.png';
+                $addAdmin = "INSERT into admin(email,fullName,password,avatarAdmin)
+                                values('$email','$fullName','$hasPwd','$path')";
             }
-            else{
-                $error['confirmPass'] = "Vui lòng nhập lại!";
-            }
-        } 
-    } else {
-        $error['currentPass'] = 'Mật khẩu sai!';
+            mysqli_query($conn, $addAdmin);
+
+            header('location: admin-table.php');
+
+        } else {
+            $error['email'] = 'Email đã tồn tại';
+        }
     }
 }

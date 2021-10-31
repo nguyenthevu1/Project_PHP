@@ -4,7 +4,7 @@ include_once('./layout/header.php');
 ?>
 
 <div class="content-body" style="color: black;">
-    <a href="./addRoom.php"><button class="btn btn-primary" style="margin-left: 20px;">Thêm khách sạn</button></a>
+    <a href="./addRoom.php"><button class="btn btn-primary" style="margin-left: 20px;">Thêm dịch vụ</button></a>
     <table class="table mt-4" style="color: black;">
         <thead>
             <tr>

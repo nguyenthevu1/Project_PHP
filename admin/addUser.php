@@ -29,16 +29,9 @@ if (isset($_POST['add_user'])) {
 
                 $tmp = $_FILES['file']['tmp_name'];
 
-                echo $img;
-
                 $ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
-
-                $final_image = rand(1000, 1000000) . $img;
-
-
-
                 if (in_array($ext, $valid_extensions)) {
-                    $path = $path . strtolower($final_image);
+                    $path = $path . strtolower($img);
                     if (move_uploaded_file($tmp, $path)) {
                         $addUser = "INSERT into users(email,fullName,passWord,avatarUser)
                                 values('$email','$fullName','$hasPwd','$path')";
@@ -52,6 +45,7 @@ if (isset($_POST['add_user'])) {
                                 values('$email','$fullName','$hasPwd','$path')";
             }
             mysqli_query($conn, $addUser);
+            
             header('location: user-table.php');
         } else {
             $error['email'] = 'Email đã tồn tại';

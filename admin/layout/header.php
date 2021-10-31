@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!$_SESSION['user']) {
+if (!$_SESSION['admin']) {
     header('location: login.php');
 }
 ?>
@@ -89,9 +89,8 @@ if (!$_SESSION['user']) {
                         <ul class="navbar-nav header-right">
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <img class="avatar" src="<?php
-                                                if($_SESSION['user']['avatarAdmin'] != null) echo $_SESSION['user']['avatarAdmin']; ?>" alt="">
-                                    <span><?php echo $_SESSION['user']['fullName']; ?></span>
+                                    <img class="avatar" src="<?php echo $_SESSION['admin']['avatarAdmin']; ?>" alt="">
+                                    <span><?php echo $_SESSION['admin']['fullName']; ?></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" style="margin-top: -11px;">
                                     <a href="./app-profile.php" class="dropdown-item">

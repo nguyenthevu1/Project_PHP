@@ -14,19 +14,19 @@ if(isset($_POST['login'])) {
 
     
     if(mysqli_num_rows($select) > 0) {
-        $user = mysqli_fetch_assoc($select);
-        $pass_hash = $user['password'];
+        $admin = mysqli_fetch_assoc($select);
+        $pass_hash = $admin['password'];
 
         if(password_verify($password,$pass_hash)){
-            $_SESSION['user'] = $user;
+            $_SESSION['admin'] = $admin;
             header('location: index.php');
         }else{
-            $error['user'] = 'Tài khoản hoặc mật khẩu sai!';
+            $error['admin'] = 'Tài khoản hoặc mật khẩu sai!';
         }
         
     }
     else {
-        $error['user'] = 'Tài khoản chưa tồn tại!';
+        $error['admin'] = 'Tài khoản chưa tồn tại!';
     }
 }
 ?>
@@ -58,7 +58,7 @@ if(isset($_POST['login'])) {
                                 <div class="auth-form">
                                     <h4 class="text-center mb-4">Đăng nhập tài khoản của bạn Lưu</h4>
                                     <form action="" method="POST">
-                                        <p style="color:red;"><?php echo isset($error['user'])?$error['user']:''; ?></p>
+                                        <p style="color:red;"><?php echo isset($error['admin'])?$error['admin']:''; ?></p>
                                         <div class="form-group">
                                             <label><strong>Email</strong></label>
                                             <input type="email" class="form-control" placeholder="Nhập Email" name="email">

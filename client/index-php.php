@@ -16,6 +16,69 @@ require('../db/config.php');
 	}
 </style>
 
+
+
+
+<div class="col-sm-6" style="margin-bottom: 30px; padding:0 15px;">
+                <!-- RoomCarousel -->
+                <div id="TourCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="item active"><img src="images/photos/6.jpg" class="img-responsive" alt="slide"></div>
+                        <div class="item  height-full"><img src="images/photos/3.jpg" class="img-responsive" alt="slide"></div>
+                        <div class="item  height-full"><img src="images/photos/4.jpg" class="img-responsive" alt="slide"></div>
+                    </div>
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#TourCarousel" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+                    <a class="right carousel-control" href="#TourCarousel" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
+                </div>
+                <!-- RoomCarousel-->
+                <div class="caption">Tour
+                    Packages<a href="gallery.php" class="pull-right">
+                        <button class="btn btn-warning book-now" style="border-radius: 15px; background-color:rgb(253,126,20);">Đặt ngay</button>
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6" style="margin-bottom: 30px; padding:0 15px;">
+                <!-- RoomCarousel -->
+                <div id="FoodCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="item active"><img src="images/photos/1.jpg" class="img-responsive" alt="slide"></div>
+                        <div class="item  height-full"><img src="images/photos/2.jpg" class="img-responsive" alt="slide"></div>
+                        <div class="item  height-full"><img src="images/photos/5.jpg" class="img-responsive" alt="slide"></div>
+                    </div>
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#FoodCarousel" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+                    <a class="right carousel-control" href="#FoodCarousel" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
+                </div>
+                <!-- RoomCarousel-->
+                <div class="caption">Food
+                    and Drinks<a href="gallery.php" class="pull-right">
+                        <button class="btn btn-warning book-now" style="border-radius: 15px; background-color:rgb(253,126,20);">Đặt ngay</button>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-6" style="margin-bottom: 30px; padding:0 15px;">
+                <!-- RoomCarousel -->
+                <div id="FoodCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="item active"><img src="images/photos/1.jpg" class="img-responsive" alt="slide"></div>
+                        <div class="item  height-full"><img src="images/photos/2.jpg" class="img-responsive" alt="slide"></div>
+                        <div class="item  height-full"><img src="images/photos/5.jpg" class="img-responsive" alt="slide"></div>
+                    </div>
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#FoodCarousel" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+                    <a class="right carousel-control" href="#FoodCarousel" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
+                </div>
+                <!-- RoomCarousel-->
+                <div class="caption">Food
+                    and Drinks<a href="gallery.php" class="pull-right">
+                        <button class="btn btn-warning book-now" style="border-radius: 15px; background-color:rgb(253,126,20);">Đặt ngay</button>
+                    </a>
+                </div>
+            </div>
+
 <!-- end:fh5co-header -->
 <aside id="fh5co-hero" class="js-fullheight">
 	<div class="flexslider js-fullheight">

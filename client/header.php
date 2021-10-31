@@ -1,4 +1,5 @@
 <?php
+require('../db/config.php');
 session_start();
 if (!$_SESSION['user']) {
   header("location:login-users.php");

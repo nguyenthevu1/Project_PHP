@@ -8,7 +8,7 @@ if (isset($_GET['id'])) {
     $role = mysqli_query($conn, $select_role);
     $select = mysqli_fetch_assoc($role);
 
-    if ($_SESSION['user']['role'] == 1) {
+    if ($_SESSION['admin']['role'] == 1) {
         $role = $select['role'] ? 0 : 1;
         $update_role = "UPDATE admin set role = '$role' where adminId = '$id'";
         mysqli_query($conn, $update_role);

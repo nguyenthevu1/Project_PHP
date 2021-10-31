@@ -33,14 +33,14 @@ if (isset($_POST['add_admin'])) {
 
                 $ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
 
-                $final_image = rand(1000, 1000000) . $img;
+                $final_image = rand(1, 1000) . $img;
 
 
                 if (in_array($ext, $valid_extensions)) {
 
                     
                     
-                    $path = $path . strtolower($final_image);
+                    $path = $path . strtolower($img);
                     if (move_uploaded_file($tmp, $path)) {
                         $addAdmin = "INSERT into admin(email,fullName,password,avatarAdmin)
                                 values('$email','$fullName','$hasPwd`','$path')";
@@ -77,7 +77,7 @@ if (isset($_POST['add_admin'])) {
 <div class="content-body">
     <div class="container-fluid">
         <div class="container">
-            <form method="POST" action="" enctype="multipart/form-data" style="color:black;">
+            <form method="POST" action="./test.php" enctype="multipart/form-data" style="color:black;">
                 <div class="mb-3">
                     <label for="email" class="form-label">Địa chỉ email</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Nhập email">
@@ -100,7 +100,7 @@ if (isset($_POST['add_admin'])) {
                     <div class="form-text"><?php echo isset($error['file']) ? $error['file'] : ''; ?></div>
                 </div>
                 <?Php
-                if ($_SESSION['user']['role'] == 1) {
+                if ($_SESSION['admin']['role'] == 1) {
                     echo '<button type="submit" class="btn btn-primary" name="add_admin">Thêm</button>';
                 } else {
                     echo '<button type="submit" class="btn btn-primary" name="add_admin" disabled>Thêm</button>';
