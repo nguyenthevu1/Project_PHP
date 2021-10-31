@@ -41,9 +41,9 @@
   <link rel="stylesheet" href="assets/style.css">
 
 </head>
-
+    
 <body id="home">
-
+    
   <!-- header -->
   <nav class="navbar  navbar-default" role="navigation">
     <div class="container" style="width:1220px">
@@ -71,16 +71,20 @@
 
         </ul>
         <ul class="nav navbar-nav" style="margin-left: 60px;">
-          <li class="account" style="margin-top: 25px;">
+          <li class="account" style="">
             <!-- style="margin-left: 25px;margin-top: 25px;" -->
             <div class="dropdown" >
               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="color:rgb(115,114,108); background-color:rgb(238,238,238); font-size:17px">
-                Dropdown
+                <img class="img-user" src = "<?php
+                    $path = "../admin/";
+                    echo $path.$_SESSION['user']['avatarUser'];
+                 ?>" style="border-radius:50px;">
+                <?php echo $_SESSION['user']['fullName']?>
                 <!-- <span class="caret"></span> -->
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="color:rgb(115,114,108);">
                 <li><a href="#">Tài khoản</a></li>
-                <li><a href="#">Đăng xuất</a></li>
+                <li><a href="log-out-users.php">Đăng xuất</a></li>
               </ul>
             </div>
           </li>
