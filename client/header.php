@@ -55,28 +55,26 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 
-        <ul class="nav navbar-nav" style="width:500px">
-          <li><a href="index.php">Home </a></li>
-          <li><a href="rooms-tariff.php">Rooms & Tariff</a></li>
-          <li><a href="introduction.php">Introduction</a></li>
-          <li><a href="gallery.php">Gallery</a></li>
-          <li><a href="contact.php">Contact</a></li>
+        <ul class="nav navbar-nav" style="width:550px">
+          <li><a href="index.php">Trang chủ </a></li>
+          <li><a href="rooms-tariff.php">Phòng</a></li>
+          <li><a href="gallery.php">Sự kiện</a></li>
+          <li><a href="introduction.php">Giới thiệu</a></li>
+          <li><a href="contact.php">Dịch vụ</a></li>
+          <li><a href="contact.php">Liên hệ</a></li>
 
         </ul>
-        <ul class="nav navbar-nav" style="margin-left: 100px;">
+        <ul class="nav navbar-nav" style="margin-left: 60px;">
           <li class="account" style="margin-top: 25px;">
             <!-- style="margin-left: 25px;margin-top: 25px;" -->
             <div class="dropdown" >
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="color:rgb(115,114,108); background-color:rgb(238,238,238);">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="color:rgb(115,114,108); background-color:rgb(238,238,238); font-size:17px">
                 Dropdown
                 <!-- <span class="caret"></span> -->
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="color:rgb(115,114,108);">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
+                <li><a href="#">Tài khoản</a></li>
+                <li><a href="#">Đăng xuất</a></li>
               </ul>
             </div>
           </li>
