@@ -32,84 +32,47 @@
             <h1>Trải nghiệm đặc biệt tại khách sạn Holiday Crown</h1>
         </div>
         <div class="row">
-            <div class="col-sm-6" style="margin-bottom: 30px; padding:0 15px;">
-                <!-- RoomCarousel -->
-                <div id="RoomCarousel" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="item active"><img src="images/photos/8.jpg" class="img-responsive" alt="slide"></div>
-                        <div class="item  height-full"><img src="images/photos/9.jpg" class="img-responsive" alt="slide"></div>
-                        <div class="item  height-full"><img src="images/photos/10.jpg" class="img-responsive" alt="slide"></div>
-                    </div>
-                    <!-- Controls -->
-                    <a class="left carousel-control" href="#RoomCarousel" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-                    <a class="right carousel-control" href="#RoomCarousel" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
-                </div>
-                <!-- RoomCarousel-->
-                <div class="caption">Rooms
-                    <a href="rooms-tariff.php" class="pull-right">
-                        <button class="btn btn-warning book-now" style="border-radius: 15px; background-color:rgb(253,126,20);">Đặt ngay</button>
-                    </a>
-                </div>
-            </div>
+            
+            <?php
+				$selectProduct = "SELECT * from img_product, product,categories WHERE categories.catId =product.catId and 
+													product.productId = img_product.productId and 
+													categories.catName= 'Phòng ở'
+													group by img_product.productId";
+
+				$queryProduct = mysqli_query($conn, $selectProduct);            
+				$path = '../admin/';
+				while ($row = mysqli_fetch_assoc($queryProduct)) {
+			?>
             <div class="col-sm-6" style="margin-bottom: 30px; padding:0 15px;">
                 <!-- RoomCarousel -->
                 <div id="TourCarousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
-                        <div class="item active"><img src="images/photos/6.jpg" class="img-responsive" alt="slide"></div>
-                        <div class="item  height-full"><img src="images/photos/3.jpg" class="img-responsive" alt="slide"></div>
-                        <div class="item  height-full"><img src="images/photos/4.jpg" class="img-responsive" alt="slide"></div>
+                        <div class="item active"><img src="<?php echo $path . $row['img'];?>" class="img-responsive" alt="slide"></div>
+                        
+                        <?php
+                            $img_id = $row['productId'];
+                            $selectImg = "SELECT * from img_product WHERE productId = '$img_id' limit 1,10";                         
+                            $queryImg = mysqli_query($conn , $selectImg);                     
+                            while($rowImage = mysqli_fetch_assoc($queryImg)){ 
+                        ?>                   
+                        <div class="item  height-full"><img src="<?php echo $path.$rowImage['img']; ?>" class="img-responsive" alt="slide"></div>
+                        <?php } ?>
                     </div>
                     <!-- Controls -->
                     <a class="left carousel-control" href="#TourCarousel" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
                     <a class="right carousel-control" href="#TourCarousel" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
                 </div>
                 <!-- RoomCarousel-->
-                <div class="caption">Tour
-                    Packages<a href="gallery.php" class="pull-right">
+                <div class="caption"> <?php echo $row['catName']; ?>
+                    <a href="gallery.php" class="pull-right">
                         <button class="btn btn-warning book-now" style="border-radius: 15px; background-color:rgb(253,126,20);">Đặt ngay</button>
                     </a>
                 </div>
             </div>
+            <?php } ?>
 
 
-            <div class="col-sm-6" style="margin-bottom: 30px; padding:0 15px;">
-                <!-- RoomCarousel -->
-                <div id="FoodCarousel" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="item active"><img src="images/photos/1.jpg" class="img-responsive" alt="slide"></div>
-                        <div class="item  height-full"><img src="images/photos/2.jpg" class="img-responsive" alt="slide"></div>
-                        <div class="item  height-full"><img src="images/photos/5.jpg" class="img-responsive" alt="slide"></div>
-                    </div>
-                    <!-- Controls -->
-                    <a class="left carousel-control" href="#FoodCarousel" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-                    <a class="right carousel-control" href="#FoodCarousel" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
-                </div>
-                <!-- RoomCarousel-->
-                <div class="caption">Food
-                    and Drinks<a href="gallery.php" class="pull-right">
-                        <button class="btn btn-warning book-now" style="border-radius: 15px; background-color:rgb(253,126,20);">Đặt ngay</button>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-6" style="margin-bottom: 30px; padding:0 15px;">
-                <!-- RoomCarousel -->
-                <div id="FoodCarousel" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="item active"><img src="images/photos/1.jpg" class="img-responsive" alt="slide"></div>
-                        <div class="item  height-full"><img src="images/photos/2.jpg" class="img-responsive" alt="slide"></div>
-                        <div class="item  height-full"><img src="images/photos/5.jpg" class="img-responsive" alt="slide"></div>
-                    </div>
-                    <!-- Controls -->
-                    <a class="left carousel-control" href="#FoodCarousel" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-                    <a class="right carousel-control" href="#FoodCarousel" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
-                </div>
-                <!-- RoomCarousel-->
-                <div class="caption">Food
-                    and Drinks<a href="gallery.php" class="pull-right">
-                        <button class="btn btn-warning book-now" style="border-radius: 15px; background-color:rgb(253,126,20);">Đặt ngay</button>
-                    </a>
-                </div>
-            </div>
+          
         </div>
     </div>
 </div>

@@ -19,7 +19,7 @@ if (isset($_POST['add_user'])) {
         $select_email = "SELECT * from users where email = '$email'";
         $email_q = mysqli_query($conn, $select_email);
 
-        if (mysqli_num_rows($email_q) <1 ) {
+        if (mysqli_num_rows($email_q) < 1) {
             $hasPwd = password_hash($password, PASSWORD_DEFAULT);
             $img = $_FILES['file']['name'];
 
