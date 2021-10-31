@@ -1,4 +1,7 @@
-<?php include 'header.php';?>
+<?php 
+    include 'header.php';
+    include 'comment-process.php';
+?>
 
 <div class="container">
 
@@ -45,8 +48,12 @@
     </div>
   </div>
 </div>
-                     
-
-
+<?php                   
+echo "<form method='POST' action='".setComment($conn)."'>
+    <textarea name='message'></textarea><br>
+    <button type='submit' name='commentSubmit'>Bình Luận</button>
+</form>";
+getComment($conn);
+?>
 </div>
 <?php include 'footer.php';?>
