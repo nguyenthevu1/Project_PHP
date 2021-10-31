@@ -73,8 +73,8 @@ if (!$_SESSION['user']) {
           <li><a href="index.php">Trang chủ </a></li>
           <li><a href="rooms-tariff.php">Phòng</a></li>
           <li><a href="gallery.php">Sự kiện</a></li>
-          <li><a href="introduction.php">Giới thiệu</a></li>
           <li><a href="contact.php">Dịch vụ</a></li>
+          <li><a href="introduction.php">Giới thiệu</a></li>
           <li><a href="contact.php">Liên hệ</a></li>
 
         </ul>
@@ -91,7 +91,7 @@ if (!$_SESSION['user']) {
                 <!-- <span class="caret"></span> -->
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="color:rgb(115,114,108);">
-                <li><a href="#">Tài khoản</a></li>
+                <li><a href="profile-user.php?route=editProfile">Tài khoản</a></li>
                 <li><a href="log-out-users.php">Đăng xuất</a></li>
               </ul>
             </div>

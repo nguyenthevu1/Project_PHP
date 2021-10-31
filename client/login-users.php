@@ -84,7 +84,7 @@ if(isset($_POST['login'])) {
                                             <button type="submit" class="btn btn-primary btn-block" name="login">Đăng nhập</button>
                                         </div>
                                     </form>
-                                   
+                                   <div style="width: 100%;text-align: center;margin-top:10px; padding-top:5px;"><a href="">Bạn chưa có tài khoản?</a></div>
                                 </div>
                             </div>
                         </div>

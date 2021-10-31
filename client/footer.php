@@ -15,17 +15,17 @@
                     <ul class="list-unstyled">
                         <li><a href="rooms-tariff.php">Phòng</a></li>        
                         <li><a href="introduction.php">Sự kiện</a></li>
+                        <li><a href="tour.php">Dịch vụ</a></li>
                         <li><a href="gallery.php">Giới thiệu</a></li>
-                        <li><a href="tour.php">Tour Packages</a></li>
-                        <li><a href="contact.php">Contact</a></li>
+                        <li><a href="contact.php">Liên hệ</a></li>
                     </ul>
                 </div>
                  <div class="col-sm-4 subscribe">
-                    <h4>Subscription</h4>
+                    <h4>Đăng ký</h4>
                     <div class="input-group">
                     <input type="text" class="form-control" placeholder="Enter email id here">
                     <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Get Notify</button>
+                    <button class="btn btn-default" type="button">Nhận thông báo</button>
                     </span>
                     </div>
                     <div class="social">
@@ -45,24 +45,11 @@
     <!--/.footer-bottom--> 
 </footer>
 
-<div class="text-center copyright">Powered by <a href="http://thebootstrapthemes.com">thebootstrapthemes.com</a></div>
 
 <a href="#home" class="toTop scroll"><i class="fa fa-angle-up"></i></a>
 
 
 
-
-<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
-<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
-    <!-- The container for the modal slides -->
-    <div class="slides"></div>
-    <!-- Controls for the borderless lightbox -->
-    <h3 class="title">title</h3>
-    <a class="prev">‹</a>
-    <a class="next">›</a>
-    <a class="close">×</a>
-    <!-- The modal dialog, which will be used to wrap the lightbox content -->    
-</div>
 
 
 

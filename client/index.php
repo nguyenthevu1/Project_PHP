@@ -44,21 +44,21 @@
             ?>
                 <div class="col-sm-6" style="margin-bottom: 30px; padding:0 15px;">
                     <!-- RoomCarousel -->
-                    <div id="RoomCarousel" class="carousel slide" data-ride="carousel">
+                    <div id="RoomCarousel<?php echo $row['productId'];?>" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
-                        <div class="item active"><img src="<?php echo $path.$row['img']?>" class="img-responsive" alt="slide"></div>
+                            <div class="item active"><img src="<?php echo $path . $row['img'] ?>" class="img-responsive" alt="slide"></div>
                             <?php
                             $id_pro = $row['productId'];
                             $select_img_product = "SELECT * FROM img_product where productId = '$id_pro' limit 1,10";
-                            $img_product = mysqli_query($conn,$select_img_product);
-                            while($row_img = mysqli_fetch_assoc($img_product)) {
+                            $img_product = mysqli_query($conn, $select_img_product);
+                            while ($row_img = mysqli_fetch_assoc($img_product)) {
                             ?>
-                            <div class="item  height-full"><img src="<?php echo $path.$row_img['img']?>" class="img-responsive" alt="slide"></div>
+                                <div class="item  height-full"><img src="<?php echo $path . $row_img['img'] ?>" class="img-responsive" alt="slide"></div>
                             <?php } ?>
                         </div>
                         <!-- Controls -->
-                        <a class="left carousel-control" href="#RoomCarousel" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-                        <a class="right carousel-control" href="#RoomCarousel" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
+                        <a class="left carousel-control" href="#RoomCarousel<?php echo $row['productId'];?>" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+                        <a class="right carousel-control" href="#RoomCarousel<?php echo $row['productId'];?>" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
                     </div>
                     <!-- RoomCarousel-->
                     <div class="caption"><?php echo $row['catName'] ?>
@@ -68,7 +68,46 @@
                     </div>
                 </div>
             <?php } ?>
+        </div>
+    </div>
+</div>
+<div class="comment " >
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active" >
+                            <div class="text-center cmt">
+                                <img src="./images/photos/incognito.png" alt="picture" class="img_user" >
+                                <div class="cmtText">
+                                   adkal;ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssskadl;sklad    
+                                </div>
+                            </div>
 
+                        </div>
+                        <div class="item">
+                            <div class="text-center cmt">
+                                <img src="./images/photos/incognito.png" alt="picture" class="img_user" >
+                                <div class="cmtText">
+                                    phần 2
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <!-- <span class="sr-only">Previous</span> -->
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <!-- <span class="sr-only">Next</span> -->
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
