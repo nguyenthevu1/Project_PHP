@@ -90,7 +90,7 @@ if (!$_SESSION['user']) {
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
                                     <img class="avatar" src="<?php
-                                                echo $_SESSION['user']['avatarAdmin']; ?>" alt="">
+                                                if($_SESSION['user']['avatarAdmin'] != null) echo $_SESSION['user']['avatarAdmin']; ?>" alt="">
                                     <span><?php echo $_SESSION['user']['fullName']; ?></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" style="margin-top: -11px;">

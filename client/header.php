@@ -1,8 +1,8 @@
-<?php 
-    session_start();
-    if(!$_SESSION['user']){
-      header("location:login-users.php");
-    }
+<?php
+session_start();
+if (!$_SESSION['user']) {
+  header("location:login-users.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,9 +41,16 @@
   <link rel="stylesheet" href="assets/style.css">
 
 </head>
-    
+<style>
+  .img-user {
+    border-radius: 50%;
+    border: 2px solid rgb(192, 189, 189);
+    width: 30px;
+  }
+</style>
+
 <body id="home">
-    
+
   <!-- header -->
   <nav class="navbar  navbar-default" role="navigation">
     <div class="container" style="width:1220px">
@@ -71,15 +78,15 @@
 
         </ul>
         <ul class="nav navbar-nav" style="margin-left: 60px;">
-          <li class="account" style="">
+          <li class="account" style="margin-top:20px">
             <!-- style="margin-left: 25px;margin-top: 25px;" -->
-            <div class="dropdown" >
+            <div class="dropdown">
               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="color:rgb(115,114,108); background-color:rgb(238,238,238); font-size:17px">
-                <img class="img-user" src = "<?php
-                    $path = "../admin/";
-                    echo $path.$_SESSION['user']['avatarUser'];
-                 ?>" style="border-radius:50px;">
-                <?php echo $_SESSION['user']['fullName']?>
+                <img class="img-user" src="<?php
+                                            $path = "../admin/";
+                                            echo $path . $_SESSION['user']['avatarUser'];
+                                            ?>">
+                <?php echo $_SESSION['user']['fullName'] ?>
                 <!-- <span class="caret"></span> -->
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="color:rgb(115,114,108);">
