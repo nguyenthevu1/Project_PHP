@@ -1,90 +1,111 @@
-<footer id="footer" class="fh5co-bg-color">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-3">
-					<div class="copyright">
-						<p><small>&copy; 2016 Free HTML5 Template. <br> All Rights Reserved. <br>
-						Designed by <a href="http://freehtml5.co" target="_blank">FreeHTML5.co</a> <br> Demo Images: <a href="http://unsplash.com/" target="_blank">Unsplash</a></small></p>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="row">
-						<div class="col-md-3">
-							<h3>Company</h3>
-							<ul class="link">
-								<li><a href="#">About Us</a></li>
-								<li><a href="#">Hotels</a></li>
-								<li><a href="#">Customer Care</a></li>
-								<li><a href="#">Contact Us</a></li>
-							</ul>
-						</div>
-						<div class="col-md-3">
-							<h3>Our Facilities</h3>
-							<ul class="link">
-								<li><a href="#">Resturant</a></li>
-								<li><a href="#">Bars</a></li>
-								<li><a href="#">Pick-up</a></li>
-								<li><a href="#">Swimming Pool</a></li>
-								<li><a href="#">Spa</a></li>
-								<li><a href="#">Gym</a></li>
-							</ul>
-						</div>
-						<div class="col-md-6">
-							<h3>Subscribe</h3>
-							<p>Sed cursus ut nibh in semper. Mauris varius et magna in fermentum. </p>
-							<form action="#" id="form-subscribe">
-								<div class="form-field">
-									<input type="email" placeholder="Email Address" id="email">
-									<input type="submit" id="submit" value="Send">
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<ul class="social-icons">
-						<li>
-							<a href="#"><i class="icon-twitter-with-circle"></i></a>
-							<a href="#"><i class="icon-facebook-with-circle"></i></a>
-							<a href="#"><i class="icon-instagram-with-circle"></i></a>
-							<a href="#"><i class="icon-linkedin-with-circle"></i></a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</footer>
 
-	</div>
-	<!-- END fh5co-page -->
 
-	</div>
-	<!-- END fh5co-wrapper -->
-	
-	<!-- Javascripts -->
-	<script src="js/jquery-2.1.4.min.js"></script>
-	<!-- Dropdown Menu -->
-	<script src="js/hoverIntent.js"></script>
-	<script src="js/superfish.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Counters -->
-	<script src="js/jquery.countTo.js"></script>
-	<!-- Stellar Parallax -->
-	<script src="js/jquery.stellar.min.js"></script>
-	<!-- Owl Slider -->
-	<!-- // <script src="js/owl.carousel.min.js"></script> -->
-	<!-- Date Picker -->
-	<script src="js/bootstrap-datepicker.min.js"></script>
-	<!-- CS Select -->
-	<script src="js/classie.js"></script>
-	<script src="js/selectFx.js"></script>
-	<!-- Flexslider -->
-	<script src="js/jquery.flexslider-min.js"></script>
 
-	<script src="js/custom.js"></script>
+
+<footer class="spacer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5">
+                    <h4>Holiday Crown</h4>
+                    <p>Holiday Crown was these three and songs arose whose. Of in vicinity contempt together in possible branched. Assured company hastily looking garrets in oh. Most have love my gone to this so. Discovered interested prosperous the our affronting insipidity day. Missed lovers way one vanity wishes nay but. Use shy seemed within twenty wished old few regret passed. Absolute one hastened mrs any sensible. </p>
+                </div>              
+                 
+                 <div class="col-sm-3">
+                    <h4>Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="rooms-tariff.php">Rooms & Tariff</a></li>        
+                        <li><a href="introduction.php">Introduction</a></li>
+                        <li><a href="gallery.php">Gallery</a></li>
+                        <li><a href="tour.php">Tour Packages</a></li>
+                        <li><a href="contact.php">Contact</a></li>
+                    </ul>
+                </div>
+                 <div class="col-sm-4 subscribe">
+                    <h4>Subscription</h4>
+                    <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Enter email id here">
+                    <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Get Notify</button>
+                    </span>
+                    </div>
+                    <div class="social">
+                    <a href="#"><i class="fa fa-facebook-square" data-toggle="tooltip" data-placement="top" data-original-title="facebook"></i></a>
+                    <a href="#"><i class="fa fa-instagram"  data-toggle="tooltip" data-placement="top" data-original-title="instragram"></i></a>
+                    <a href="#"><i class="fa fa-twitter-square" data-toggle="tooltip" data-placement="top" data-original-title="twitter"></i></a>
+                    <a href="#"><i class="fa fa-pinterest-square" data-toggle="tooltip" data-placement="top" data-original-title="pinterest"></i></a>
+                    <a href="#"><i class="fa fa-tumblr-square" data-toggle="tooltip" data-placement="top" data-original-title="tumblr"></i></a>
+                    <a href="#"><i class="fa fa-youtube-square" data-toggle="tooltip" data-placement="top" data-original-title="youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!--/.row--> 
+        </div>
+        <!--/.container-->    
+    
+    <!--/.footer-bottom--> 
+</footer>
+
+<div class="text-center copyright">Powered by <a href="http://thebootstrapthemes.com">thebootstrapthemes.com</a></div>
+
+<a href="#home" class="toTop scroll"><i class="fa fa-angle-up"></i></a>
+
+
+
+
+<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+    <!-- The container for the modal slides -->
+    <div class="slides"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title">title</h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->    
+</div>
+
+
+
+
+
+<script src="assets/jquery.js"></script>
+
+<!-- wow script -->
+<script src="assets/wow/wow.min.js"></script>
+
+<!-- uniform -->
+<script src="assets/uniform/js/jquery.uniform.js"></script>
+
+
+<!-- boostrap -->
+<script src="assets/bootstrap/js/bootstrap.js" type="text/javascript" ></script>
+
+<!-- jquery mobile -->
+<script src="assets/mobile/touchSwipe.min.js"></script>
+
+<!-- jquery mobile -->
+<script src="assets/respond/respond.js"></script>
+
+<!-- gallery -->
+<script src="assets/gallery/jquery.blueimp-gallery.min.js"></script>
+
+
+<!-- custom script -->
+<script src="assets/script.js"></script>
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
+
+
+
+
+

@@ -1,92 +1,87 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js">
-<!--<![endif]-->
+<html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>LOTTE HOTEL</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
-	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-	<meta name="author" content="FREEHTML5.CO" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Holiday Crown | Best hotel in Dubai</title>
 
-	<meta property="og:title" content="" />
-	<meta property="og:image" content="" />
-	<meta property="og:url" content="" />
-	<meta property="og:site_name" content="" />
-	<meta property="og:description" content="" />
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+  <!-- Google fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:300,500,800|Old+Standard+TT' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:300,500,800' rel='stylesheet' type='text/css'>
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="favicon.ico">
-	<!-- <link href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700italic,900,700,900italic' rel='stylesheet' type='text/css'> -->
+  <!-- font awesome -->
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-	<!-- Stylesheets -->
-	<!-- Dropdown Menu -->
-	<link rel="stylesheet" href="css/superfish.css">
-	<!-- Owl Slider -->
-	<!-- <link rel="stylesheet" href="css/owl.carousel.css"> -->
-	<!-- <link rel="stylesheet" href="css/owl.theme.default.min.css"> -->
-	<!-- Date Picker -->
-	<link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
-	<!-- CS Select -->
-	<link rel="stylesheet" href="css/cs-select.css">
-	<link rel="stylesheet" href="css/cs-skin-border.css">
 
-	<!-- Themify Icons -->
-	<link rel="stylesheet" href="css/themify-icons.css">
-	<!-- Flat Icon -->
-	<link rel="stylesheet" href="css/flaticon.css">
-	<!-- Icomoon -->
-	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Flexslider  -->
-	<link rel="stylesheet" href="css/flexslider.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-	<!-- Style -->
-	<link rel="stylesheet" href="css/style.css">
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
 
-	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
-	
+  <!-- uniform -->
+  <link type="text/css" rel="stylesheet" href="assets/uniform/css/uniform.default.min.css" />
+
+  <!-- animate.css -->
+  <link rel="stylesheet" href="assets/wow/animate.css" />
+
+
+  <!-- gallery -->
+  <link rel="stylesheet" href="assets/gallery/blueimp-gallery.min.css">
+
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+
+  <link rel="stylesheet" href="assets/style.css">
 
 </head>
 
-<body>
-	<div id="fh5co-wrapper">
-		<div id="fh5co-page">
-			<div id="fh5co-header">
-				<header id="fh5co-header-section">
-					<div class="container">
-						<div class="nav-header">
-							<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-							<h1 id="fh5co-logo"><a href="index.php">LOTTE HOTEL</a></h1>
-							<nav id="fh5co-menu-wrap" role="navigation">
-								<ul class="sf-menu" id="fh5co-primary-menu">
-									<li><a href="index.php">Trang Chủ</a></li>
-									<li>
-										<a href="hotel.php" class="fh5co-sub-ddown">Phòng</a>
-									</li>
-									<li><a href="services.php">Dịch vụ</a></li>
-									<li><a href="contact.php">Liên hệ</a></li>
-									<li><a href="hotel.php" class="fh5co-sub-ddown">Phòng</a>
-										<ul class="fh5co-sub-menu">
-											<li><a href="#">Luxe Hotel</a></li>
-											<li><a href="#">Deluxe Hotel</a></li>
-											<li><a href="#">Five Star Hotel</a></li>
-										</ul>
-									</li>
-								</ul>
-							</nav>
-						</div>
-					</div>
-				</header>
+<body id="home">
 
+  <!-- header -->
+  <nav class="navbar  navbar-default" role="navigation">
+    <div class="container" style="width:1220px">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.php"><img src="images/logo.png" alt="holiday crown"></a>
+      </div>
 
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+
+        <ul class="nav navbar-nav" style="width:500px">
+          <li><a href="index.php">Home </a></li>
+          <li><a href="rooms-tariff.php">Rooms & Tariff</a></li>
+          <li><a href="introduction.php">Introduction</a></li>
+          <li><a href="gallery.php">Gallery</a></li>
+          <li><a href="contact.php">Contact</a></li>
+
+        </ul>
+        <ul class="nav navbar-nav" style="margin-left: 100px;">
+          <li class="account" style="margin-top: 25px;">
+            <!-- style="margin-left: 25px;margin-top: 25px;" -->
+            <div class="dropdown" >
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="color:rgb(115,114,108); background-color:rgb(238,238,238);">
+                Dropdown
+                <!-- <span class="caret"></span> -->
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="color:rgb(115,114,108);">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div><!-- Wnavbar-collapse -->
+    </div><!-- container-fluid -->
+  </nav>
+  <!-- header -->
