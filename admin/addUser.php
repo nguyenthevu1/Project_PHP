@@ -40,6 +40,7 @@ if (isset($_POST['add_user'])) {
                     $error['file'] = 'file lỗi định dạng';
                 }
             } else {
+
                 $path = 'uploads/incognito.png';
                 $addUser = "INSERT into users(email,fullName,passWord,avatarUser)
                                 values('$email','$fullName','$hasPwd','$path')";
