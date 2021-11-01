@@ -73,7 +73,7 @@ if (!$_SESSION['user']) {
           <li><a href="index.php">Trang chủ </a></li>
           <li><a href="rooms-tariff.php">Phòng</a></li>
           <li><a href="gallery.php">Sự kiện</a></li>
-          <li><a href="contact.php">Dịch vụ</a></li>
+          <li><a href="dich-vu.php">Dịch vụ</a></li>
           <li><a href="introduction.php">Giới thiệu</a></li>
           <li><a href="contact.php">Liên hệ</a></li>
 
