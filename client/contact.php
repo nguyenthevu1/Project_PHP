@@ -1,35 +1,56 @@
 <?php include 'header.php';?>
-
 <div class="container">
 
-<h2>Rooms & Tariff</h2>
+<h1 class="title">Contact</h1>
 
 
 <!-- form -->
+<div class="contact">
 
-<div class="row">
-  <?php 
-    $sql = "SELECT * FROM img_product , product,categories WHERE img_product.productId = product.productId and product.catId = categories.catId and categories.catName = 'Dịch vụ' group by img_product.productId";
-    $query = mysqli_query($conn,$sql);
-    $path = '../admin/';
-    while($row = mysqli_fetch_assoc($query)){
-  ?>
-  <div class="col-sm-6 wowload fadeInUp"><div class="rooms"><img src="<?php echo $path.$row['img']?>" class="img-responsive"><div class="info"><h3><?php echo $row['productName']?></h3><p><?php echo $row['content']?> </p><a href="room-details.php?id=<?php echo $row['productId']?>" class="btn btn-default">Check Details</a></div></div></div>
-  <?php }?>
+
+
+       <div class="row">
+       	
+       	<div class="col-sm-12">
+       	<div class="map">
+       	<!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9933.460884430251!2d-0.13301252240929382!3d51.50651527467666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C+UK!5e0!3m2!1sen!2snp!4v1414314152341" width="100%" height="300" frameborder="0"></iframe>	-->
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14897.787158991674!2d105.83605191213375!3d21.014801576864777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab9bd9861ca1%3A0xe7887f7b72ca17a9!2zSMOgIE7hu5lpLCBIb8OgbiBLaeG6v20sIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1635775551769!5m2!1svi!2s" width="100%" height="300" frameborder="0"></iframe>
+       	</div>
+
+
+		<div class="col-sm-6 col-sm-offset-3">
+			<div class="spacer">   		
+
+       		<h4>Write to us</h4>
+			<form role="form">
+			<div class="form-group">	
+			<input type="text" class="form-control" id="name" placeholder="Name">
+			</div>
+			<div class="form-group">
+			<input type="email" class="form-control" id="email" placeholder="Enter email">
+			</div>
+			<div class="form-group">
+			<input type="phone" class="form-control" id="phone" placeholder="Phone">
+			</div>
+			<div class="form-group">
+			<textarea type="email" class="form-control"  placeholder="Message" rows="4"></textarea>
+			</div>
+					
+			<button type="submit" class="btn btn-default">Send</button>
+			</form>
+			</div>
+
+
+       	</div>
+
+
+
+
+
+       </div>
 </div>
-
-                     <div class="text-center">
-                     <ul class="pagination">
-                     <li class="disabled"><a href="#">«</a></li>
-                     <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                     <li><a href="#">2</a></li>
-                     <li><a href="#">3</a></li>
-                     <li><a href="#">4</a></li>
-                     <li><a href="#">5</a></li>
-                     <li><a href="#">»</a></li>
-                     </ul>
-                     </div>
-
+</div>
+<!-- form -->
 
 </div>
 <?php include 'footer.php';?>
