@@ -1,20 +1,35 @@
 <?php include 'header.php';?>
+
 <div class="container">
 
-       <h1 class="title">Gallery</h1>
-       <div class="row gallery">
-              <div class="col-sm-4 wowload fadeInUp"><a href="images/photos/1.jpg" title="Foods" class="gallery-image" data-gallery><img src="images/photos/1.jpg" class="img-responsive"></a></div>
-              <div class="col-sm-4 wowload fadeInUp"><a href="images/photos/2.jpg" title="Coffee" class="gallery-image" data-gallery><img src="images/photos/2.jpg" class="img-responsive"></a></div>
-              <div class="col-sm-4 wowload fadeInUp"><a href="images/photos/3.jpg" title="Travel" class="gallery-image" data-gallery><img src="images/photos/3.jpg" class="img-responsive"></a></div>
-              <div class="col-sm-4 wowload fadeInUp"><a href="images/photos/4.jpg" title="Adventure" class="gallery-image" data-gallery><img src="images/photos/4.jpg" class="img-responsive"></a></div>
-              <div class="col-sm-4 wowload fadeInUp"><a href="images/photos/5.jpg" title="Fruits" class="gallery-image" data-gallery><img src="images/photos/5.jpg" class="img-responsive"></a></div>
-              <div class="col-sm-4 wowload fadeInUp"><a href="images/photos/6.jpg" title="Summer" class="gallery-image" data-gallery><img src="images/photos/6.jpg" class="img-responsive"></a></div>
-              <div class="col-sm-4 wowload fadeInUp"><a href="images/photos/7.jpg" title="Bathroom" class="gallery-image" data-gallery><img src="images/photos/7.jpg" class="img-responsive"></a></div>
-              <div class="col-sm-4 wowload fadeInUp"><a href="images/photos/8.jpg" title="Rooms" class="gallery-image" data-gallery><img src="images/photos/8.jpg" class="img-responsive"></a></div>
-              <div class="col-sm-4 wowload fadeInUp"><a href="images/photos/9.jpg" title="Big Room" class="gallery-image" data-gallery><img src="images/photos/9.jpg" class="img-responsive"></a></div>
-              <div class="col-sm-4 wowload fadeInUp"><a href="images/photos/11.jpg" title="Living Room" class="gallery-image" data-gallery><img src="images/photos/11.jpg" class="img-responsive"></a></div>
-              <div class="col-sm-4 wowload fadeInUp"><a href="images/photos/1.jpg" title="Fruits" class="gallery-image" data-gallery><img src="images/photos/1.jpg" class="img-responsive"></a></div>
-              <div class="col-sm-4 wowload fadeInUp"><a href="images/photos/3.jpg" title="Travel" class="gallery-image" data-gallery><img src="images/photos/3.jpg" class="img-responsive"></a></div>
-       </div>
+<h2>Rooms & Tariff</h2>
+
+
+<!-- form -->
+
+<div class="row">
+  <?php 
+    $sql = "SELECT * FROM img_product , product,categories WHERE img_product.productId = product.productId and product.catId = categories.catId and categories.catName = 'Hội Thảo & Tiệc' group by img_product.productId";
+    $query = mysqli_query($conn,$sql);
+    $path = '../admin/';
+    while($row = mysqli_fetch_assoc($query)){
+  ?>
+  <div class="col-sm-6 wowload fadeInUp"><div class="rooms"><img src="<?php echo $path.$row['img']?>" class="img-responsive"><div class="info"><h3><?php echo $row['productName']?></h3><p><?php echo $row['content']?> </p><a href="room-details.php?id=<?php echo $row['productId']?>" class="btn btn-default">Check Details</a></div></div></div>
+  <?php }?>
+</div>
+
+                     <div class="text-center">
+                     <ul class="pagination">
+                     <li class="disabled"><a href="#">«</a></li>
+                     <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                     <li><a href="#">2</a></li>
+                     <li><a href="#">3</a></li>
+                     <li><a href="#">4</a></li>
+                     <li><a href="#">5</a></li>
+                     <li><a href="#">»</a></li>
+                     </ul>
+                     </div>
+
+
 </div>
 <?php include 'footer.php';?>
