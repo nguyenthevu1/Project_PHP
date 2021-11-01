@@ -1,4 +1,4 @@
-<?php include 'header.php';?>
+<?php include 'header.php'; ?>
 <div class="container">
 
        <h1 class="title">Gallery</h1>
@@ -17,4 +17,4 @@
               <div class="col-sm-4 wowload fadeInUp"><a href="images/photos/3.jpg" title="Travel" class="gallery-image" data-gallery><img src="images/photos/3.jpg" class="img-responsive"></a></div>
        </div>
 </div>
-<?php include 'footer.php';?>
+<?php include 'footer.php'; ?>

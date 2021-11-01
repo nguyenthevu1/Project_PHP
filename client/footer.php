@@ -1,7 +1,7 @@
 <style>
     .star_chk {
         width: 30px;
-        color: white;
+        color: rgb(222,219,211);
     }
 
     .star_chk.active {
@@ -105,7 +105,7 @@
             for (let i = 0; i <= index; i++) {
                 stars[i].classList.add('active');
             }
-            for (let i = index+1; i >= 0; i++) {
+            for (let i = index + 1; i >= 0; i++) {
                 stars[i].classList.remove('active');
             }
         }

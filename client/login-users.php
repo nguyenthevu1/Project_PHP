@@ -2,30 +2,28 @@
 require('../db/config.php');
 session_start();
 $error = [];
-if(isset($_POST['login'])) {
+if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    if(empty($email)) $error['email'] = 'Vui lòng nhập trường này!';
-    if(empty($password)) $error['password'] = 'Vui lòng nhập trường này!';
-    
+    if (empty($email)) $error['email'] = 'Vui lòng nhập trường này!';
+    if (empty($password)) $error['password'] = 'Vui lòng nhập trường này!';
+
     $login = "SELECT * from users where email = '$email'";
-    $select = mysqli_query($conn,$login);
+    $select = mysqli_query($conn, $login);
 
-    
-    if(mysqli_num_rows($select) > 0) {
+
+    if (mysqli_num_rows($select) > 0) {
         $user = mysqli_fetch_assoc($select);
-        $passVerify= password_verify($password,$user['passWord']);
+        $passVerify = password_verify($password, $user['passWord']);
 
-        if($passVerify){
+        if ($passVerify) {
             $_SESSION['user'] = $user;
             header('location: index.php');
-        }else{
+        } else {
             $error['user'] = 'Tài khoản hoặc mật khẩu sai!';
         }
-        
-    }
-    else {
+    } else {
         $error['user'] = 'Tài khoản chưa tồn tại!';
     }
 }
@@ -58,16 +56,16 @@ if(isset($_POST['login'])) {
                                 <div class="auth-form">
                                     <h4 class="text-center mb-4">Đăng nhập tài khoản của bạn Lưu</h4>
                                     <form action="" method="POST">
-                                        <p style="color:red;"><?php echo isset($error['user'])?$error['user']:''; ?></p>
+                                        <p style="color:red;"><?php echo isset($error['user']) ? $error['user'] : ''; ?></p>
                                         <div class="form-group">
                                             <label><strong>Email</strong></label>
                                             <input type="email" class="form-control" placeholder="Nhập Email" name="email">
-                                            <p style="color:red;"><?php echo isset($error['email'])?$error['email']:''; ?></p>
+                                            <p style="color:red;"><?php echo isset($error['email']) ? $error['email'] : ''; ?></p>
                                         </div>
                                         <div class="form-group">
                                             <label><strong>Password</strong></label>
                                             <input type="password" class="form-control" placeholder="Nhập mật khẩu" name="password">
-                                            <p style="color:red;"><?php echo isset($error['password'])?$error['password']:''; ?></p>
+                                            <p style="color:red;"><?php echo isset($error['password']) ? $error['password'] : ''; ?></p>
                                         </div>
                                         <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                             <div class="form-group">
@@ -84,7 +82,9 @@ if(isset($_POST['login'])) {
                                             <button type="submit" class="btn btn-primary btn-block" name="login">Đăng nhập</button>
                                         </div>
                                     </form>
-                                   <div style="width: 100%;text-align: center;margin-top:10px; padding-top:5px;"><a href="">Bạn chưa có tài khoản?</a></div>
+                                    <div style="width: 100%;text-align: center;margin-top:10px; padding-top:5px;">
+                                        <a href="./register-users.php">Bạn chưa có tài khoản?</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

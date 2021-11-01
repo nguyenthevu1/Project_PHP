@@ -82,11 +82,20 @@
                             <div class="text-center cmt">
                                 <img src="./images/photos/incognito.png" alt="picture" class="img_user">
                                 <div class="cmtText">
-                                    adkal;ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssskadl;sklad
+                                    <span style="color:black">Nguyễn Thế Vũ</span>
+                                    <span style="font-size: 80%;">2021/1/11</span>
+                                    <p>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </p>
+                                    <p>ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</p>
                                 </div>
                             </div>
-
                         </div>
+                        
                         <div class="item">
                             <div class="text-center cmt">
                                 <img src="./images/photos/incognito.png" alt="picture" class="img_user">
@@ -94,7 +103,6 @@
                                     phần 2
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <!-- Controls -->
