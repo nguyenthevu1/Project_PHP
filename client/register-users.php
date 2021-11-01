@@ -1,42 +1,48 @@
 <?php
-include('../db/config.php');
-if (isset($_POST['btnRegister'])) {
-  $name = $_POST['name'];
-  $email = $_POST['email'];
-  $pwd = $_POST['password'];
-  $repwd = $_POST['repeatpassword'];
+  include('../db/config.php');
+  if(isset($_POST['btnRegister'])){
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $pwd = $_POST['password'];
+    $repwd = $_POST['repeatpassword'];
 
-  $takeEmail = "SELECT * FROM users WHERE email like '%$email'";
-  $queryDb = mysqli_query($conn, $takeEmail);
-  $checkEmail = mysqli_num_rows($queryDb);
-  $err = [];
-  if (empty($name)) {
-    $err['emptyName'] = "Bạn chưa nhập tên của mình";
-  }
-  if (empty($email)) {
-    $err['emptyEmail'] = 'Bạn chưa nhập Email';
-  }
-  if (empty($pwd)) {
-    $err['emptyPassword'] = 'Bạn chưa nhập password';
-  }
-  if ($pwd !== $repwd) {
-    $err['pwdNotMatch'] = 'Mật khẩu nhập lại không đúng';
-  }
-  if ($checkEmail > 0) {
-    $err['existEmail'] = 'Email đã tồn tại trong hệ thống';
-  }
-  if (empty($err)) {
-    $hashpwd = password_hash($pwd, PASSWORD_DEFAULT);
-    $path = '../admin/uploads/incognito.png';
-    $sql = "INSERT INTO users(email , passWord,fullname,avatarUser) VALUES('$email' , '$hashpwd' , '$name','$path')";
-    $query = mysqli_query($conn, $sql);
-    if ($query) {
-      header('location:login-users.php');
-    } else {
-      echo 'Something went wrong';
+    $takeEmail="SELECT * FROM users WHERE email like '%$email'";
+    $queryDb = mysqli_query($conn,$takeEmail);
+    $checkEmail = mysqli_num_rows($queryDb);
+    $err = [];
+    if(empty($name)){
+      $err['emptyName'] = "Bạn chưa nhập tên của mình";
+    }
+    if(empty($email)){
+      $err['emptyEmail'] = 'Bạn chưa nhập Email';
+    }
+    if(empty($pwd)){
+      $err['emptyPassword'] = 'Bạn chưa nhập password';
+    }
+    if($pwd !== $repwd){
+      $err['pwdNotMatch'] = 'Mật khẩu nhập lại không đúng';
+    }
+    if($checkEmail > 0){
+      $err['existEmail'] = 'Email đã tồn tại trong hệ thống';
+    }
+    if(empty($phone)){
+      $err['emptyPhone'] = 'Bạn chưa nhập số điện thoại';
+    }
+    if(empty($err)){
+      $hashpwd = password_hash($pwd,PASSWORD_DEFAULT);
+      $path = '../admin/uploads/incognito.png';
+      $sql = "INSERT INTO users(email,phone , passWord,fullname,avatarUser) VALUES('$email','$phone' , '$hashpwd' , '$name','$path')"; 
+      $query = mysqli_query($conn , $sql);
+      if($query){
+        header('location:login-users.php');
+      }
+      else{
+        echo 'Something went wrong';
+      }
     }
   }
-}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -96,14 +102,24 @@ if (isset($_POST['btnRegister'])) {
                         <span class="danger"><?php echo (isset($err['existEmail']) ? $err['existEmail'] : '') ?></span>
                       </div>
                     </div>
+                  </div>
 
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <label class="form-label" for="password">Password</label>
-                        <input type="password" id="password" name="password" class="form-control" />
-                        <span class="danger"><?php echo (isset($err['emptyPassword']) ? $err['emptyPassword'] : '') ?></span>
-                      </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                    <label class="form-label" for="password">Phone</label>
+                      <input type="text" id="phone" name="phone" class="form-control" />
+                      <span class="danger"><?php echo isset($err['emptyPhone'])?$err['emptyPhone']:'' ?></span>
+                    </div>
+                  </div>
+
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                    <label class="form-label" for="password">Password</label>
+                      <input type="password" id="password" name="password" class="form-control" />
+                      <span class="danger"><?php echo(isset($err['emptyPassword'])?$err['emptyPassword']:'') ?></span>
                     </div>
 
                     <div class="d-flex flex-row align-items-center mb-4">

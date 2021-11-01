@@ -5,7 +5,7 @@
     }
 
     .star_chk.active {
-        color: yellow;
+        color: rgb(226, 226, 14);
         width: 30px;
     }
 </style>

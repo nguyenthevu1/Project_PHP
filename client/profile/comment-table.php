@@ -30,7 +30,7 @@
                     <td>hahahah</td>
                     <td>hahahah</td>
                     <td class="action">
-                        <a href=""><button class="btn btn-danger">Hủy</button></a>
+                        <a href=""><button class="btn btn-danger">Xóa</button></a>
                         <button class="btn btn-warning" id="edit_comment">Sửa</button>
                     </td>
                 </tr>
@@ -40,7 +40,7 @@
 </div>
 <div class="comment_edit">
     <h4>Đánh giá</h4>
-    <form method="POST" action="">
+    <form method="POST" action="" id="form">
         <div class="form-group">
             <label class="star_chk" for="star1" id="star" style="width: 30px;"><i class="fa fa-star"></i></label>
             <input type="radio" name="rating" value="1" id="star1" style="display: none;">
@@ -68,13 +68,14 @@
     const edit_comment = document.getElementById('edit_comment');
     const comment_edit = document.querySelector('.comment_edit');
     const cancel = document.getElementById('cancel');
-
+    const form = document.getElementById('form');
     edit_comment.onclick = function() {
         comment_edit.style = "display:block";
     }
     
     cancel.onclick = function() {
         comment_edit.style = "display:none";
+        form.reset();
     }
 
 </script>

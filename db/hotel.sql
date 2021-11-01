@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2021 at 03:48 PM
+-- Generation Time: Nov 01, 2021 at 08:15 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -41,8 +41,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adminId`, `email`, `password`, `fullName`, `avatarAdmin`, `role`) VALUES
-(1, 'nguyenthevu2602@gmail.com', '123456', 'Nguyễn Thế Vũ', 'uploads/8497108822501057192.jpg', 0),
-(20, 'thevu2468@gmail.com', '$2y$10$vLsZ9UZjthL1M7MsnFP.yO0h2.jAeFucw6QkwwGfCckggALu5HvUK', 'nguyễn thế vũ', 'uploads/incognito.png', 1);
+(22, 'vunguyen2602@gmail.com', '$2y$10$m7HZiHWEG4gmQDnh.LPVn.yk9UE4r89dqcv50XZvgSCbMgmI7ZQqO', 'nguyễn thế vũ', 'uploads/incognito.png', 1),
+(25, 'nguyenthevu2602@gmail.com', '$2y$10$dEo7e68N4ndTUksnTSIkL.PDoVVcq7n0ZnxhMxFg7m96xymMsic5S', 'Nguyễn Thế Vũ', 'uploads/incognito.png', 1);
 
 -- --------------------------------------------------------
 
@@ -71,12 +71,23 @@ INSERT INTO `categories` (`catId`, `catName`) VALUES
 --
 
 CREATE TABLE `comment` (
-  `comtId` int(11) NOT NULL,
-  `userId` int(11) DEFAULT NULL,
-  `productId` int(11) DEFAULT NULL,
-  `content` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
-  `comtData` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `cmtId` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `comment` text COLLATE utf8_vietnamese_ci NOT NULL,
+  `rating` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`cmtId`, `userId`, `date`, `comment`, `rating`) VALUES
+(4, 17, '2021-11-01 04:49:51', 'sdasda', 4),
+(5, 17, '2021-11-01 04:53:57', 'haha', 4),
+(6, 17, '2021-11-01 06:32:30', 'ađâs', 5),
+(7, 17, '2021-11-01 06:35:33', 'dấdsa', 5),
+(8, 17, '2021-11-01 07:15:34', 'adsadá', 4);
 
 -- --------------------------------------------------------
 
@@ -95,8 +106,14 @@ CREATE TABLE `img_product` (
 --
 
 INSERT INTO `img_product` (`imgId`, `productId`, `img`) VALUES
-(80, 58, 'uploads/852787462583180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
-(81, 58, 'uploads/852787462583180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg479430462583180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg465417180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg');
+(125, 69, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
+(126, 69, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg'),
+(127, 69, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg180921-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
+(128, 69, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg180921-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg180928-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
+(129, 70, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
+(130, 70, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
+(131, 70, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
+(132, 70, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg180928-4-2000-roo-ltha.jpg.thumb.1920.1920.jpg');
 
 -- --------------------------------------------------------
 
@@ -108,7 +125,6 @@ CREATE TABLE `product` (
   `productId` int(11) NOT NULL,
   `catId` int(11) DEFAULT NULL,
   `productName` varchar(100) COLLATE utf8_vietnamese_ci DEFAULT NULL,
-  `productImg` varchar(50) COLLATE utf8_vietnamese_ci DEFAULT NULL,
   `price` varchar(50) COLLATE utf8_vietnamese_ci DEFAULT NULL,
   `status` int(11) DEFAULT 0,
   `content` text COLLATE utf8_vietnamese_ci DEFAULT NULL,
@@ -119,10 +135,9 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`productId`, `catId`, `productName`, `productImg`, `price`, `status`, `content`, `level`) VALUES
-(5, 9, 'Phòng Deluxe', NULL, '3290000', 0, 'Tại tất cả các phòng Deluxe nằm từ tầng 40 đến tầng 53 của toà nhà Lotte, khách hàng đều có thể tận hưởng tầm nhìn tuyệt đẹp bao quát thành phố Hà Nội. Các tiện nghi cao cấp bao gồm hệ thống điều hoà độc đáo với 4 ống sẽ bảo đảm cho khách hàng những giờ phút nghỉ ngơi thoải mái tại khách sạn.\r\n\r\n.Hai hãng thiết kế nội thất Wilson Associates và HBA đã tạo ra hai phong cách thiết kế Á -Âu riêng biệt nhằm đáp ứng nhu cầu đa dạng của khách hàng.\r\n', 'Tiêu chuẩn'),
-(6, 9, 'Phòng Deluxe', NULL, '4230000', 0, 'Club Floor là không gian riêng biệt dành cho những doanh nhân tìm kiếm một nơi làm việc yên tĩnh. Đội ngũ nhân viên thông minh, dịch vụ đáng tin cậy, các thiết kế đơn giản mà hiệu quả, và dịch vụ ăn uống cao cấp chính là những lý do bạn nên chọn để ở lại Club Floor.', 'Tầng Club'),
-(58, 9, 'ađấ', NULL, '8460000', 0, 'adấđá', 'Tiêu chuẩn');
+INSERT INTO `product` (`productId`, `catId`, `productName`, `price`, `status`, `content`, `level`) VALUES
+(69, 9, 'sdấdá', '3290000', 0, 'dấdsad', 'Tiêu chuẩn'),
+(70, 9, 'ádáđssa', '3290000', 0, 'đâsdá', 'Tiêu chuẩn');
 
 -- --------------------------------------------------------
 
@@ -147,6 +162,7 @@ CREATE TABLE `producttaken` (
 CREATE TABLE `users` (
   `userId` int(11) NOT NULL,
   `email` varchar(100) COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `phone` char(16) COLLATE utf8_vietnamese_ci NOT NULL,
   `passWord` varchar(100) COLLATE utf8_vietnamese_ci DEFAULT NULL,
   `fullName` varchar(100) COLLATE utf8_vietnamese_ci DEFAULT NULL,
   `avatarUser` varchar(50) COLLATE utf8_vietnamese_ci DEFAULT NULL,
@@ -158,11 +174,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userId`, `email`, `passWord`, `fullName`, `avatarUser`, `status`, `timeRegister`) VALUES
-(1, 'thevu2468@gmail.com', '123456', 'Nguyễn Thế Vũ', NULL, 1, '2021-10-23 13:19:11'),
-(4, 'luongchithanh@gmail.com', '123456', 'Lương Chí Thành', 'uploads/incognito.png', 1, '2021-10-27 08:53:37'),
-(12, 'nguyenthevu2602@gmail.com', '$2y$10$AztFkFSUl.caEJ.dGEm6muKJOR/c0/SS.27DddgB8Hh8QKGB7q9Wu', 'nguyễn thế', NULL, 0, '2021-10-28 15:28:37'),
-(13, 'vunguyen2602@gmail.com', '$2y$10$VqrPRVRK82x1pL2e.PVfcuzj/WJt0pk.xpFeGvfnpmKv1m4My4DYW', 'nguyễn thế', NULL, 0, '2021-10-28 15:30:10');
+INSERT INTO `users` (`userId`, `email`, `phone`, `passWord`, `fullName`, `avatarUser`, `status`, `timeRegister`) VALUES
+(17, 'nguyenthevu2602@gmail.com', '0376192789', '$2y$10$rqLcorPrR/HU.Bk1fzZy0eaM6f9g5sSSFJe.MiGPZScQv8d8.iUx6', 'Nguyễn Thế Vũ', 'uploads/incognito.png', 0, '2021-10-31 15:44:04');
 
 --
 -- Indexes for dumped tables
@@ -184,9 +197,7 @@ ALTER TABLE `categories`
 -- Indexes for table `comment`
 --
 ALTER TABLE `comment`
-  ADD PRIMARY KEY (`comtId`),
-  ADD KEY `userId` (`userId`),
-  ADD KEY `productId` (`productId`);
+  ADD PRIMARY KEY (`cmtId`);
 
 --
 -- Indexes for table `img_product`
@@ -224,7 +235,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `adminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `adminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -236,42 +247,35 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `comtId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cmtId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `img_product`
 --
 ALTER TABLE `img_product`
-  MODIFY `imgId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `imgId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `producttaken`
 --
 ALTER TABLE `producttaken`
-  MODIFY `proTakenId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `proTakenId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `comment`
---
-ALTER TABLE `comment`
-  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`),
-  ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`);
 
 --
 -- Constraints for table `img_product`

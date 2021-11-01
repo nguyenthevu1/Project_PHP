@@ -7,104 +7,16 @@
 
   <!-- form -->
 
-  <div class="row">
-    <div class="col-sm-6 wowload fadeInUp">
-      <div class="rooms"><img src="images/photos/8.jpg" class="img-responsive">
-        <div class="info">
-          <h3>Luxirious Suites</h3>
-          <p> Missed lovers way one vanity wishes nay but. Use shy seemed within twenty wished old few regret passed. Absolute one hastened mrs any sensible</p><a href="room-details.php" class="btn btn-default">Check Details</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 wowload fadeInUp">
-      <div class="rooms"><img src="images/photos/9.jpg" class="img-responsive">
-        <div class="info">
-          <h3>Luxirious Suites</h3>
-          <p> Missed lovers way one vanity wishes nay but. Use shy seemed within twenty wished old few regret passed. Absolute one hastened mrs any sensible</p><a href="room-details.php" class="btn btn-default">Check Details</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 wowload fadeInUp">
-      <div class="rooms"><img src="images/photos/10.jpg" class="img-responsive">
-        <div class="info">
-          <h3>Luxirious Suites</h3>
-          <p> Missed lovers way one vanity wishes nay but. Use shy seemed within twenty wished old few regret passed. Absolute one hastened mrs any sensible</p><a href="room-details.php" class="btn btn-default">Check Details</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 wowload fadeInUp">
-      <div class="rooms"><img src="images/photos/11.jpg" class="img-responsive">
-        <div class="info">
-          <h3>Luxirious Suites</h3>
-          <p> Missed lovers way one vanity wishes nay but. Use shy seemed within twenty wished old few regret passed. Absolute one hastened mrs any sensible</p><a href="room-details.php" class="btn btn-default">Check Details</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 wowload fadeInUp">
-      <div class="rooms"><img src="images/photos/9.jpg" class="img-responsive">
-        <div class="info">
-          <h3>Luxirious Suites</h3>
-          <p> Missed lovers way one vanity wishes nay but. Use shy seemed within twenty wished old few regret passed. Absolute one hastened mrs any sensible</p><a href="room-details.php" class="btn btn-default">Check Details</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 wowload fadeInUp">
-      <div class="rooms"><img src="images/photos/8.jpg" class="img-responsive">
-        <div class="info">
-          <h3>Luxirious Suites</h3>
-          <p> Missed lovers way one vanity wishes nay but. Use shy seemed within twenty wished old few regret passed. Absolute one hastened mrs any sensible</p><a href="room-details.php" class="btn btn-default">Check Details</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 wowload fadeInUp">
-      <div class="rooms"><img src="images/photos/10.jpg" class="img-responsive">
-        <div class="info">
-          <h3>Luxirious Suites</h3>
-          <p> Missed lovers way one vanity wishes nay but. Use shy seemed within twenty wished old few regret passed. Absolute one hastened mrs any sensible</p><a href="room-details.php" class="btn btn-default">Check Details</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 wowload fadeInUp">
-      <div class="rooms"><img src="images/photos/11.jpg" class="img-responsive">
-        <div class="info">
-          <h3>Luxirious Suites</h3>
-          <p> Missed lovers way one vanity wishes nay but. Use shy seemed within twenty wished old few regret passed. Absolute one hastened mrs any sensible</p><a href="room-details.php" class="btn btn-default">Check Details</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 wowload fadeInUp">
-      <div class="rooms"><img src="images/photos/9.jpg" class="img-responsive">
-        <div class="info">
-          <h3>Luxirious Suites</h3>
-          <p> Missed lovers way one vanity wishes nay but. Use shy seemed within twenty wished old few regret passed. Absolute one hastened mrs any sensible</p><a href="room-details.php" class="btn btn-default">Check Details</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 wowload fadeInUp">
-      <div class="rooms"><img src="images/photos/8.jpg" class="img-responsive">
-        <div class="info">
-          <h3>Luxirious Suites</h3>
-          <p> Missed lovers way one vanity wishes nay but. Use shy seemed within twenty wished old few regret passed. Absolute one hastened mrs any sensible</p><a href="room-details.php" class="btn btn-default">Check Details</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 wowload fadeInUp">
-      <div class="rooms"><img src="images/photos/11.jpg" class="img-responsive">
-        <div class="info">
-          <h3>Luxirious Suites</h3>
-          <p> Missed lovers way one vanity wishes nay but. Use shy seemed within twenty wished old few regret passed. Absolute one hastened mrs any sensible</p><a href="room-details.php" class="btn btn-default">Check Details</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 wowload fadeInUp">
-      <div class="rooms"><img src="images/photos/10.jpg" class="img-responsive">
-        <div class="info">
-          <h3>Luxirious Suites</h3>
-          <p> Missed lovers way one vanity wishes nay but. Use shy seemed within twenty wished old few regret passed. Absolute one hastened mrs any sensible</p><a href="room-details.php" class="btn btn-default">Check Details</a>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="row">
+  <?php 
+    $sql = "SELECT * FROM img_product , product WHERE img_product.productId = product.productId group by img_product.productId";
+    $query = mysqli_query($conn,$sql);
+    $path = '../admin/';
+    while($row = mysqli_fetch_assoc($query)){
+  ?>
+  <div class="col-sm-6 wowload fadeInUp"><div class="rooms"><img src="<?php echo $path.$row['img']?>" class="img-responsive"><div class="info"><h3><?php echo $row['productName']?></h3><p><?php echo $row['content']?> </p><a href="room-details.php?id=<?php echo $row['productId']?>" class="btn btn-default">Check Details</a></div></div></div>
+  <?php }?>
+</div>
 
   <div class="text-center">
     <ul class="pagination">

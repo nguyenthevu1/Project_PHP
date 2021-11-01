@@ -71,40 +71,75 @@
         </div>
     </div>
 </div>
+
 <div class="comment">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-12">
+
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
+                            <?php
+                            $sql = "SELECT * FROM comment,users WHERE comment.userId = users.userId ";
+                            $result = mysqli_query($conn, $sql);
+                            $row = mysqli_fetch_assoc($result)
+                            ?>
                             <div class="text-center cmt">
                                 <img src="./images/photos/incognito.png" alt="picture" class="img_user">
                                 <div class="cmtText">
-                                    <span style="color:black">Nguyễn Thế Vũ</span>
-                                    <span style="font-size: 80%;">2021/1/11</span>
+                                    <span style="color:black"><?php echo $row['fullName'] ?></span>
+                                    <span style="font-size: 80%;"><?php echo $row['date'] ?></span>
                                     <p>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
+                                        <?php
+                                        $rating = $row['rating'];
+                                        for ($i = 0; $i < $rating; $i++) {
+                                            echo '<i class="fa fa-star"></i>';
+                                        }
+                                        for ($i = 5; $i > $rating; $i--) {
+                                            echo '<i class="fa fa-star-o" aria-hidden="true"></i>';
+                                        }
+                                        ?>
                                     </p>
-                                    <p>ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</p>
+                                    <p><?php echo $row['comment'] ?></p>
                                 </div>
                             </div>
+
                         </div>
-                        
-                        <div class="item">
-                            <div class="text-center cmt">
-                                <img src="./images/photos/incognito.png" alt="picture" class="img_user">
-                                <div class="cmtText">
-                                    phần 2
+                        <?php
+                        $sql = "SELECT * FROM comment,users WHERE comment.userId = users.userId LIMIT 1,10";
+                        $result = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_assoc($result)) {
+
+                        ?>
+                            <div class="item">
+                                <div class="text-center cmt">
+
+                                    <img src="./images/photos/incognito.png" alt="picture" class="img_user">
+                                    <div class="cmtText">
+                                        <span style="color:black"><?php echo $row['fullName'] ?></span>
+                                        <span style="font-size: 80%;"><?php echo $row['date'] ?></span>
+                                        <p>
+                                            <?php
+                                            $rating = $row['rating'];
+                                            for ($i = 0; $i < $rating; $i++) {
+                                                echo '<i class="fa fa-star"></i>';
+                                            }
+                                            for ($i = 5; $i > $rating; $i--) {
+                                                echo '<i class="fa fa-star-o" aria-hidden="true"></i>';
+                                            }
+
+                                            ?>
+                                        </p>
+                                        <p><?php echo $row['comment'] ?></p>
+                                    </div>
                                 </div>
+
                             </div>
-                        </div>
+                        <?php } ?>
                     </div>
+
                     <!-- Controls -->
                     <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
                         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -115,10 +150,12 @@
                         <!-- <span class="sr-only">Next</span> -->
                     </a>
                 </div>
+
             </div>
         </div>
     </div>
 </div>
+
 <!-- services -->
 
 
