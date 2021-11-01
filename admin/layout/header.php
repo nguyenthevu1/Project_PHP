@@ -157,8 +157,7 @@ if (!$_SESSION['admin']) {
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-globe2"></i><span class="nav-text">Đánh giá</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="./ui-accordion.php">Đánh giá</a></li>
-                            <li><a href="./ui-alert.php">Cập nhật</a></li>
+                            <li><a href="./comment-table.php">Đánh giá</a></li>
                         </ul>
                     </li>
                     <li class="nav-label">Khác</li>

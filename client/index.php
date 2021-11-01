@@ -44,7 +44,7 @@
             ?>
                 <div class="col-sm-6" style="margin-bottom: 30px; padding:0 15px;">
                     <!-- RoomCarousel -->
-                    <div id="RoomCarousel<?php echo $row['productId'];?>" class="carousel slide" data-ride="carousel">
+                    <div id="RoomCarousel<?php echo $row['productId']; ?>" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="item active"><img src="<?php echo $path . $row['img'] ?>" class="img-responsive" alt="slide"></div>
                             <?php
@@ -57,12 +57,12 @@
                             <?php } ?>
                         </div>
                         <!-- Controls -->
-                        <a class="left carousel-control" href="#RoomCarousel<?php echo $row['productId'];?>" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-                        <a class="right carousel-control" href="#RoomCarousel<?php echo $row['productId'];?>" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
+                        <a class="left carousel-control" href="#RoomCarousel<?php echo $row['productId']; ?>" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+                        <a class="right carousel-control" href="#RoomCarousel<?php echo $row['productId']; ?>" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
                     </div>
                     <!-- RoomCarousel-->
-                    <div class="caption"><?php echo $row['catName'] ?>
-                        <a href="rooms-tariff.php?id=<?php echo $row['productId'] ?>" class="pull-right">
+                    <div class="caption"><?php echo $row['productName'] ?>
+                        <a href="room-details.php?id=<?php echo $row['productId'] ?>" class="pull-right">
                             <button class="btn btn-warning book-now" style="border-radius: 15px; background-color:rgb(253,126,20);">Đặt ngay</button>
                         </a>
                     </div>
@@ -71,25 +71,25 @@
         </div>
     </div>
 </div>
-<div class="comment " >
+<div class="comment">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-12">
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
-                        <div class="item active" >
+                        <div class="item active">
                             <div class="text-center cmt">
-                                <img src="./images/photos/incognito.png" alt="picture" class="img_user" >
+                                <img src="./images/photos/incognito.png" alt="picture" class="img_user">
                                 <div class="cmtText">
-                                   adkal;ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssskadl;sklad    
+                                    adkal;ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssskadl;sklad
                                 </div>
                             </div>
 
                         </div>
                         <div class="item">
                             <div class="text-center cmt">
-                                <img src="./images/photos/incognito.png" alt="picture" class="img_user" >
+                                <img src="./images/photos/incognito.png" alt="picture" class="img_user">
                                 <div class="cmtText">
                                     phần 2
                                 </div>

@@ -53,6 +53,8 @@ p{margin-bottom: 1em;line-height: 1.5em;}
 .carousel-control i.fa{position: absolute;left: 0;right: 0;top: 50%;margin-top: -10px;}
 /* .carousel img{width: 100%;} */
 
+
+/* comment */
 .comment{
     position: relative;
     height: 240px;
@@ -66,8 +68,6 @@ p{margin-bottom: 1em;line-height: 1.5em;}
     display: flex;
     align-items: center;
     flex-direction: column;
-    /* align-items: center; */
-    /* justify-content: center; */
     
 }
 .img_user{
@@ -81,6 +81,15 @@ p{margin-bottom: 1em;line-height: 1.5em;}
     line-height: 22px;
     word-wrap: break-word;
 }
+.star_chk {
+    width: 30px;
+    color: white;
+}
+
+.star_chk.active{
+    color:red;
+}
+
 /*footer*/
 footer{background-color:#585650;color: #AEAEAC;}
 footer.spacer{padding: 3em 0;}
@@ -97,6 +106,7 @@ footer .subscribe .social a{font-size: 1.5em;margin-right: 0.25em;}
 
 .toTop{position: fixed;right: 1em; bottom: 1em;background:rgba(0,0,0,0.5);width: 35px; height: 35px;text-align: center;color: #fff;font-size: 2em; }
 .toTop:hover{color: #fff;background:rgba(0,0,0,0.8);}
+
 
 
 /* .book-now{
