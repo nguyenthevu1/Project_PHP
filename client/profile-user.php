@@ -6,8 +6,8 @@
                 <div class="img_profile">
                     <div class="first-left">
                         <div class="picture_user"><img src="./images/photos/incognito.png" alt=""></div>
-                        <div class="user_name"><span>Nguyen The Vu</span>
-                            <p>0376192789</p>
+                        <div class="user_name"><span><?php echo $_SESSION['user']['fullName'] ?></span>
+                            <p><?php echo $_SESSION['user']['phone'] ?></p>
                         </div>
                     </div>
                     <a href="profile-user.php?route=order">

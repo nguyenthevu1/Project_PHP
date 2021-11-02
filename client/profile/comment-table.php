@@ -7,35 +7,37 @@
 
 <div class="editProfile">
     <div class="edit">
-        <table class="table table-hover">
+           
+        <table class="table table-hover">        
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">Id bình luận</th>
                     <th scope="col">Họ Tên</th>
-                    <th scope="col">Tên dịch vụ</th>
-                    <th scope="col">Cấp độ</th>
-                    <th scope="col">Giá</th>
-                    <th scope="col">Thời gian đặt</th>
-                    <th scope="col">Thời gian trả</th>
-                    <th scope="col">Hành động</th>
+                    <th scope="col">Bình luận của bạn</th>
                 </tr>
+                
             </thead>
             <tbody>
+                <?php 
+                    $id = $_SESSION['user']['userId'];
+                    $sql = "SELECT * FROM comment,users WHERE comment.userId = users.userId and users.userId = $id";
+                    $result = $conn->query($sql);
+                    while($row = $result->fetch_assoc()){
+                ?>
                 <tr>
-                    <td>1</td>
-                    <td>hahahah</td>
-                    <td>hahahah</td>
-                    <td>hahahah</td>
-                    <td>hahahah</td>
-                    <td>hahahah</td>
-                    <td>hahahah</td>
+                    <td><?php echo $row['cmtId']?></td>
+                    <td><?php echo $row['fullName']?></td>
+                    <td><?php echo $row['comment']?></td>
+                    
                     <td class="action">
-                        <a href=""><button class="btn btn-danger">Xóa</button></a>
-                        <button class="btn btn-warning" id="edit_comment">Sửa</button>
+                        <a href="./profile/delete-comment.php?cmtId=<?php echo $row['cmtId'] ?>"><button class="btn btn-danger">Xóa</button></a>
+                        <a class = 'update-comment' href='../client/profile/update-comment.php?cmtId=<?php  echo $row['cmtId'] ?>'><button class="btn btn-warning" id="edit_comment">Sửa</button></a>
                     </td>
                 </tr>
+                <?php } ?>
             </tbody>
         </table>
+       
     </div>
 </div>
 <div class="comment_edit">
@@ -53,10 +55,13 @@
             <label class="star_chk" for="star5" id="star" style="width: 30px;"><i class="fa fa-star"></i></label>
             <input type="radio" name="rating" value="5" id="star5" style="display: none;">
         </div>
+       
+        
         <div class="form-group">
             <label for="exampleInputEmail1">Bình luận</label>
-            <textarea class="form-control" name="contentCmt" placeholder="Nội dung bình luận..." style="height: 100px;"></textarea>
+            <textarea class="form-control" name="contentCmt" placeholder="Nội dung bình luận..." style="height: 100px;" ></textarea>
         </div>
+        
         <input type="hidden" value="<?php echo $_SESSION['user']['userId']; ?>" name="userId">
         <button type="submit" class="btn btn-default" name="update_comment">Cập Nhật</button>
         <button type="button" class="btn btn-danger" id="cancel">Hủy</button>
@@ -65,6 +70,7 @@
 
 
 <script>
+    const update_comment = document.querySelector('update-comment');
     const edit_comment = document.getElementById('edit_comment');
     const comment_edit = document.querySelector('.comment_edit');
     const cancel = document.getElementById('cancel');
@@ -77,5 +83,8 @@
         comment_edit.style = "display:none";
         form.reset();
     }
-
+    
+    update_comment.onclick = function(e){
+        e.preventDefault();
+    }
 </script>
