@@ -1,3 +1,6 @@
+html{
+    overflow-x: hidden;
+}
 body{background-color: #fff;font-family: 'Raleway', sans-serif;font-size: 15px;line-height: 15px; color: #73726C;}
 
 
@@ -188,7 +191,17 @@ p{margin-bottom: 1em;line-height: 1.5em;}
     margin-bottom: 20px;
 }
 
-
+/* booking room */
+.booking{
+    position: relative;
+    width: 285px;
+    height: 387px;
+    /* border: 1px red solid; */
+    display: flex;
+    justify-content: center;
+    background-color: rgb(238,238,238);
+    padding: 20px;
+}
 
 /*footer*/
 footer{background-color:#585650;color: #AEAEAC;}
