@@ -54,7 +54,7 @@ if (!$_SESSION['user']) {
 
   <!-- header -->
   <nav class="navbar  navbar-default" role="navigation">
-    <div class="container" style="width:1220px">
+    <div class="container" style="width:1200px; ">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -67,29 +67,26 @@ if (!$_SESSION['user']) {
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+      <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1" style="margin-right:60px;">
 
-        <ul class="nav navbar-nav" style="width:550px">
-        
+        <ul class="nav navbar-nav" style="width:750px;position: relative;left: 46px;">
+          <li>
+            <form action="search.php" method="POST">
+                <div class="search" style="margin-top: 25px;display:flex">
+                  <input type="text" class="form-control" name="searchInput" placeholder="Tìm Kiếm Phòng,Sự Kiện..." style="width: 203px;">
+                  <button name="searchSubmit" class="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </div>
+            </form>
+          </li>
           <li><a href="index.php">Trang chủ </a></li>
           <li><a href="rooms-tariff.php">Phòng</a></li>
           <li><a href="gallery.php">Sự kiện</a></li>
           <li><a href="dich-vu.php">Dịch vụ</a></li>
           <li><a href="introduction.php">Giới thiệu</a></li>
           <li><a href="contact.php">Liên hệ</a></li>
-          <form action = "search.php" method="POST">           
-          <div class="container">
-            <div class="row height d-flex justify-content-center align-items-center">
-                <div class="col-md-8">
-                    <div class="search">  
-                      <input type="text" class="form-control" name="searchInput" placeholder="Tìm Kiếm Phòng,Sự Kiện Và Dịch Vụ"> 
-                      <button name = "searchSubmit" class="btn btn-primary">Tìm kiếm</button> </div>
-                </div>
-            </div>
-          </div>
-          </form>
+
         </ul>
-        <ul class="nav navbar-nav" style="margin-left: 60px;">
+        <ul class="nav navbar-nav" style="margin-left: 60px;width:100px">
           <li class="account" style="margin-top:20px">
             <!-- style="margin-left: 25px;margin-top: 25px;" -->
             <div class="dropdown">

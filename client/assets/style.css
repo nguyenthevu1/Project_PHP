@@ -202,7 +202,14 @@ p{margin-bottom: 1em;line-height: 1.5em;}
     background-color: rgb(238,238,238);
     padding: 20px;
 }
-
+.danger{
+    color:red;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-family: sans-serif;
+    margin-top: 20px;
+    margin-left: 200px;
+}
 /*footer*/
 footer{background-color:#585650;color: #AEAEAC;}
 footer.spacer{padding: 3em 0;}
