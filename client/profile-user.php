@@ -1,11 +1,13 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php'; 
+    $path = '../admin/';
+?>
 <div class="container">
     <div class="profile">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4">
                 <div class="img_profile">
                     <div class="first-left">
-                        <div class="picture_user"><img src="./images/photos/incognito.png" alt=""></div>
+                        <div class="picture_user"><img src="<?php echo $path.$_SESSION['user']['avatarUser']?>" alt=""></div>
                         <div class="user_name"><span><?php echo $_SESSION['user']['fullName'] ?></span>
                             <p><?php echo $_SESSION['user']['phone'] ?></p>
                         </div>

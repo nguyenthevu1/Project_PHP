@@ -25,9 +25,9 @@
         
         <input type="hidden" value="<?php echo $_SESSION['user']['userId']; ?>" name="userId">
         <button type="submit" class="btn btn-default" name="update_comment">Cập Nhật</button>
-        <a href='../profile-user.php?route=comment'><button type="button" class="btn btn-danger" id="cancel">Hủy</button></a>
+        <a href='../profile-user.php?route=comment'><button type="button" class="btn btn-danger" id="cancel">Quay lại</button></a>
     </form>
 <?php
   
-    include '../footer.php'; 
+    include 'footer2.php'; 
 ?>

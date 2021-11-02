@@ -84,7 +84,7 @@
         form.reset();
     }
     
-    update_comment.onclick = function(e){
-        e.preventDefault();
-    }
+    // update_comment.onclick = function(e){
+    //     e.preventDefault();
+    // }
 </script>
