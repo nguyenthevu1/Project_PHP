@@ -63,20 +63,31 @@ if (!$_SESSION['user']) {
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.php"><img src="images/logo.png" alt="holiday crown"></a>
+        <a class="navbar-brand" href="index.php"><img class='img-logo' src="images/logo.png" alt="holiday crown"></a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 
         <ul class="nav navbar-nav" style="width:550px">
+        
           <li><a href="index.php">Trang chủ </a></li>
           <li><a href="rooms-tariff.php">Phòng</a></li>
           <li><a href="gallery.php">Sự kiện</a></li>
           <li><a href="dich-vu.php">Dịch vụ</a></li>
           <li><a href="introduction.php">Giới thiệu</a></li>
           <li><a href="contact.php">Liên hệ</a></li>
-
+          <form action = "search.php" method="POST">           
+          <div class="container">
+            <div class="row height d-flex justify-content-center align-items-center">
+                <div class="col-md-8">
+                    <div class="search">  
+                      <input type="text" class="form-control" name="searchInput" placeholder="Tìm Kiếm Phòng,Sự Kiện Và Dịch Vụ"> 
+                      <button name = "searchSubmit" class="btn btn-primary">Tìm kiếm</button> </div>
+                </div>
+            </div>
+          </div>
+          </form>
         </ul>
         <ul class="nav navbar-nav" style="margin-left: 60px;">
           <li class="account" style="margin-top:20px">
