@@ -7,10 +7,10 @@
 
   <!-- form -->
 
-<div class="row">
-  <?php 
+  <div class="row">
+    <?php
     $sql = "SELECT * FROM img_product , product ,categories WHERE img_product.productId = product.productId and product.catId = categories.catId and categories.catId  ='9' group by img_product.productId";
-    $query = mysqli_query($conn,$sql);
+    $query = mysqli_query($conn, $sql);
     $path = '../admin/';
     while ($row = mysqli_fetch_assoc($query)) {
     ?>

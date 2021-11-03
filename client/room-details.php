@@ -66,15 +66,17 @@
             <h4>Đặt Phòng</h4>
             <div class="form-group" style="width: 260px;">
               <label for="checkin">Ngày đến</label>
-              <input type="date" class="form-control" id="checkin" name="checkin">
+              <input type="date" class="form-control" id="checkin" name="checkin" required>
             </div>
             <div class="form-group" style="width: 260px;">
               <label for="checkout">Ngày trả</label>
-              <input type="date" class="form-control" id="checkout" name="checkout">
+              <input type="date" class="form-control" id="checkout" name="checkout" required>
             </div>
+            <?php if(isset($_SESSION['user'])) { ?>
             <input type="hidden" name="price" id="" value="<?php echo $row['price']?>">
             <input type="hidden" name="userId" id="" value="<?php echo $_SESSION['user']['userId'];?>">
             <input type="hidden" name="productId" id="" value="<?php echo $row['productId']?>">
+            <?php } ?>
             <div class="form-group" style="width: 260px;">
               <label>Số Người</label>
               <select class="form-control" name="people" id="people">

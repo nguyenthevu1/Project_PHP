@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2021 at 08:16 AM
+-- Generation Time: Nov 03, 2021 at 11:22 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -41,8 +41,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adminId`, `email`, `password`, `fullName`, `avatarAdmin`, `role`) VALUES
-(22, 'vunguyen2602@gmail.com', '$2y$10$sEQPs6L1FuCcD26kA0HtL.Y2ymPoU2ARfeOfgeqv5pLWilcZpf.lu', 'Thế vũ', 'uploads/01057192.jpg', 1),
-(25, 'nguyenthevu2602@gmail.com', '$2y$10$dEo7e68N4ndTUksnTSIkL.PDoVVcq7n0ZnxhMxFg7m96xymMsic5S', 'Nguyễn Thế Vũ', 'uploads/incognito.png', 1);
+(22, 'vunguyen2602@gmail.com', '$2y$10$sEQPs6L1FuCcD26kA0HtL.Y2ymPoU2ARfeOfgeqv5pLWilcZpf.lu', 'Thế vũ', 'uploads/01057192.jpg', 0),
+(25, 'nguyenthevu2602@gmail.com', '$2y$10$dEo7e68N4ndTUksnTSIkL.PDoVVcq7n0ZnxhMxFg7m96xymMsic5S', 'Nguyễn Thế Vũ', 'uploads/incognito.png', 0);
 
 -- --------------------------------------------------------
 
@@ -83,8 +83,9 @@ CREATE TABLE `comment` (
 --
 
 INSERT INTO `comment` (`cmtId`, `userId`, `date`, `comment`, `rating`) VALUES
-(11, 17, '2021-11-02 16:30:51', 'hihi', 4),
-(12, 17, '2021-11-02 16:41:26', 'haha', 5);
+(15, 28, '2021-11-03 10:15:43', 'ga', 0),
+(16, 28, '2021-11-03 10:17:57', 'g', 0),
+(17, 29, '2021-11-03 10:19:29', '12', 0);
 
 -- --------------------------------------------------------
 
@@ -110,7 +111,14 @@ INSERT INTO `img_product` (`imgId`, `productId`, `img`) VALUES
 (155, 75, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
 (156, 75, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg'),
 (157, 75, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg180921-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
-(158, 75, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg180921-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg180928-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg');
+(158, 75, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg180921-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg180928-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
+(160, 77, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
+(161, 77, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg'),
+(162, 78, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg180921-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
+(163, 78, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg180921-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg1809'),
+(164, 78, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg180921-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg1809'),
+(166, 80, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg'),
+(167, 80, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg1809');
 
 -- --------------------------------------------------------
 
@@ -134,7 +142,11 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`productId`, `catId`, `productName`, `price`, `status`, `content`, `level`) VALUES
 (74, 9, 'Phòng Deluxe', '3290000', 0, 'Tại tất cả các phòng Deluxe nằm từ tầng 40 đến tầng 53 của toà nhà Lotte, khách hàng đều có thể tận hưởng tầm nhìn tuyệt đẹp bao quát thành phố Hà Nội. Các tiện nghi cao cấp bao gồm hệ thống điều hoà độc đáo với 4 ống sẽ bảo đảm cho khách hàng những giờ phút nghỉ ngơi thoải mái tại khách sạn.\r\nHai hãng thiết kế nội thất Wilson Associates và HBA đã tạo ra hai phong cách thiết kế Á -Âu riêng biệt nhằm đáp ứng nhu cầu đa dạng của khách hàng.', 'Tiêu chuẩn'),
-(75, 9, 'Phòng Deluxe Club', '3290000', 0, 'Tại tất cả các phòng Deluxe nằm từ tầng 40 đến tầng 53 của toà nhà Lotte, khách hàng đều có thể tận hưởng tầm nhìn tuyệt đẹp bao quát thành phố Hà Nội. Các tiện nghi cao cấp bao gồm hệ thống điều hoà độc đáo với 4 ống sẽ bảo đảm cho khách hàng những giờ phút nghỉ ngơi thoải mái tại khách sạn.\r\n\r\n.Hai hãng thiết kế nội thất Wilson Associates và HBA đã tạo ra hai phong cách thiết kế Á -Âu riêng biệt nhằm đáp ứng nhu cầu đa dạng của khách hàng.', 'Phòng club');
+(75, 9, 'Phòng Deluxe Club', '3290000', 0, 'Tại tất cả các phòng Deluxe nằm từ tầng 40 đến tầng 53 của toà nhà Lotte, khách hàng đều có thể tận hưởng tầm nhìn tuyệt đẹp bao quát thành phố Hà Nội. Các tiện nghi cao cấp bao gồm hệ thống điều hoà độc đáo với 4 ống sẽ bảo đảm cho khách hàng những giờ phút nghỉ ngơi thoải mái tại khách sạn.\r\n\r\n.Hai hãng thiết kế nội thất Wilson Associates và HBA đã tạo ra hai phong cách thiết kế Á -Âu riêng biệt nhằm đáp ứng nhu cầu đa dạng của khách hàng.', 'Phòng club'),
+(76, 10, 'test', '5600000', 0, 'test', 'Tiêu chuẩn'),
+(77, 10, 'g', '5600000', 0, 'g', 'Tiêu chuẩn'),
+(78, 8, 'ggggg', '5600000', 0, 'ggg', 'Tiêu chuẩn'),
+(80, 10, 'test', '5600000', 0, 'test2', 'Tiêu chuẩn');
 
 -- --------------------------------------------------------
 
@@ -166,6 +178,7 @@ CREATE TABLE `users` (
   `passWord` varchar(100) COLLATE utf8_vietnamese_ci DEFAULT NULL,
   `fullName` varchar(100) COLLATE utf8_vietnamese_ci DEFAULT NULL,
   `avatarUser` varchar(50) COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `vkey` varchar(125) COLLATE utf8_vietnamese_ci NOT NULL,
   `status` int(11) DEFAULT 0,
   `timeRegister` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
@@ -174,8 +187,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userId`, `email`, `phone`, `passWord`, `fullName`, `avatarUser`, `status`, `timeRegister`) VALUES
-(17, 'nguyenthevu2602@gmail.com', '0376192789', '$2y$10$rqLcorPrR/HU.Bk1fzZy0eaM6f9g5sSSFJe.MiGPZScQv8d8.iUx6', 'Thế Vũ', 'uploads/incognito.png', 0, '2021-11-02 16:49:15');
+INSERT INTO `users` (`userId`, `email`, `phone`, `passWord`, `fullName`, `avatarUser`, `vkey`, `status`, `timeRegister`) VALUES
+(28, 'satthumaulanh2001@gmail.com', '0966611084', '$2y$10$VDTKIi4FYtPCKsrjdoSPyezX1oR/uiUHooFOjO7FKhBouJBcY8JMu', 'Lương Chí Thành', '../admin/uploads/incognito.png', '186bd178759fd46ebdef0b259b109c18', 1, '2021-11-03 10:12:18'),
+(29, 'thevu2468@gmail.com', '06591897', '$2y$10$iRx2CG9ZI.Mhwzib5RiSvuNqeoefGeecpVftBKEjZDKWUgGg/bl3e', 'vu', '../admin/uploads/incognito.png', '17c07610e1b9f88d75e5c4caca3dc072', 1, '2021-11-03 10:19:21');
 
 --
 -- Indexes for dumped tables
@@ -247,31 +261,31 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `cmtId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `cmtId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `img_product`
 --
 ALTER TABLE `img_product`
-  MODIFY `imgId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
+  MODIFY `imgId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `producttaken`
 --
 ALTER TABLE `producttaken`
-  MODIFY `proTakenId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `proTakenId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Constraints for dumped tables
