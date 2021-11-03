@@ -30,10 +30,11 @@ include_once('./layout/header.php');
                     <td><?php echo $row['fullName']; ?></td>
                     <td><?php echo $row['productName']; ?></td>
                     <td><?php echo $row['level']; ?></td>
-                    <td><?php echo number_format($row['price']).'VNĐ'; ?></td>
+                    <td><?php echo number_format($row['total']).'VNĐ'; ?></td>
                     <td><?php echo $row['dateStart']; ?></td>
                     <td><?php echo $row['dateEnd']; ?></td>
-                    <td>    
+                    <td>
+                       
                         <a href="./delete_order.php?id=<?php echo $row['proTakenId']; ?>"><button class="btn btn-danger">xóa</button></a>
                     </td>
                 </tr>

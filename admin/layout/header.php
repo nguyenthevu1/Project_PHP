@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!$_SESSION['admin']) {
+if (!$_SESSION['isAdmin'] == 'isAdmin') {
     header('location: login.php');
 }
 ?>
@@ -92,7 +92,7 @@ if (!$_SESSION['admin']) {
                         <ul class="navbar-nav header-right">
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <img class="avatar" src="<?php echo $_SESSION['admin']['avatarAdmin']; ?>" alt="">
+                                    <img class="avatar" src="<?php echo $_SESSION['admin']['avatarUser']; ?>" alt="">
                                     <span><?php echo $_SESSION['admin']['fullName']; ?></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" style="margin-top: -11px;">
@@ -136,7 +136,6 @@ if (!$_SESSION['admin']) {
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-people"></i><span class="nav-text">Người dùng</span></a>
                         <ul aria-expanded="false">
                             <li><a href="./user-table.php">Danh sách người dùng</a></li>
-                            <li><a href="./addUser.php">Thêm người dùng</a></li>
                         </ul>
                     </li>
                     <li class="nav-label">Các thành phần</li>

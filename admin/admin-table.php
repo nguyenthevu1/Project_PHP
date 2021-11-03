@@ -18,7 +18,7 @@ include_once('./layout/header.php');
         </thead>
         <tbody>
             <?php
-            $selectAd = "SELECT * from admin";
+            $selectAd = "SELECT * from users where isAdmin = 1";
             $admin = mysqli_query($conn, $selectAd);
             $i = 0;
             while ($row = mysqli_fetch_assoc($admin)) {
@@ -26,16 +26,16 @@ include_once('./layout/header.php');
             ?>
                 <tr>
                     <td><?php echo $i; ?></td>
-                    <td><img src="<?php echo $row['avatarAdmin']; ?>" alt="avatar" style="width: 60px;"></td>
+                    <td><img src="<?php echo $row['avatarUser']; ?>" alt="avatar" style="width: 60px;"></td>
                     <td><?php echo $row['email']; ?></td>
                     <td><?php echo $row['fullName']; ?></td>
                     <td>
                         <?php
-                        if ($row['role'] == 1) $role = 'Quản lý';
-                        if ($row['role'] == 0) $role = 'admin';
+                        if ($row['role'] == 1) $role = 'Admin';
+                        if ($row['role'] == 0) $role = 'Mod';
 
-                        if ($_SESSION['admin']['role'] == 1) {
-                            echo '<a href="update_role.php?id=' . ($row['adminId']) . ' class="update_role">
+                        if ($_SESSION['user']['role'] == 1) {
+                            echo '<a href="update_role.php?id=' . ($row['userId']) . ' class="update_role">
                                         <span class="btn btn-info">
                                             ' . ($role) . '
                                         </span>
@@ -50,10 +50,10 @@ include_once('./layout/header.php');
                     </td>
                     <td>
                         <?Php
-                        if ($_SESSION['admin']['role'] == 1) {
-                            echo '<a href="./changePassword.php?id=' . ($row['adminId']) . '"><button class="btn btn-primary">Đổi mật khẩu</button></a>
-                              <a href="./update_admin.php?id=' . ($row['adminId']) . '"><button class="btn btn-success">cập nhật</button></a>
-                              <a href="./delete_admin.php?id=' . ($row['adminId']) . '"><button class="btn btn-danger">xóa</button></a>';
+                        if ($_SESSION['user']['role'] == 1) {
+                            echo '<a href="./changePassword.php?id=' . ($row['userId']) . '"><button class="btn btn-primary">Đổi mật khẩu</button></a>
+                              <a href="./update_admin.php?id=' . ($row['userId']) . '"><button class="btn btn-success">cập nhật</button></a>
+                              <a href="./delete_admin.php?id=' . ($row['userId']) . '"><button class="btn btn-danger">xóa</button></a>';
                         } else {
                             echo '<button disabled class="btn btn-primary">Đổi mật khẩu</button>
                               <button disabled class="btn btn-success">cập nhật</button>

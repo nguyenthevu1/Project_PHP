@@ -14,15 +14,22 @@ if (isset($_POST['login'])) {
 
 
     if (mysqli_num_rows($select) > 0) {
+       
         $user = mysqli_fetch_assoc($select);
-        $passVerify = password_verify($password, $user['passWord']);
-
-        if ($passVerify) {
-            $_SESSION['user'] = $user;
-            header('location: index.php');
-        } else {
-            $error['user'] = 'Tài khoản hoặc mật khẩu sai!';
+        if($user['status'] == 1){
+            $passVerify = password_verify($password, $user['passWord']);
+            if ($passVerify) {
+                $_SESSION['user'] = $user;
+                header('location: index.php');
+            } else {
+                $error['notMatchPwd'] = 'sai mật khẩu !';
+            }
         }
+        else{
+            $error['NotVerification'] = 'Tài khoản chưa được xác minh email';
+        }
+        
+        
     } else {
         $error['user'] = 'Tài khoản chưa tồn tại!';
     }
@@ -61,11 +68,13 @@ if (isset($_POST['login'])) {
                                             <label><strong>Email</strong></label>
                                             <input type="email" class="form-control" placeholder="Nhập Email" name="email">
                                             <p style="color:red;"><?php echo isset($error['email']) ? $error['email'] : ''; ?></p>
+                                            <p style="color:red;"><?php echo isset($error['NotVerification']) ? $error['NotVerification'] : ''; ?></p>
                                         </div>
                                         <div class="form-group">
                                             <label><strong>Password</strong></label>
                                             <input type="password" class="form-control" placeholder="Nhập mật khẩu" name="password">
                                             <p style="color:red;"><?php echo isset($error['password']) ? $error['password'] : ''; ?></p>
+                                            <p style="color:red;"><?php echo isset($error['notMatchPwd']) ? $error['notMatchPwd'] : ''; ?></p>
                                         </div>
                                         <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                             <div class="form-group">

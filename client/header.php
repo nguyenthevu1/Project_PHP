@@ -42,6 +42,7 @@ if (!$_SESSION['user']) {
   <link rel="stylesheet" href="assets/style.css">
 
 </head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <style>
   .img-user {
     border-radius: 50%;
@@ -91,10 +92,10 @@ if (!$_SESSION['user']) {
             <!-- style="margin-left: 25px;margin-top: 25px;" -->
             <div class="dropdown">
               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="color:rgb(115,114,108); background-color:rgb(238,238,238); font-size:17px">
-                <img class="img-user" src="<?php
+                <img  class="img-user" src="<?php
                                             $path = "../admin/";
                                             echo $path . $_SESSION['user']['avatarUser'];
-                                            ?>">
+                                            ?>" style="height: 30px;object-fit:cover">
                 <?php echo $_SESSION['user']['fullName'] ?>
                 <!-- <span class="caret"></span> -->
               </button>

@@ -1,32 +1,45 @@
 <?php
 require('../db/config.php');
 session_start();
+
 $error = [];
-if(isset($_POST['login'])) {
+
+if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    if(empty($email)) $error['email'] = 'Vui lòng nhập trường này!';
-    if(empty($password)) $error['password'] = 'Vui lòng nhập trường này!';
-    
-    $login = "SELECT * from admin where email = '$email'";
-    $select = mysqli_query($conn,$login);
+    if (empty($email)) $error['email'] = 'Vui lòng nhập trường này!';
+    if (empty($password)) $error['password'] = 'Vui lòng nhập trường này!';
 
-    
-    if(mysqli_num_rows($select) > 0) {
-        $admin = mysqli_fetch_assoc($select);
-        $pass_hash = $admin['password'];
+    $login = "SELECT * from users where email = '$email'";
+    $select = mysqli_query($conn, $login);
 
-        if(password_verify($password,$pass_hash)){
-            $_SESSION['admin'] = $admin;
-            header('location: index.php');
-        }else{
-            $error['admin'] = 'Tài khoản hoặc mật khẩu sai!';
+
+    if (mysqli_num_rows($select) > 0) {
+
+        $user = mysqli_fetch_assoc($select);
+        if ($user['status'] == 1) {
+            $passVerify = password_verify($password, $user['passWord']);
+            if ($passVerify) {
+                $_SESSION['user'] = $user;
+
+                if( $_SESSION['user']['isAdmin'] == 1) {
+
+                    $_SESSION['admin'] = $user;
+                    $_SESSION['isAdmin'] = 'isAdmin';
+                    header('location: index.php');
+                }
+                else{
+                    header('location: ../client/index.php');
+                }
+            } else {
+                $error['notMatchPwd'] = 'sai mật khẩu !';
+            }
+        } else {
+            $error['NotVerification'] = 'Tài khoản chưa được xác minh email';
         }
-        
-    }
-    else {
-        $error['admin'] = 'Tài khoản chưa tồn tại!';
+    } else {
+        $error['user'] = 'Tài khoản chưa tồn tại!';
     }
 }
 ?>
@@ -58,16 +71,18 @@ if(isset($_POST['login'])) {
                                 <div class="auth-form">
                                     <h4 class="text-center mb-4">Đăng nhập tài khoản của bạn Lưu</h4>
                                     <form action="" method="POST">
-                                        <p style="color:red;"><?php echo isset($error['admin'])?$error['admin']:''; ?></p>
+                                        <p style="color:red;"><?php echo isset($error['user']) ? $error['user'] : ''; ?></p>
                                         <div class="form-group">
                                             <label><strong>Email</strong></label>
                                             <input type="email" class="form-control" placeholder="Nhập Email" name="email">
-                                            <p style="color:red;"><?php echo isset($error['email'])?$error['email']:''; ?></p>
+                                            <p style="color:red;"><?php echo isset($error['email']) ? $error['email'] : ''; ?></p>
+                                            <p style="color:red;"><?php echo isset($error['NotVerification']) ? $error['NotVerification'] : ''; ?></p>
                                         </div>
                                         <div class="form-group">
                                             <label><strong>Password</strong></label>
                                             <input type="password" class="form-control" placeholder="Nhập mật khẩu" name="password">
-                                            <p style="color:red;"><?php echo isset($error['password'])?$error['password']:''; ?></p>
+                                            <p style="color:red;"><?php echo isset($error['password']) ? $error['password'] : ''; ?></p>
+                                            <p style="color:red;"><?php echo isset($error['notMatchPwd']) ? $error['notMatchPwd'] : ''; ?></p>
                                         </div>
                                         <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                             <div class="form-group">
@@ -84,7 +99,10 @@ if(isset($_POST['login'])) {
                                             <button type="submit" class="btn btn-primary btn-block" name="login">Đăng nhập</button>
                                         </div>
                                     </form>
-                                   
+                                    <div style="width: 100%;text-align: center;margin-top:10px; padding-top:5px;">
+                                        <a href="../client/register-users.php">Bạn chưa có tài khoản?</a>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

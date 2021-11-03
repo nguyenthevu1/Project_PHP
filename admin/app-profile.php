@@ -22,9 +22,9 @@ $path = '../admin/'; ?>
                 <div class="col-lg-4 col-md-4 col-sm-4">
                     <div class="img_profile">
                         <div class="first-left">
-                            <div class="picture_user"><img src="<?php echo $_SESSION['admin']['avatarAdmin'] ?>" alt=""></div>
-                            <div class="user_name"><span><?php echo $_SESSION['admin']['fullName'] ?></span>
-                                <!-- <p><?php echo $_SESSION['admin']['phone'] ?></p> -->
+                            <div class="picture_user"><img src="<?php echo $_SESSION['user']['avatarUser'] ?>" alt=""></div>
+                            <div class="user_name"><span><?php echo $_SESSION['user']['fullName'] ?></span>
+                                <!-- <p><?php echo $_SESSION['user']['phone'] ?></p> -->
                             </div>
                         </div>
                         <a href="app-profile.php?route=editPicture">
@@ -51,10 +51,10 @@ $path = '../admin/'; ?>
                     <?php
                     if (isset($_GET['route'])) {
                         if ($_GET['route'] == 'editProfile' || $_GET['route'] == '') {
-                            include('./profile_admin/editProfile.php');
+                            include('./editProfile.php');
                         }
                         if ($_GET['route'] == 'editPicture') {
-                            include('./profile_admin/edit-picture.php');
+                            include('./edit-picture.php');
                         }
                     }
                     ?>

@@ -1,5 +1,5 @@
-<?php include 'header.php'; 
-    $path = '../admin/';
+<?php include 'header.php';
+$path = '../admin/';
 ?>
 <div class="container">
     <div class="profile">
@@ -7,7 +7,14 @@
             <div class="col-lg-4 col-md-4 col-sm-4">
                 <div class="img_profile">
                     <div class="first-left">
-                        <div class="picture_user"><img src="<?php echo $path.$_SESSION['user']['avatarUser']?>" alt=""></div>
+                        <div class="picture_user">
+                            <img src="<?php echo $path . $_SESSION['user']['avatarUser'] ?>" alt="">
+                            <form action="update_avatar.php" method="POST" style="margin-top:10px;" id="formChange" enctype="multipart/form-data">
+                                <input type="file" id="file" name="file">
+                                <input type="hidden" name="id" value="<?php echo $_SESSION['user']['userId']; ?>">
+                                <button type="submit" name="changeImg">lưu</button>
+                            </form>
+                        </div>
                         <div class="user_name"><span><?php echo $_SESSION['user']['fullName'] ?></span>
                             <p><?php echo $_SESSION['user']['phone'] ?></p>
                         </div>

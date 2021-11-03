@@ -7,15 +7,17 @@ if (isset($_POST['add_admin'])) {
     $email = $_POST['email'];
     $fullName = $_POST['fullName'];
     $password = $_POST['password'];
+    $phone = $_POST['phone'];
     $file = $_FILES['file'];
 
     if (empty($email)) $error['email'] = "Vui lòng nhập trường này!";
     if (empty($fullName)) $error['fullName'] = "Vui lòng nhập trường này!";
     if (empty($password)) $error['password'] = "Vui lòng nhập trường này!";
+    if (empty($phone)) $error['phone'] = "Vui lòng nhập trường này!";
 
     
 
-    $select_email = "SELECT * from admin where email = '$email'";
+    $select_email = "SELECT * from users where email = '$email'";
     $email_q = mysqli_query($conn, $select_email);
 
     if ($email != '' && $fullName != '' && $password != '') {
@@ -38,16 +40,16 @@ if (isset($_POST['add_admin'])) {
                     
                     $path = $path . strtolower($img);
                     if (move_uploaded_file($tmp, $path)) {
-                        $addAdmin = "INSERT into admin(email,fullName,password,avatarAdmin)
-                                values('$email','$fullName','$hasPwd`','$path')";
+                        $addAdmin = "INSERT into users(email,phone,fullName,password,avatarUser,isAdmin,role,status)
+                                values('$email','$phone','$fullName','$hasPwd`','$path',1,0,1)";
                     }
                 } else {
                     $error['file'] = 'file lỗi định dạng';
                 }
             } else {
                 $path = 'uploads/incognito.png';
-                $addAdmin = "INSERT into admin(email,fullName,password,avatarAdmin)
-                                values('$email','$fullName','$hasPwd','$path')";
+                $addAdmin = "INSERT into users(email,phone,fullName,password,avatarUser,isAdmin,role,status)
+                                values('$email','$phone','$fullName','$hasPwd','$path',1,0,1)";
             }
             mysqli_query($conn, $addAdmin);
 
@@ -73,7 +75,7 @@ if (isset($_POST['add_admin'])) {
 <div class="content-body">
     <div class="container-fluid">
         <div class="container">
-            <form method="POST" action="./test.php" enctype="multipart/form-data" style="color:black;">
+            <form method="POST" action="" enctype="multipart/form-data" style="color:black;">
                 <div class="mb-3">
                     <label for="email" class="form-label">Địa chỉ email</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Nhập email">
@@ -83,6 +85,11 @@ if (isset($_POST['add_admin'])) {
                     <label for="fullName" class="form-label">Họ và Tên</label>
                     <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Nhập họ và tên">
                     <div class="form-text"><?php echo isset($error['fullName']) ? $error['fullName'] : ''; ?></div>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Số điện thoại</label>
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Nhập số điện thọai">
+                    <div class="form-text"><?php echo isset($error['phone']) ? $error['phone'] : ''; ?></div>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Mật khẩu</label>
