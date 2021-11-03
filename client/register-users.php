@@ -70,7 +70,6 @@ if (isset($_POST['btnRegister'])) {
 
 <body>
   <!-- Form đăng kí -->
-
   <section class="vh-100" style="background-color: #eee;">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -110,6 +109,14 @@ if (isset($_POST['btnRegister'])) {
                       </div>
                     </div>
 
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="password">Phone</label>
+                        <input type="text" id="phone" name="phone" class="form-control" />
+                        <span class="danger"><?php echo isset($err['emptyPhone']) ? $err['emptyPhone'] : '' ?></span>
+                      </div>
+                    </div>
 
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
@@ -128,7 +135,6 @@ if (isset($_POST['btnRegister'])) {
                         <span class="danger"><?php echo (isset($err['pwdNotMatch']) ? $err['pwdNotMatch'] : '') ?></span>
                       </div>
                     </div>
-
 
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                       <button type="submit" class="btn btn-primary btn-lg" name="btnRegister">Đăng kí</button>

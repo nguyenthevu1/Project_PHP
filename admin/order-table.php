@@ -11,7 +11,7 @@ include_once('./layout/header.php');
                 <th scope="col">Họ Tên</th>
                 <th scope="col">Tên dịch vụ</th>
                 <th scope="col">Cấp độ</th>
-                <th scope="col">Giá</th>
+                <th scope="col">Tổng Tiền</th>
                 <th scope="col">Thời gian đặt</th>
                 <th scope="col">Thời gian trả</th>
                 <th scope="col">Hành động</th>

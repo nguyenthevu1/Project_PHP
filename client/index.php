@@ -46,14 +46,14 @@
                     <!-- RoomCarousel -->
                     <div id="RoomCarousel<?php echo $row['productId']; ?>" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="item active"><img src="<?php echo $path . $row['img'] ?>" class="img-responsive" alt="slide"></div>
+                            <div class="item active"><img src="<?php echo $path . $row['img'] ?>" class="img-responsive" alt="slide" style="width:555px;height:313px;object-fit:cover"></div>
                             <?php
                             $id_pro = $row['productId'];
                             $select_img_product = "SELECT * FROM img_product where productId = '$id_pro' limit 1,10";
                             $img_product = mysqli_query($conn, $select_img_product);
                             while ($row_img = mysqli_fetch_assoc($img_product)) {
                             ?>
-                                <div class="item  height-full"><img src="<?php echo $path . $row_img['img'] ?>" class="img-responsive" alt="slide"></div>
+                                <div class="item  height-full"><img src="<?php echo $path . $row_img['img'] ?>" class="img-responsive" alt="slide" style="width:555px;height:313px;object-fit:cover"></div>
                             <?php } ?>
                         </div>
                         <!-- Controls -->

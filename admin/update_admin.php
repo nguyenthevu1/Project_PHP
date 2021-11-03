@@ -26,9 +26,8 @@ if (isset($_POST['update_admin'])) {
 
         $ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
 
-        $final_image = rand(1000, 1000000) . $img;
         if (in_array($ext, $valid_extensions)) {
-            $path = $path . strtolower($final_image);
+            $path = $path . strtolower($img);
             if (move_uploaded_file($tmp, $path)) {
                 $update = "UPDATE admin set email = '$email',fullName = '$fullName',avatarAdmin='$path' where adminId = '$id'";
             }
@@ -94,7 +93,7 @@ if (isset($_POST['update_admin'])) {
                         </div>
                         <input type="hidden" class="form-control" id="file" name="id" value="<?php echo $row['adminId']; ?>">
                         <?Php
-                        if ($_SESSION['user']['role'] == 1) {
+                        if ($_SESSION['admin']['role'] == 1) {
                             echo '<button type="submit" class="btn btn-primary" name="update_admin">Cập nhật</button>';
                         } else {
                             echo '<button type="submit" class="btn btn-primary" name="update_admin" disabled>Cập nhật</button>';

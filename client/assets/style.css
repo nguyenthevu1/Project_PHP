@@ -1,3 +1,6 @@
+html{
+    overflow-x: hidden;
+}
 body{background-color: #fff;font-family: 'Raleway', sans-serif;font-size: 15px;line-height: 15px; color: #73726C;}
 
 
@@ -187,6 +190,17 @@ p{margin-bottom: 1em;line-height: 1.5em;}
     transition: all 0.5s ease-in;
     margin-bottom: 20px;
 }
+
+/* booking room */
+.booking{
+    position: relative;
+    width: 350px;
+    height: 387px;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(238,238,238);
+    padding: 20px;
+}
 .danger{
     color:red;
     margin-bottom: 20px;
@@ -194,6 +208,19 @@ p{margin-bottom: 1em;line-height: 1.5em;}
     font-family: sans-serif;
     margin-top: 20px;
     margin-left: 200px;
+}
+/* room detail */
+
+.library_img{
+    width: 100%;
+    overflow: hidden;
+}
+.img_room_detail{
+    width: 100%;
+    transition: all .5s;
+}
+.img_room_detail:hover{
+    transform: scale(1.2);
 }
 
 
