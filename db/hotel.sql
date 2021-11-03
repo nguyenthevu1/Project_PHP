@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2021 at 08:15 AM
+-- Generation Time: Nov 03, 2021 at 08:16 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -41,7 +41,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adminId`, `email`, `password`, `fullName`, `avatarAdmin`, `role`) VALUES
-(22, 'vunguyen2602@gmail.com', '$2y$10$m7HZiHWEG4gmQDnh.LPVn.yk9UE4r89dqcv50XZvgSCbMgmI7ZQqO', 'nguyễn thế vũ', 'uploads/incognito.png', 1),
+(22, 'vunguyen2602@gmail.com', '$2y$10$sEQPs6L1FuCcD26kA0HtL.Y2ymPoU2ARfeOfgeqv5pLWilcZpf.lu', 'Thế vũ', 'uploads/01057192.jpg', 1),
 (25, 'nguyenthevu2602@gmail.com', '$2y$10$dEo7e68N4ndTUksnTSIkL.PDoVVcq7n0ZnxhMxFg7m96xymMsic5S', 'Nguyễn Thế Vũ', 'uploads/incognito.png', 1);
 
 -- --------------------------------------------------------
@@ -83,11 +83,8 @@ CREATE TABLE `comment` (
 --
 
 INSERT INTO `comment` (`cmtId`, `userId`, `date`, `comment`, `rating`) VALUES
-(4, 17, '2021-11-01 04:49:51', 'sdasda', 4),
-(5, 17, '2021-11-01 04:53:57', 'haha', 4),
-(6, 17, '2021-11-01 06:32:30', 'ađâs', 5),
-(7, 17, '2021-11-01 06:35:33', 'dấdsa', 5),
-(8, 17, '2021-11-01 07:15:34', 'adsadá', 4);
+(11, 17, '2021-11-02 16:30:51', 'hihi', 4),
+(12, 17, '2021-11-02 16:41:26', 'haha', 5);
 
 -- --------------------------------------------------------
 
@@ -106,14 +103,14 @@ CREATE TABLE `img_product` (
 --
 
 INSERT INTO `img_product` (`imgId`, `productId`, `img`) VALUES
-(125, 69, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
-(126, 69, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg'),
-(127, 69, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg180921-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
-(128, 69, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg180921-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg180928-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
-(129, 70, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
-(130, 70, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
-(131, 70, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
-(132, 70, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg180928-4-2000-roo-ltha.jpg.thumb.1920.1920.jpg');
+(150, 74, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
+(151, 74, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg'),
+(152, 74, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg180921-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
+(153, 74, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg180921-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg180928-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
+(155, 75, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
+(156, 75, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg'),
+(157, 75, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg180921-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg'),
+(158, 75, 'uploads/180921-1-2000-roo-ltha.jpg.thumb.1920.1920.jpg180921-2-2000-roo-ltha.jpg.thumb.1920.1920 (1).jpg180921-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg180928-3-2000-roo-ltha.jpg.thumb.1920.1920.jpg');
 
 -- --------------------------------------------------------
 
@@ -136,8 +133,8 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`productId`, `catId`, `productName`, `price`, `status`, `content`, `level`) VALUES
-(69, 9, 'sdấdá', '3290000', 0, 'dấdsad', 'Tiêu chuẩn'),
-(70, 9, 'ádáđssa', '3290000', 0, 'đâsdá', 'Tiêu chuẩn');
+(74, 9, 'Phòng Deluxe', '3290000', 0, 'Tại tất cả các phòng Deluxe nằm từ tầng 40 đến tầng 53 của toà nhà Lotte, khách hàng đều có thể tận hưởng tầm nhìn tuyệt đẹp bao quát thành phố Hà Nội. Các tiện nghi cao cấp bao gồm hệ thống điều hoà độc đáo với 4 ống sẽ bảo đảm cho khách hàng những giờ phút nghỉ ngơi thoải mái tại khách sạn.\r\nHai hãng thiết kế nội thất Wilson Associates và HBA đã tạo ra hai phong cách thiết kế Á -Âu riêng biệt nhằm đáp ứng nhu cầu đa dạng của khách hàng.', 'Tiêu chuẩn'),
+(75, 9, 'Phòng Deluxe Club', '3290000', 0, 'Tại tất cả các phòng Deluxe nằm từ tầng 40 đến tầng 53 của toà nhà Lotte, khách hàng đều có thể tận hưởng tầm nhìn tuyệt đẹp bao quát thành phố Hà Nội. Các tiện nghi cao cấp bao gồm hệ thống điều hoà độc đáo với 4 ống sẽ bảo đảm cho khách hàng những giờ phút nghỉ ngơi thoải mái tại khách sạn.\r\n\r\n.Hai hãng thiết kế nội thất Wilson Associates và HBA đã tạo ra hai phong cách thiết kế Á -Âu riêng biệt nhằm đáp ứng nhu cầu đa dạng của khách hàng.', 'Phòng club');
 
 -- --------------------------------------------------------
 
@@ -149,8 +146,11 @@ CREATE TABLE `producttaken` (
   `proTakenId` int(11) NOT NULL,
   `userId` int(11) DEFAULT NULL,
   `productId` int(11) DEFAULT NULL,
-  `dateStart` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `dateEnd` datetime DEFAULT NULL
+  `people` int(10) NOT NULL,
+  `floor` int(11) NOT NULL,
+  `total` char(100) COLLATE utf8_vietnamese_ci NOT NULL,
+  `dateStart` date NOT NULL,
+  `dateEnd` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 -- --------------------------------------------------------
@@ -175,7 +175,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userId`, `email`, `phone`, `passWord`, `fullName`, `avatarUser`, `status`, `timeRegister`) VALUES
-(17, 'nguyenthevu2602@gmail.com', '0376192789', '$2y$10$rqLcorPrR/HU.Bk1fzZy0eaM6f9g5sSSFJe.MiGPZScQv8d8.iUx6', 'Nguyễn Thế Vũ', 'uploads/incognito.png', 0, '2021-10-31 15:44:04');
+(17, 'nguyenthevu2602@gmail.com', '0376192789', '$2y$10$rqLcorPrR/HU.Bk1fzZy0eaM6f9g5sSSFJe.MiGPZScQv8d8.iUx6', 'Thế Vũ', 'uploads/incognito.png', 0, '2021-11-02 16:49:15');
 
 --
 -- Indexes for dumped tables
@@ -247,25 +247,25 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `cmtId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `cmtId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `img_product`
 --
 ALTER TABLE `img_product`
-  MODIFY `imgId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
+  MODIFY `imgId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `producttaken`
 --
 ALTER TABLE `producttaken`
-  MODIFY `proTakenId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `proTakenId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users`

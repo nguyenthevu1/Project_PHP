@@ -78,12 +78,12 @@ if (isset($_POST['btnRegister'])) {
             <div class="card-body p-md-5">
               <div class="row justify-content-center">
                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Đăng kí</p>
                   <form class="mx-1 mx-md-4" method="post">
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <label class="form-label" for="email">Full name</label>
+                        <label class="form-label" for="email">Họ và tên</label>
                         <input type="text" id="name" name="name" class="form-control" />
 
                         <span class="danger"> <?php echo (isset($err['emptyName'])) ? $err['emptyName'] : '' ?> </span>
@@ -103,6 +103,15 @@ if (isset($_POST['btnRegister'])) {
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="password">Số điện thoại</label>
+                        <input type="text" id="phone" name="phone" class="form-control" />
+                        <span class="danger"><?php echo isset($err['emptyPhone']) ? $err['emptyPhone'] : '' ?></span>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="password">Phone</label>
                         <input type="text" id="phone" name="phone" class="form-control" />
                         <span class="danger"><?php echo isset($err['emptyPhone']) ? $err['emptyPhone'] : '' ?></span>
@@ -112,7 +121,7 @@ if (isset($_POST['btnRegister'])) {
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <label class="form-label" for="password">Password</label>
+                        <label class="form-label" for="password">mật khẩu</label>
                         <input type="password" id="password" name="password" class="form-control" />
                         <span class="danger"><?php echo (isset($err['emptyPassword']) ? $err['emptyPassword'] : '') ?></span>
                       </div>
@@ -121,19 +130,19 @@ if (isset($_POST['btnRegister'])) {
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <label class="form-label" for="repeatpassword">Repeat your password</label>
+                        <label class="form-label" for="repeatpassword">Nhập lại mật khẩu</label>
                         <input type="password" id="repeatpassword" name="repeatpassword" class="form-control" />
                         <span class="danger"><?php echo (isset($err['pwdNotMatch']) ? $err['pwdNotMatch'] : '') ?></span>
                       </div>
                     </div>
 
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                      <button type="submit" class="btn btn-primary btn-lg" name="btnRegister">Register</button>
+                      <button type="submit" class="btn btn-primary btn-lg" name="btnRegister">Đăng kí</button>
                     </div>
                   </form>
 
                   <!-- nút về trang login form -->
-                  <a href="login.php" class="modify"> Go to Login website?</a>
+                  <a href="login-users.php" class="modify"> Quay trở lại trang đăng nhập?</a>
 
                 </div>
                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
