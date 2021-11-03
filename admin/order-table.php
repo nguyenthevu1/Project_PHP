@@ -34,7 +34,7 @@ include_once('./layout/header.php');
                     <td><?php echo $row['dateStart']; ?></td>
                     <td><?php echo $row['dateEnd']; ?></td>
                     <td>
-                        <a href="./update_order.php?id=<?php echo $row['proTakenId']; ?>"><button class="btn btn-success">cập nhật</button></a>
+                       
                         <a href="./delete_order.php?id=<?php echo $row['proTakenId']; ?>"><button class="btn btn-danger">xóa</button></a>
                     </td>
                 </tr>

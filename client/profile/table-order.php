@@ -7,7 +7,7 @@
                     <th scope="col">Họ Tên</th>
                     <th scope="col">Tên dịch vụ</th>
                     <th scope="col">Cấp độ</th>
-                    <th scope="col">Giá</th>
+                    <th scope="col">Tổng tiền</th>
                     <th scope="col">Thời gian đặt</th>
                     <th scope="col">Thời gian trả</th>
                     <th scope="col">Hành động</th>
@@ -28,7 +28,7 @@
                         <td><?php echo $row['fullName']?></td>
                         <td><?php echo $row['productName']?></td>
                         <td><?php echo $row['level']?></td>
-                        <td><?php echo $row['total']?></td>
+                        <td><?php echo number_format($row['total'])?></td>
                         <td><?php echo $row['dateStart']?></td>
                         <td><?php echo $row['dateEnd']?></td>
                         <td>

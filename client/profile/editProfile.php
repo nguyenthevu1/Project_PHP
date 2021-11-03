@@ -41,7 +41,7 @@
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="text" class="form-control" id="email" placeholder="Nhập Emai mới" name="email" required>
+                <input type="email" class="form-control" id="email" placeholder="Nhập Emai mới" name="email" required>
             </div>
             <button type="submit" class="btn btn-default" name="edit_email">Lưu</button>
             <button class="btn btn-danger" type="button">hủy</button>

@@ -31,8 +31,8 @@ include_once('./layout/header.php');
                     <td><?php echo $row['fullName']; ?></td>
                     <td>
                         <?php
-                        if ($row['role'] == 1) $role = 'Quản lý';
-                        if ($row['role'] == 0) $role = 'admin';
+                        if ($row['role'] == 1) $role = 'Admin';
+                        if ($row['role'] == 0) $role = 'Mod';
 
                         if ($_SESSION['admin']['role'] == 1) {
                             echo '<a href="update_role.php?id=' . ($row['adminId']) . ' class="update_role">

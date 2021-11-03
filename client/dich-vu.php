@@ -2,7 +2,7 @@
 
 <div class="container">
 
-<h2>Rooms & Tariff</h2>
+<h2>Dịch vụ</h2>
 
 
 <!-- form -->

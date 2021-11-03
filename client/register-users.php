@@ -31,11 +31,83 @@ if (isset($_POST['btnRegister'])) {
   }
   if (empty($err)) {
     $hashpwd = password_hash($pwd, PASSWORD_DEFAULT);
+    $vkey = md5(time() . $name);
     $path = '../admin/uploads/incognito.png';
-    $sql = "INSERT INTO users(email,phone , passWord,fullname,avatarUser) VALUES('$email','$phone' , '$hashpwd' , '$name','$path')";
+    $sql = "INSERT INTO users(email,phone , passWord,fullname,avatarUser,vkey) VALUES('$email','$phone' , '$hashpwd' , '$name','$path','$vkey')";
     $query = mysqli_query($conn, $sql);
     if ($query) {
       header('location:login-users.php');
+
+        //send email
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        //SMTP needs accurate times, and the PHP time zone MUST be set
+        //This should be done in your php.ini, but this is how to do it if you don't have access to that
+        date_default_timezone_set('Etc/UTC');
+  
+        require 'smtpmail/PHPMailerAutoload.php';
+  
+        //Create a new PHPMailer instance
+        $mail = new PHPMailer();
+  
+        //Tell PHPMailer to use SMTP
+        $mail->isSMTP();
+  
+        //Enable SMTP debugging
+        // 0 = off (for production use)
+        // 1 = client messages
+        // 2 = client and server messages
+        $mail->SMTPDebug = 2;
+  
+        //Ask for HTML-friendly debug output
+        $mail->Debugoutput = 'html';
+  
+        //Set the hostname of the mail server
+        $mail->Host = 'smtp.gmail.com';
+  
+        //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+        $mail->Port = 587;
+  
+        //Set the encryption system to use - ssl (deprecated) or tls
+        $mail->SMTPSecure = 'tls';
+  
+        //Whether to use SMTP authentication
+        $mail->SMTPAuth = true;
+  
+        //Username to use for SMTP authentication - use full email address for gmail
+        $mail->Username = "satthumaulanh2001@gmail.com";
+  
+        //Password to use for SMTP authentication
+        $mail->Password = "baazbgbjxxlcotyt";
+  
+        //Set who the message is to be sent from
+        $mail->setFrom('satthumaulanh2001@gmail.com', 'Send email');
+  
+        //Set an alternative reply-to address
+        $mail->addReplyTo('satthumaulanh2001@gmail.com', 'second Last');
+  
+        //Set who the message is to be sent to
+        $mail->addAddress($email, $name);
+  
+        //Set the subject line
+        $mail->Subject = "My automatic send email";
+  
+        //Read an HTML message body from an external file, convert referenced images to embedded,
+        //convert HTML into a basic plain-text alternative body
+        $mail->msgHTML("<a href='http://localhost/project_BTL/project_PHP/client/verification.php?vkey=$vkey'>Click here to verification Email</a>");
+  
+        //Replace the plain text body with one created manually
+        // $mail->AltBody = 'This is a plain-text message body';
+  
+        //Attach an image file
+        // $mail->addAttachment('images/phpmailer_mini.png');
+  
+        //send the message, check for errors
+        if (!$mail->send()) {
+          echo "Mailer Error: " . $mail->ErrorInfo;
+        } else {
+          echo "Message sent!";
+        }
     } else {
       echo 'Something went wrong';
     }
@@ -103,20 +175,13 @@ if (isset($_POST['btnRegister'])) {
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <label class="form-label" for="password">Số điện thoại</label>
+                        <label class="form-label" for="phone">Số điện thoại</label>
                         <input type="text" id="phone" name="phone" class="form-control" />
                         <span class="danger"><?php echo isset($err['emptyPhone']) ? $err['emptyPhone'] : '' ?></span>
                       </div>
                     </div>
 
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <label class="form-label" for="password">Phone</label>
-                        <input type="text" id="phone" name="phone" class="form-control" />
-                        <span class="danger"><?php echo isset($err['emptyPhone']) ? $err['emptyPhone'] : '' ?></span>
-                      </div>
-                    </div>
+                  
 
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
