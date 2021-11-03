@@ -192,16 +192,15 @@ p{margin-bottom: 1em;line-height: 1.5em;}
 }
 
 /* booking room */
-.booking{
+/* .booking{
     position: relative;
-    width: 285px;
+    width: 350px;
     height: 387px;
-    /* border: 1px red solid; */
     display: flex;
     justify-content: center;
     background-color: rgb(238,238,238);
     padding: 20px;
-}
+} */
 .danger{
     color:red;
     margin-bottom: 20px;
@@ -210,6 +209,21 @@ p{margin-bottom: 1em;line-height: 1.5em;}
     margin-top: 20px;
     margin-left: 200px;
 }
+/* room detail */
+
+.library_img{
+    width: 100%;
+    overflow: hidden;
+}
+.img_room_detail{
+    width: 100%;
+    transition: all .5s;
+}
+.img_room_detail:hover{
+    transform: scale(1.2);
+}
+
+
 /*footer*/
 footer{background-color:#585650;color: #AEAEAC;}
 footer.spacer{padding: 3em 0;}

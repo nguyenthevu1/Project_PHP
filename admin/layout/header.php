@@ -13,16 +13,17 @@ if (!$_SESSION['admin']) {
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Admin</title>
     <!-- Favicon icon -->
-    <link rel="stylesheet" href="./vendor/owl-carousel/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="./vendor/owl-carousel/css/owl.theme.default.min.css">
+    <!-- <link rel="stylesheet" href="./vendor/owl-carousel/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./vendor/owl-carousel/css/owl.theme.default.min.css"> -->
     <link href="./vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
-    <!-- CSS only -->
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link href="./css/style.css" rel="stylesheet">
-
+    
+    <!-- <link rel="shortcut icon" href="../../client/images/favicon.png" >
+    <link rel="icon" href="../../client/images/favicon.png" > -->
 
 
 </head>
@@ -54,6 +55,7 @@ if (!$_SESSION['admin']) {
         ***********************************-->
         <div class="nav-header">
             <a href="index.php" class="brand-logo">
+                <img src="../uploads/logo.png" alt="">
             </a>
 
             <div class="nav-control">

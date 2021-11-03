@@ -36,8 +36,8 @@ if (!$_SESSION['user']) {
 
 
   <!-- favicon -->
-  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="images/favicon.png">
+  <link rel="icon" href="images/favicon.png">
 
   <link rel="stylesheet" href="assets/style.css">
 

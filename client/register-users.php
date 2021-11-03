@@ -1,47 +1,46 @@
 <?php
-  include('../db/config.php');
-  if(isset($_POST['btnRegister'])){
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $pwd = $_POST['password'];
-    $repwd = $_POST['repeatpassword'];
+include('../db/config.php');
+if (isset($_POST['btnRegister'])) {
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $phone = $_POST['phone'];
+  $pwd = $_POST['password'];
+  $repwd = $_POST['repeatpassword'];
 
-    $takeEmail="SELECT * FROM users WHERE email like '%$email'";
-    $queryDb = mysqli_query($conn,$takeEmail);
-    $checkEmail = mysqli_num_rows($queryDb);
-    $err = [];
-    if(empty($name)){
-      $err['emptyName'] = "Bạn chưa nhập tên của mình";
-    }
-    if(empty($email)){
-      $err['emptyEmail'] = 'Bạn chưa nhập Email';
-    }
-    if(empty($pwd)){
-      $err['emptyPassword'] = 'Bạn chưa nhập password';
-    }
-    if($pwd !== $repwd){
-      $err['pwdNotMatch'] = 'Mật khẩu nhập lại không đúng';
-    }
-    if($checkEmail > 0){
-      $err['existEmail'] = 'Email đã tồn tại trong hệ thống';
-    }
-    if(empty($phone)){
-      $err['emptyPhone'] = 'Bạn chưa nhập số điện thoại';
-    }
-    if(empty($err)){
-      $hashpwd = password_hash($pwd,PASSWORD_DEFAULT);
-      $path = '../admin/uploads/incognito.png';
-      $sql = "INSERT INTO users(email,phone , passWord,fullname,avatarUser) VALUES('$email','$phone' , '$hashpwd' , '$name','$path')"; 
-      $query = mysqli_query($conn , $sql);
-      if($query){
-        header('location:login-users.php');
-      }
-      else{
-        echo 'Something went wrong';
-      }
+  $takeEmail = "SELECT * FROM users WHERE email like '%$email'";
+  $queryDb = mysqli_query($conn, $takeEmail);
+  $checkEmail = mysqli_num_rows($queryDb);
+  $err = [];
+  if (empty($name)) {
+    $err['emptyName'] = "Bạn chưa nhập tên của mình";
+  }
+  if (empty($email)) {
+    $err['emptyEmail'] = 'Bạn chưa nhập Email';
+  }
+  if (empty($pwd)) {
+    $err['emptyPassword'] = 'Bạn chưa nhập password';
+  }
+  if ($pwd !== $repwd) {
+    $err['pwdNotMatch'] = 'Mật khẩu nhập lại không đúng';
+  }
+  if ($checkEmail > 0) {
+    $err['existEmail'] = 'Email đã tồn tại trong hệ thống';
+  }
+  if (empty($phone)) {
+    $err['emptyPhone'] = 'Bạn chưa nhập số điện thoại';
+  }
+  if (empty($err)) {
+    $hashpwd = password_hash($pwd, PASSWORD_DEFAULT);
+    $path = '../admin/uploads/incognito.png';
+    $sql = "INSERT INTO users(email,phone , passWord,fullname,avatarUser) VALUES('$email','$phone' , '$hashpwd' , '$name','$path')";
+    $query = mysqli_query($conn, $sql);
+    if ($query) {
+      header('location:login-users.php');
+    } else {
+      echo 'Something went wrong';
     }
   }
+}
 
 ?>
 <!doctype html>
@@ -71,7 +70,6 @@
 
 <body>
   <!-- Form đăng kí -->
-
   <section class="vh-100" style="background-color: #eee;">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -80,7 +78,6 @@
             <div class="card-body p-md-5">
               <div class="row justify-content-center">
                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-
                   <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
                   <form class="mx-1 mx-md-4" method="post">
                     <div class="d-flex flex-row align-items-center mb-4">
@@ -102,24 +99,23 @@
                         <span class="danger"><?php echo (isset($err['existEmail']) ? $err['existEmail'] : '') ?></span>
                       </div>
                     </div>
-                  </div>
 
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="password">Phone</label>
-                      <input type="text" id="phone" name="phone" class="form-control" />
-                      <span class="danger"><?php echo isset($err['emptyPhone'])?$err['emptyPhone']:'' ?></span>
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="password">Phone</label>
+                        <input type="text" id="phone" name="phone" class="form-control" />
+                        <span class="danger"><?php echo isset($err['emptyPhone']) ? $err['emptyPhone'] : '' ?></span>
+                      </div>
                     </div>
-                  </div>
 
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="password">Password</label>
-                      <input type="password" id="password" name="password" class="form-control" />
-                      <span class="danger"><?php echo(isset($err['emptyPassword'])?$err['emptyPassword']:'') ?></span>
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <label class="form-label" for="password">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" />
+                        <span class="danger"><?php echo (isset($err['emptyPassword']) ? $err['emptyPassword'] : '') ?></span>
+                      </div>
                     </div>
 
                     <div class="d-flex flex-row align-items-center mb-4">
@@ -131,22 +127,9 @@
                       </div>
                     </div>
 
-                    <!-- <div class="form-check d-flex justify-content-center mb-5">
-                    <input
-                      class="form-check-input me-2"
-                      type="checkbox"
-                      value=""
-                      id="form2Example3c"
-                    />
-                    <label class="form-check-label" for="form2Example3">
-                      I agree all statements in <a href="#!">Terms of service</a>
-                    </label>
-                  </div> -->
-
                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                       <button type="submit" class="btn btn-primary btn-lg" name="btnRegister">Register</button>
                     </div>
-
                   </form>
 
                   <!-- nút về trang login form -->
