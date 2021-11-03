@@ -17,6 +17,7 @@ $result2 = $conn->query($sql2);
 $row2 = $result2->fetch_assoc();
 ?>
 
+<div class="container" style="margin-top: 30px;margin-bottom:30px">
 <form method="POST" action="" id="form">
     <div class="form-group">
         <?php
@@ -41,8 +42,9 @@ $row2 = $result2->fetch_assoc();
 
     <input type="hidden" value="<?php echo $_SESSION['user']['userId']; ?>" name="userId">
     <button type="submit" class="btn btn-default" name="update_comment">Cập Nhật</button>
-    <a href='../profile-user.php?route=comment'><button type="button" class="btn btn-danger" id="cancel">Hủy</button></a>
+    <a href='../profile-user.php?route=comment'><button type="button" class="btn btn-danger" id="cancel">Quay lại</button></a>
 </form>
+</div>
 <?php
 
 include '../footer.php';

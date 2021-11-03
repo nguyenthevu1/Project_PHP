@@ -61,9 +61,12 @@
                         <a class="right carousel-control" href="#RoomCarousel<?php echo $row['productId']; ?>" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
                     </div>
                     <!-- RoomCarousel-->
-                    <div class="caption"><?php echo $row['productName'] ?>
+                    <div class="caption">
+                    <h5 style=" font-size: 16px;color: black;margin-bottom: 10px;"><?php echo $row['level'] ?></h5>
+                            <h3><?php echo $row['productName'] ?></h3>
+                            <h4><?php echo number_format($row['price']) . 'VNĐ' ?></h4>
                         <a href="room-details.php?id=<?php echo $row['productId'] ?>" class="pull-right">
-                            <button class="btn btn-warning book-now" style="border-radius: 15px; background-color:rgb(253,126,20);">Đặt ngay</button>
+                            <button class="btn btn-warning book-now" style="height:38px;border-radius: 15px; background-color:rgb(253,126,20);margin-top:-75px">Đặt ngay</button>
                         </a>
                     </div>
                 </div>

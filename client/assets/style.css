@@ -58,6 +58,12 @@ p{margin-bottom: 1em;line-height: 1.5em;}
 
 /* logout */
 
+
+.button{
+    background-color: rgb(13,110,253);
+    border: none;
+    color: white;
+}
 /* comment */
 .comment{
     position: relative;
@@ -192,7 +198,7 @@ p{margin-bottom: 1em;line-height: 1.5em;}
 }
 
 /* booking room */
-/* .booking{
+.booking{
     position: relative;
     width: 350px;
     height: 387px;
@@ -200,7 +206,7 @@ p{margin-bottom: 1em;line-height: 1.5em;}
     justify-content: center;
     background-color: rgb(238,238,238);
     padding: 20px;
-} */
+}
 .danger{
     color:red;
     margin-bottom: 20px;
