@@ -14,7 +14,7 @@
     $path = '../admin/';
     while($row = mysqli_fetch_assoc($query)){
   ?>
-  <div class="col-sm-6 wowload fadeInUp"><div class="rooms"><img src="<?php echo $path.$row['img']?>" class="img-responsive"><div class="info"><h3><?php echo $row['productName']?></h3><p><?php echo $row['content']?> </p><a href="room-details.php?id=<?php echo $row['productId']?>" class="btn btn-default">Check Details</a></div></div></div>
+  <div class="col-sm-6 wowload fadeInUp"><div class="rooms"><img src="<?php echo $path.$row['img']?>" class="img-responsive"><div class="info"><h3><?php echo $row['productName']?></h3><p><?php echo $row['content']?> </p></div></div></div>
   <?php }?>
 </div>
 

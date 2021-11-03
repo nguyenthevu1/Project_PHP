@@ -73,7 +73,7 @@ if (isset($_POST['add_admin'])) {
 <div class="content-body">
     <div class="container-fluid">
         <div class="container">
-            <form method="POST" action="./test.php" enctype="multipart/form-data" style="color:black;">
+            <form method="POST" action="" enctype="multipart/form-data" style="color:black;">
                 <div class="mb-3">
                     <label for="email" class="form-label">Địa chỉ email</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Nhập email">

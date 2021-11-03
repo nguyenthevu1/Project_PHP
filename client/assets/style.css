@@ -222,6 +222,23 @@ p{margin-bottom: 1em;line-height: 1.5em;}
 .img_room_detail:hover{
     transform: scale(1.2);
 }
+.overflow{
+    white-space: nowrap;
+    width:500px;
+    height: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.login-register{
+    margin-left: 20px;
+    width: 200px;
+    height: 50px;
+}
+.login-register a{
+    float: left;
+    margin:12px;
+}
+
 
 
 /*footer*/

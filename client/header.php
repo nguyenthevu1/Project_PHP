@@ -1,9 +1,7 @@
 <?php
 require('../db/config.php');
 session_start();
-if (!$_SESSION['user']) {
-  header("location:login-users.php");
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,25 +84,54 @@ if (!$_SESSION['user']) {
           <li><a href="contact.php">Liên hệ</a></li>
 
         </ul>
+        <?php if(isset($_SESSION['user'])){ ?>
         <ul class="nav navbar-nav" style="margin-left: 60px;width:100px">
           <li class="account" style="margin-top:20px">
             <!-- style="margin-left: 25px;margin-top: 25px;" -->
             <div class="dropdown">
               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="color:rgb(115,114,108); background-color:rgb(238,238,238); font-size:17px">
+             
                 <img class="img-user" src="<?php
                                             $path = "../admin/";
                                             echo $path . $_SESSION['user']['avatarUser'];
                                             ?>">
                 <?php echo $_SESSION['user']['fullName'] ?>
+                
+                
                 <!-- <span class="caret"></span> -->
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="color:rgb(115,114,108);">
                 <li><a href="profile-user.php?route=editProfile">Tài khoản</a></li>
                 <li><a href="log-out-users.php">Đăng xuất</a></li>
               </ul>
+             
+             
             </div>
           </li>
         </ul>
+        <?php } ?>
+
+        <?php if(!isset($_SESSION['user'])){ ?>
+        <ul class="nav navbar-nav" style="margin-left: 60px;width:100px">
+          <li class="account" style="margin-top:20px">
+            <!-- style="margin-left: 25px;margin-top: 25px;" -->
+            <div class="dropdown">
+            
+                <div class="login-register">
+                  <a href="login-users.php">Đăng nhập</a>
+                  <a href="register-users.php">Đăng kí</a>
+                </div>
+              
+                
+                
+                <!-- <span class="caret"></span> -->
+
+             
+             
+            </div>
+          </li>
+        </ul>
+        <?php } ?>
       </div><!-- Wnavbar-collapse -->
     </div><!-- container-fluid -->
   </nav>

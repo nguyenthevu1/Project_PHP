@@ -1,7 +1,8 @@
 <?php 
 
 require('../db/config.php');
-if(isset($_POST['booking'])) {
+session_start();
+if(isset($_POST['booking']) && isset($_SESSION['user'])) {
 
     $checkin = $_POST['checkin'];
     $checkout = $_POST['checkout'];
@@ -27,6 +28,8 @@ if(isset($_POST['booking'])) {
                 mysqli_query($conn,$insert);
                 header('location: profile-user.php?route=order');
 }
-
+else{
+    header('location:login-users.php');
+}
 
 
