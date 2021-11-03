@@ -34,7 +34,7 @@ include_once('./layout/header.php');
                         if ($row['role'] == 1) $role = 'Admin';
                         if ($row['role'] == 0) $role = 'Mod';
 
-                        if ($_SESSION['user']['role'] == 1) {
+                        if ($_SESSION['admin']['role'] == 1) {
                             echo '<a href="update_role.php?id=' . ($row['userId']) . ' class="update_role">
                                         <span class="btn btn-info">
                                             ' . ($role) . '
@@ -50,7 +50,7 @@ include_once('./layout/header.php');
                     </td>
                     <td>
                         <?Php
-                        if ($_SESSION['user']['role'] == 1) {
+                        if ($_SESSION['admin']['role'] == 1) {
                             echo '<a href="./changePassword.php?id=' . ($row['userId']) . '"><button class="btn btn-primary">Đổi mật khẩu</button></a>
                               <a href="./update_admin.php?id=' . ($row['userId']) . '"><button class="btn btn-success">cập nhật</button></a>
                               <a href="./delete_admin.php?id=' . ($row['userId']) . '"><button class="btn btn-danger">xóa</button></a>';

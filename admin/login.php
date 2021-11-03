@@ -21,15 +21,15 @@ if (isset($_POST['login'])) {
         if ($user['status'] == 1) {
             $passVerify = password_verify($password, $user['passWord']);
             if ($passVerify) {
-                $_SESSION['user'] = $user;
+                $_SESSION['users'] = $user;
 
-                if( $_SESSION['user']['isAdmin'] == 1) {
-
+                if( $_SESSION['users']['isAdmin'] == 1) {
                     $_SESSION['admin'] = $user;
                     $_SESSION['isAdmin'] = 'isAdmin';
                     header('location: index.php');
                 }
                 else{
+                    $_SESSION['user'] = $user;
                     header('location: ../client/index.php');
                 }
             } else {
