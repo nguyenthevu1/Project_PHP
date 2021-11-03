@@ -15,7 +15,8 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>1</td>
+                    
+                    <td name>1</td>
                     <td>hahahah</td>
                     <td>hahahah</td>
                     <td>hahahah</td>
@@ -23,10 +24,10 @@
                     <td>hahahah</td>
                     <td>hahahah</td>
                     <td>
-                        <a href="">
-                            <button class="btn btn-danger">Hủy</button>
+                        <a href="profile/delete-order.php?productId=<?php ?>">
+                            <button name = "delete-submit" class="btn btn-danger">Hủy</button>
                         </a>
-                    </td>
+                    </td>               
                 </tr>
             </tbody>
         </table>

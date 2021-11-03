@@ -73,13 +73,13 @@ if (!$_SESSION['user']) {
           <li>
             <form action="search.php" method="POST">
                 <div class="search" style="margin-top: 25px;display:flex">
-                  <input type="text" class="form-control" name="searchInput" placeholder="Tìm Kiếm Phòng,Sự Kiện..." style="width: 203px;">
+                  <input type="text" class="form-control" name="searchInput" placeholder="Tìm Kiếm Phòng,Sự Kiện..." style="width: 203px;" required>
                   <button name="searchSubmit" class="button"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </div>
             </form>
           </li>
           <li><a href="index.php">Trang chủ </a></li>
-          <li><a href="rooms-tariff.php">Phòng</a></li>
+          <li><a href="rooms-tariff.php?page=1">Phòng</a></li>
           <li><a href="gallery.php">Sự kiện</a></li>
           <li><a href="dich-vu.php">Dịch vụ</a></li>
           <li><a href="introduction.php">Giới thiệu</a></li>
