@@ -119,7 +119,7 @@ if (isset($_POST['update_room'])) {
                                 $img = mysqli_query($conn, $selectImg);
                                 while ($row_img = mysqli_fetch_assoc($img)) {
                                     echo '
-                                        <a href="delete_rom_img.php?id=' . ($row_img['imgId']) . '"><p class="delete_img">&otimes;</p></a>
+                                        <a href="delete_room_img.php?id=' . ($row_img['imgId']) . '"><p class="delete_img">&otimes;</p></a>
                                         <img src="' . ($row_img['img']) . '" alt="">';
                                 }
                                 ?>

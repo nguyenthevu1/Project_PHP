@@ -21,6 +21,7 @@ if (!$_SESSION['admin']) {
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/profile.css" rel="stylesheet">
     
     <!-- <link rel="shortcut icon" href="../../client/images/favicon.png" >
     <link rel="icon" href="../../client/images/favicon.png" > -->
@@ -95,7 +96,7 @@ if (!$_SESSION['admin']) {
                                     <span><?php echo $_SESSION['admin']['fullName']; ?></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" style="margin-top: -11px;">
-                                    <a href="./app-profile.php" class="dropdown-item">
+                                    <a href="../admin/app-profile.php?route=editProfile" class="dropdown-item">
                                         <span class="ml-2">Quản trị viên</span>
                                     </a>
                                     <a href="./logout.php" class="dropdown-item">
@@ -154,7 +155,6 @@ if (!$_SESSION['admin']) {
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-cart2"></i><span class="nav-text">Đơn hàng</span></a>
                         <ul aria-expanded="false">
                             <li><a href="./order-table.php">Danh sách đơn hàng</a></li>
-                            <li><a href="./ui-alert.php">Cập nhật đơn hàng</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-globe2"></i><span class="nav-text">Đánh giá</span></a>
