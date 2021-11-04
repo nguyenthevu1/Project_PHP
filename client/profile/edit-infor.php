@@ -1,8 +1,9 @@
-<?php 
-    include '../../db/config.php';
-    session_start();
-    $id = $_SESSION['user']['userId'];
-    if(isset($_POST['fullName'])){
+<?php
+include '../../db/config.php';
+session_start();
+$id = isset($_SESSION['user']['userId']) ? $_SESSION['user']['userId'] : '';
+if ($id) {
+    if (isset($_POST['fullName'])) {
         $name = mysqli_real_escape_string($conn, $_POST['fullName']);
         $sql = "UPDATE users SET fullName = '$name' WHERE userId = $id";
         $result = $conn->query($sql);
@@ -13,7 +14,7 @@
         header('location:../profile-user.php?route=editProfile');
     }
 
-    if(isset($_POST['phone'])){
+    if (isset($_POST['phone'])) {
         $phone = mysqli_real_escape_string($conn, $_POST['phone']);
         $sql = "UPDATE users SET phone = '$phone' WHERE userId = $id";
         $result = $conn->query($sql);
@@ -24,7 +25,7 @@
         header('location:../profile-user.php?route=editProfile');
     }
 
-    if(isset($_POST['email'])){
+    if (isset($_POST['email'])) {
         $email = mysqli_real_escape_string($conn, $_POST['email']);
         $sql = "UPDATE users SET email = '$email' WHERE userId = $id";
         $result = $conn->query($sql);
@@ -34,3 +35,7 @@
         $_SESSION['user'] = $newData;
         header('location:../profile-user.php?route=editProfile');
     }
+}
+else {
+    header('location: ../index.php');
+}

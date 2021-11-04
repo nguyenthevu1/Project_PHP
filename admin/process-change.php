@@ -14,17 +14,17 @@ if (isset($_POST['update_pass'])) {
     if (empty($newPass)) $error['newPass'] = "Vui lòng nhập trường này!";
     if (empty($confirmPass)) $error['confirmPass'] = "Vui lòng nhập trường này!";
 
-    $select_pass = "SELECT * from admin where adminId = '$id'";
+    $select_pass = "SELECT * from users where userId = '$id'";
     $forgotPas = mysqli_query($conn, $select_pass);
     $pass_hash = mysqli_fetch_assoc($forgotPas);
 
-    if (password_verify($currentPass, $pass_hash['password'])) {
+    if (password_verify($currentPass, $pass_hash['passWord'])) {
         if ($currentPass != '' && $newPass != '' && $confirmPass != '') {
             if($newPass === $confirmPass) {
                 $hasPwd = password_hash($newPass, PASSWORD_DEFAULT);
-                $changePass = "UPDATE admin set password = '$hasPwd' where adminId='$id'";
+                $changePass = "UPDATE users set passWord = '$hasPwd' where userId='$id'";
                 mysqli_query($conn,$changePass);
-                if($_SESSION['admin']['adminId'] == $id){
+                if($_SESSION['admin']['userId'] == $id){
                     unset($_SESSION['admin']);
                 }
                 header('location: login.php');
