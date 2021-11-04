@@ -6,7 +6,7 @@ if (isset($_GET['page'])) {
   $page = 1;
 }
 
-$num_per_page = 1;
+$num_per_page = 4;
 $start = ($page - 1) * $num_per_page;
 ?>
 
