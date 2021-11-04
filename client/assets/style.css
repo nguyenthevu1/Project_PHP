@@ -267,6 +267,14 @@ p{margin-bottom: 1em;line-height: 1.5em;}
     margin:12px;
 }
 
+.content{
+    height: 43px;
+    overflow: hidden;    
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
 
 
 /*footer*/

@@ -85,16 +85,20 @@
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
                             <?php
+                          
                             $sql = "SELECT * FROM comment,users WHERE comment.userId = users.userId ";
                             $result = mysqli_query($conn, $sql);
-                            $row = mysqli_fetch_assoc($result)
+                            $row = mysqli_fetch_assoc($result);
+                            
                             ?>
                             <div class="text-center cmt">
                                 <img src="./images/photos/incognito.png" alt="picture" class="img_user">
                                 <div class="cmtText">
+                                    <?php if(!empty($row['fullName']) || !empty($row['date']) || !empty($row['rating'])){ ?>
                                     <span style="color:black"><?php echo $row['fullName'] ?></span>
                                     <span style="font-size: 80%;"><?php echo $row['date'] ?></span>
-                                    <p >
+                                    
+                                    <p>
                                         <?php
                                         $rating = $row['rating'];
                                         for ($i = 0; $i < $rating; $i++) {
@@ -104,11 +108,19 @@
                                             echo '<i class="fa fa-star-o" aria-hidden="true"></i>';
                                         }
                                         ?>
-                                    </p>
+                                    </p>                         
+                                   
                                     <p style="user-select:auto"><?php echo $row['comment'] ?></p>
+                                    <?php } 
+                                        else{ 
+                                    ?>
+
+                                    
+                                        <p style="user-select:auto"> Không có bình luận để hiển thị</p>
+                                        <?php } ?>
                                 </div>
                             </div>
-
+                            
                         </div>
                         <?php
                         $sql = "SELECT * FROM comment,users WHERE comment.userId = users.userId LIMIT 1,10";

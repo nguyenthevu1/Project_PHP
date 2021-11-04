@@ -44,7 +44,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Bình luận</label>
-                        <textarea class="form-control" name="contentCmt" placeholder="Nội dung bình luận..." style="height: 100px;"></textarea>
+                        <textarea class="form-control" name="contentCmt" placeholder="Nội dung bình luận..." style="height: 100px;" required></textarea>
                     </div>
                     <?php if(isset($_SESSION['user'])){ ?>
                     <input type="hidden" value="<?php echo $_SESSION['user']['userId']; ?>" name="userId">
@@ -108,7 +108,7 @@
             for (let i = 0; i <= index; i++) {
                 stars[i].classList.add('active');
             }
-            for (let i = index + 1; i >= 0; i++) {
+            for (let i = index + 1; i <5; i++) {
                 stars[i].classList.remove('active');
             }
         }
