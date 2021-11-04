@@ -3,7 +3,7 @@
         <div class="Name">
             <i class="fa fa-user" aria-hidden="true"></i>
             <span>
-                <h3><?php echo $_SESSION['user']['fullName'] ?></h3>
+                <h3><?php echo  isset($_SESSION['user']['fullName'])?$_SESSION['user']['fullName']:''; ?></h3>
             </span>
         </div>
         <form method="POST" id="form1" action = '../client/profile/edit-infor.php'>

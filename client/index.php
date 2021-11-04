@@ -94,7 +94,7 @@
                                 <div class="cmtText">
                                     <span style="color:black"><?php echo $row['fullName'] ?></span>
                                     <span style="font-size: 80%;"><?php echo $row['date'] ?></span>
-                                    <p>
+                                    <p >
                                         <?php
                                         $rating = $row['rating'];
                                         for ($i = 0; $i < $rating; $i++) {
@@ -105,7 +105,7 @@
                                         }
                                         ?>
                                     </p>
-                                    <p><?php echo $row['comment'] ?></p>
+                                    <p style="user-select:auto"><?php echo $row['comment'] ?></p>
                                 </div>
                             </div>
 

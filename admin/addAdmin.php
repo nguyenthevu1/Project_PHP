@@ -15,7 +15,7 @@ if (isset($_POST['add_admin'])) {
     if (empty($password)) $error['password'] = "Vui lòng nhập trường này!";
     if (empty($phone)) $error['phone'] = "Vui lòng nhập trường này!";
 
-    
+
 
     $select_email = "SELECT * from users where email = '$email'";
     $email_q = mysqli_query($conn, $select_email);
@@ -37,7 +37,7 @@ if (isset($_POST['add_admin'])) {
 
                 if (in_array($ext, $valid_extensions)) {
 
-                    
+
                     $path = $path . strtolower($img);
                     if (move_uploaded_file($tmp, $path)) {
                         $addAdmin = "INSERT into users(email,phone,fullName,password,avatarUser,isAdmin,role,status)
@@ -54,7 +54,6 @@ if (isset($_POST['add_admin'])) {
             mysqli_query($conn, $addAdmin);
 
             header('location: admin-table.php');
-
         } else {
             $error['email'] = 'Email đã tồn tại';
         }

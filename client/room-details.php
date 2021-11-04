@@ -1,6 +1,6 @@
 <?php include 'header.php'; ?>
 
-<div class="container">
+<div class="container" style="margin-bottom: 50px;">
 
   <h1 class="title">Luxirious Suites</h1>
 
@@ -44,69 +44,82 @@
   <!-- RoomCarousel-->
 
   <div class="room-features spacer">
-    <div class="row">
-      <div class="col-sm-12 col-md-5">
-        <?php
+    <?php
+    $sql = "SELECT * FROM product,categories WHERE categories.catId = product.catId and product.productId = $id";
+    $query = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($query);
 
-        $sql = "SELECT * FROM product WHERE product.productId = $id ";
-        $query = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_assoc($query);
-        ?>
-        <p><?php echo $row['content'] ?></p>
-      </div>
-      <div class="col-sm-12 col-md-3">
-        <h4 style="margin-bottom: 10px;"><?php echo $row['level'] ?></h4>
-        <h3><?php echo $row['productName'] ?></h3>
-        <h2>Giá Phòng:</h2>
-        <h4><?php echo number_format($row['price']) . 'VNĐ người/đêm' ?></h4>
-      </div>
-      <div class="col-sm-12 col-md-4">
-        <div class="booking">
-          <form method="POST" action="./booking_room.php">
-            <h4>Đặt Phòng</h4>
-            <div class="form-group" style="width: 260px;">
-              <label for="checkin">Ngày đến</label>
-              <input type="date" class="form-control" id="checkin" name="checkin" required>
-            </div>
-            <div class="form-group" style="width: 260px;">
-              <label for="checkout">Ngày trả</label>
-              <input type="date" class="form-control" id="checkout" name="checkout" required>
-            </div>
-            <?php if(isset($_SESSION['user'])) { ?>
-            <input type="hidden" name="price" id="" value="<?php echo $row['price']?>">
-            <input type="hidden" name="userId" id="" value="<?php echo $_SESSION['user']['userId'];?>">
-            <input type="hidden" name="productId" id="" value="<?php echo $row['productId']?>">
-            <?php } ?>
-            <div class="form-group" style="width: 260px;">
-              <label>Số Người</label>
-              <select class="form-control" name="people" id="people">
-                <option value="1">1 Người</option>
-                <option value="2">2 Người</option>
-                <option value="3">3 Người</option>
-                <option value="4">4 Người</option>
-                <option value="5">5 Người</option>
-              </select>
-            </div>
-            <div class="form-group" style="width: 260px;">
-              <label> Chọn tầng</label>
-              <select class="form-control" name="floor" id="floor">
-                <option value="1">Tầng 1</option>
-                <option value="2">Tầng 2</option>
-                <option value="3">Tầng 3</option>
-                <option value="4">Tầng 4</option>
-                <option value="5">Tầng 5</option>
-                <option value="6">Tầng 6</option>
-                <option value="7">Tầng 7</option>
-                <option value="8">Tầng 8</option>
-                <option value="9">Tầng 9</option>
-                <option value="10">Tầng 10</option>
-              </select>
-            </div>
-            <button type="submit" class="btn btn-default" name="booking">Đặt ngay</button>
-          </form>
+    if ($row['catName'] == 'Phòng ở') {
+    ?>
+      <div class="row">
+
+        <div class="col-sm-12 col-md-5">
+          <p><?php echo $row['content'] ?></p>
+        </div>
+        <div class="col-sm-12 col-md-3">
+          <h4 style="margin-bottom: 10px;"><?php echo $row['level'] ?></h4>
+          <h3><?php echo $row['productName'] ?></h3>
+          <h2>Giá Phòng:</h2>
+          <h4><?php echo number_format($row['price']) . 'VNĐ người/đêm' ?></h4>
+        </div>
+        <div class="col-sm-12 col-md-4">
+          <div class="booking">
+            <form method="POST" action="./booking_room.php">
+              <h4>Đặt Phòng</h4>
+              <div class="form-group" style="width: 260px;">
+                <label for="checkin">Ngày đến</label>
+                <input type="date" class="form-control" id="checkin" name="checkin" required>
+              </div>
+              <div class="form-group" style="width: 260px;">
+                <label for="checkout">Ngày trả</label>
+                <input type="date" class="form-control" id="checkout" name="checkout" required>
+              </div>
+              <?php if (isset($_SESSION['user'])) { ?>
+                <input type="hidden" name="price" id="" value="<?php echo $row['price'] ?>">
+                <input type="hidden" name="userId" id="" value="<?php echo $_SESSION['user']['userId']; ?>">
+                <input type="hidden" name="productId" id="" value="<?php echo $row['productId'] ?>">
+              <?php } ?>
+              <div class="form-group" style="width: 260px;">
+                <label>Số Người</label>
+                <select class="form-control" name="people" id="people">
+                  <option value="1">1 Người</option>
+                  <option value="2">2 Người</option>
+                  <option value="3">3 Người</option>
+                  <option value="4">4 Người</option>
+                  <option value="5">5 Người</option>
+                </select>
+              </div>
+              <div class="form-group" style="width: 260px;">
+                <label> Chọn tầng</label>
+                <select class="form-control" name="floor" id="floor">
+                  <option value="1">Tầng 1</option>
+                  <option value="2">Tầng 2</option>
+                  <option value="3">Tầng 3</option>
+                  <option value="4">Tầng 4</option>
+                  <option value="5">Tầng 5</option>
+                  <option value="6">Tầng 6</option>
+                  <option value="7">Tầng 7</option>
+                  <option value="8">Tầng 8</option>
+                  <option value="9">Tầng 9</option>
+                  <option value="10">Tầng 10</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-default" name="booking">Đặt ngay</button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    <?php } else { ?>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-12">
+          <h2><?php echo $row['productName'] ?></h2>
+          <p><?php echo $row['content'] ?></p>
+        </div>
+      </div>
+      
+    <?php } ?>
+
     <div class="row" style="margin-top: 40px;">
       <h3>Thư viện</h3>
       <?php
@@ -123,5 +136,7 @@
     </div>
   </div>
 
+
 </div>
+
 <?php include 'footer.php'; ?>

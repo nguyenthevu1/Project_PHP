@@ -21,7 +21,7 @@ if (isset($_POST['searchSubmit'])) {
                         <div class="rooms"><img src="<?php echo $path . $row['img'] ?>" class="img-responsive">
                             <div class="info">
                                 <h3><?php echo $row['productName'] ?></h3>
-                                <p><?php echo $row['content'] ?> </p><a href="room-details.php?id=<?php echo $row['productId'] ?>" class="btn btn-default">Check Details</a>
+                                <p><?php echo $row['content'] ?> </p><a href="room-details.php?id=<?php echo $row['productId'] ?>" class="btn btn-default">Xem chi tiết</a>
                             </div>
                         </div>
                     </div>

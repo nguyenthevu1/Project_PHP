@@ -70,7 +70,7 @@ session_start();
 
         <ul class="nav navbar-nav" style="width:750px;position: relative;left: 46px;">
           <li>
-            <form action="search.php" method="POST">
+            <form action="search.php?page=1" method="POST">
                 <div class="search" style="margin-top: 25px;display:flex">
                   <input type="text" class="form-control" name="searchInput" placeholder="Tìm Kiếm Phòng,Sự Kiện..." style="width: 203px;" required>
                   <button name="searchSubmit" class="button"><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -79,8 +79,8 @@ session_start();
           </li>
           <li><a href="index.php">Trang chủ </a></li>
           <li><a href="rooms-tariff.php?page=1">Phòng</a></li>
-          <li><a href="gallery.php">Sự kiện</a></li>
-          <li><a href="dich-vu.php">Dịch vụ</a></li>
+          <li><a href="gallery.php?page=1">Sự kiện</a></li>
+          <li><a href="service.php?page=1">Dịch vụ</a></li>
           <li><a href="introduction.php">Giới thiệu</a></li>
           <li><a href="contact.php">Liên hệ</a></li>
 
@@ -95,7 +95,7 @@ session_start();
                 <img class="img-user" src="<?php
                                             $path = "../admin/";
                                             echo $path . $_SESSION['user']['avatarUser'];
-                                            ?>" style="height: 30px;object-fit:cover">
+                                            ?>" style="height: 35px;width:35px;object-fit:cover">
                 <?php echo $_SESSION['user']['fullName'] ?>
                 
                 
@@ -123,8 +123,6 @@ session_start();
                   <a href="register-users.php">Đăng kí</a>
                 </div>
               
-                
-                
                 <!-- <span class="caret"></span> -->
 
             </div>
