@@ -28,7 +28,7 @@ if (isset($_POST['login'])) {
                 }
                 else{
                     $_SESSION['user'] = $user;
-                    header('location: ../client/index.php');
+                    header('location: ../client/index.php?page=1');
                 }
             } else {
                 $error['notMatchPwd'] = 'sai mật khẩu !';

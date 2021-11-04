@@ -40,7 +40,7 @@ $start = ($page - 1) * $num_per_page;
   </div>
 
   <?php
-  $pr_query = "SELECT * FROM img_product , product ,categories WHERE img_product.productId = product.productId and product.catId = categories.catId and categories.catId  ='9' group by img_product.productId";
+  $pr_query = "SELECT * FROM img_product , product ,categories WHERE img_product.productId = product.productId and product.catId = categories.catId and categories.catId  = 9 group by img_product.productId";
   $pr_result = $conn->query($pr_query);
   $total_record = mysqli_num_rows($pr_result);
 

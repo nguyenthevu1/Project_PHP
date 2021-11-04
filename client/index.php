@@ -33,10 +33,21 @@
         </div>
         <div class="row">
             <?php
+
+            $page = 4;
+
+            if (isset($_GET['page'])) {
+                $page_current = $_GET['page'];
+            } else {
+                $page_current = 1;
+            }
+
+            $limit = ($page * $page_current);
+
             $selectProduct = "SELECT * from img_product, product,categories WHERE categories.catId =product.catId and 
 													product.productId = img_product.productId and 
 													categories.catName= 'Phòng ở'
-													group by img_product.productId";
+													group by img_product.productId limit 0,$limit";
             $queryProduct = mysqli_query($conn, $selectProduct);
 
             $path = '../admin/';
@@ -49,7 +60,7 @@
                             <div class="item active"><img src="<?php echo $path . $row['img'] ?>" class="img-responsive" alt="slide" style="width:555px;height:313px;object-fit:cover"></div>
                             <?php
                             $id_pro = $row['productId'];
-                            $select_img_product = "SELECT * FROM img_product where productId = '$id_pro' limit 1,10";
+                            $select_img_product = "SELECT * FROM img_product where productId = '$id_pro' limit 1,15";
                             $img_product = mysqli_query($conn, $select_img_product);
                             while ($row_img = mysqli_fetch_assoc($img_product)) {
                             ?>
@@ -62,14 +73,30 @@
                     </div>
                     <!-- RoomCarousel-->
                     <div class="caption">
-                    <h5 style=" font-size: 16px;color: black;margin-bottom: 10px;"><?php echo $row['level'] ?></h5>
-                            <h3><?php echo $row['productName'] ?></h3>
-                            <h4><?php echo number_format($row['price']) . 'VNĐ' ?></h4>
+                        <h5 style=" font-size: 16px;color: black;margin-bottom: 10px;"><?php echo $row['level'] ?></h5>
+                        <h3><?php echo $row['productName'] ?></h3>
+                        <h4><?php echo number_format($row['price']) . 'VNĐ' ?></h4>
                         <a href="room-details.php?id=<?php echo $row['productId'] ?>" class="pull-right">
                             <button class="btn btn-warning book-now" style="height:38px;border-radius: 15px; background-color:rgb(253,126,20);margin-top:-75px">Đặt ngay</button>
                         </a>
                     </div>
                 </div>
+            <?php } ?>
+        </div>
+        <div class="text-center">
+            <?php
+            $select_product = "SELECT * FROM product,categories where categories.catId = product.catId 
+                                        and categories.catName = 'Phòng ở'";
+            $count_product = mysqli_query($conn, $select_product);
+
+            $count = mysqli_num_rows($count_product);
+            $page_next = ceil($count / $page);
+            if ($page_current < $page_next) {
+
+            ?>
+                <a href="index.php?page=<?php echo($page_current + 1) ?>"><button class="btn btn-default">Xem thêm</button></a>
+            <?php } else { ?>
+               <button class="btn btn-default">Xem thêm</button>
             <?php } ?>
         </div>
     </div>
@@ -85,6 +112,8 @@
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
                             <?php
+
+
                             $sql = "SELECT * FROM comment,users WHERE comment.userId = users.userId ";
                             $result = mysqli_query($conn, $sql);
                             $row = mysqli_fetch_assoc($result)
@@ -94,7 +123,7 @@
                                 <div class="cmtText">
                                     <span style="color:black"><?php echo $row['fullName'] ?></span>
                                     <span style="font-size: 80%;"><?php echo $row['date'] ?></span>
-                                    <p >
+                                    <p>
                                         <?php
                                         $rating = $row['rating'];
                                         for ($i = 0; $i < $rating; $i++) {
@@ -105,7 +134,7 @@
                                         }
                                         ?>
                                     </p>
-                                    <p style="user-select:auto"><?php echo $row['comment'] ?></p>
+                                    <p><?php echo $row['comment'] ?></p>
                                 </div>
                             </div>
 
