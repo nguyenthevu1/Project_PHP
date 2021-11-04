@@ -21,9 +21,7 @@ if (isset($_POST['login'])) {
         if ($user['status'] == 1) {
             $passVerify = password_verify($password, $user['passWord']);
             if ($passVerify) {
-                $_SESSION['users'] = $user;
-
-                if( $_SESSION['users']['isAdmin'] == 1) {
+                if( $user['isAdmin'] == 1) {
                     $_SESSION['admin'] = $user;
                     $_SESSION['isAdmin'] = 'isAdmin';
                     header('location: index.php');

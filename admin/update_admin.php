@@ -29,26 +29,22 @@ if (isset($_POST['update_admin'])) {
         if (in_array($ext, $valid_extensions)) {
             $path = $path . strtolower($img);
             if (move_uploaded_file($tmp, $path)) {
-                $update = "UPDATE admin set email = '$email',fullName = '$fullName',avatarAdmin='$path' where adminId = '$id'";
+                $update = "UPDATE uses set email = '$email',fullName = '$fullName',avatarUser='$path' where userId = '$id'";
             }
         } else {
             $error['file'] = 'file không đúng định dạng';
         }
     } else {
 
-        $update = "UPDATE admin set email = '$email',fullName = '$fullName' where adminId = '$id'";
+        $update = "UPDATE users set email = '$email',fullName = '$fullName' where userId = '$id'";
     }
 
-    $selectImg = "SELECT * FROM admin where adminId = '$id'";
+    $selectImg = "SELECT * FROM users where userId = '$id'";
     $update_img = mysqli_query($conn, $selectImg);
     $admin = mysqli_fetch_assoc($update_img);
-
-    if ($update_img) {
-        $_SESSION['admin'] = $admin;
-    }
-
+    
     if (mysqli_query($conn, $update)) {
-        
+        $_SESSION['admin'] = $admin;
         header('location: admin-table.php');
     }
 }
@@ -69,7 +65,7 @@ if (isset($_POST['update_admin'])) {
             <?php
             if (isset($_GET['id'])) {
                 $id = $_GET['id'];
-                $select_update = "SELECT * from admin where adminId = '$id'";
+                $select_update = "SELECT * from users where userId = '$id'";
                 $update = mysqli_query($conn, $select_update);
                 while ($row = mysqli_fetch_assoc($update)) {
 
@@ -87,12 +83,12 @@ if (isset($_POST['update_admin'])) {
                         </div>
                         <div class="mb-3 ">
                             <div id="preview">
-                                <img src="<?php echo $row['avatarAdmin']; ?>" alt="">
+                                <img src="<?php echo $row['avatarUser']; ?>" alt="">
                             </div>
                             <input type="file" class="form-control" id="file" name="file">
                             <div class="form-text"><?php echo isset($error['file']) ? $error['file'] : ''; ?></div>
                         </div>
-                        <input type="hidden" class="form-control" id="file" name="id" value="<?php echo $row['adminId']; ?>">
+                        <input type="hidden" class="form-control" id="file" name="id" value="<?php echo $row['userId']; ?>">
                         <?Php
                         if ($_SESSION['admin']['role'] == 1) {
                             echo '<button type="submit" class="btn btn-primary" name="update_admin">Cập nhật</button>';

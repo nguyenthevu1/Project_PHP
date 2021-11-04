@@ -1,8 +1,9 @@
 <?php
 session_start();
-if (!$_SESSION['isAdmin'] == 'isAdmin') {
+if (!isset($_SESSION['isAdmin']) || !isset($_SESSION['admin'])) {
     header('location: login.php');
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
