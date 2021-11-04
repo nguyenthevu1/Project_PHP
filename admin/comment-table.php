@@ -9,6 +9,7 @@ include_once('./layout/header.php');
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Họ Tên</th>
+                <th scope="col">Số điện thoại</th>
                 <th scope="col">Số sao</th>
                 <th scope="col">Nội dung</th>
                 <th scope="col">Thời gian</th>
@@ -26,6 +27,7 @@ include_once('./layout/header.php');
                 <tr>
                     <td><?php echo $i; ?></td>
                     <td><?php echo $row['fullName']; ?></td>
+                    <td><?php echo $row['phone']; ?></td>
                     <td><?php echo $row['rating']; ?></td>
                     <td><?php echo $row['comment']; ?></td>
                     <td><?php echo $row['date']; ?></td>

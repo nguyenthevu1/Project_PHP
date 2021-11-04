@@ -10,9 +10,9 @@ require('../db/config.php');
 
 <div class="content-body">
     <!-- row -->
-    <div class="container-fluid" >
+    <div class="container-fluid">
         <div class="row" style="margin-top: 30px;">
-            <div class="col-lg-3 col-sm-6" >
+            <div class="col-lg-3 col-sm-6">
                 <div class="card" style="height:150px;">
                     <div class="stat-widget-two card-body">
                         <div class="stat-content">
@@ -73,9 +73,9 @@ require('../db/config.php');
                         <div class="stat-content">
                             <div class="stat-text">Số lượng người dùng</div>
                             <?php
-                                $sql = "SELECT * from users";
-                                $select_user = mysqli_query($conn,$sql);
-                                $count_user = mysqli_num_rows($select_user);
+                            $sql = "SELECT * from users where isAdmin = 0";
+                            $select_user = mysqli_query($conn, $sql);
+                            $count_user = mysqli_num_rows($select_user);
                             ?>
                             <div class="stat-digit"><?php echo $count_user; ?></div>
                         </div>
@@ -100,6 +100,6 @@ require('../db/config.php');
         ***********************************-->
     </div>
 </div>
-    <?php
-    include_once('./layout/footer.php');
-    ?>
+<?php
+include_once('./layout/footer.php');
+?>

@@ -32,7 +32,7 @@ $start = ($page - 1) * $num_per_page;
             <h5 style=" font-size: 16px;color: black;margin-bottom: 10px;"><?php echo $row['level'] ?></h5>
             <h3><?php echo $row['productName'] ?></h3>
             <h4><?php echo number_format($row['price']) . 'VNĐ' ?></h4>
-            <p><?php echo $row['content'] ?> </p><a href="room-details.php?id=<?php echo $row['productId'] ?>" class="btn btn-default">Đặt Ngay</a>
+            <p class='content'><?php echo $row['content'] ?> </p><a href="room-details.php?id=<?php echo $row['productId'] ?>" class="btn btn-default">Đặt Ngay</a>
           </div>
         </div>
       </div>
@@ -40,7 +40,7 @@ $start = ($page - 1) * $num_per_page;
   </div>
 
   <?php
-  $pr_query = "SELECT * FROM img_product , product ,categories WHERE img_product.productId = product.productId and product.catId = categories.catId and categories.catId  ='9' group by img_product.productId";
+  $pr_query = "SELECT * FROM img_product , product ,categories WHERE img_product.productId = product.productId and product.catId = categories.catId and categories.catId  = 9 group by img_product.productId";
   $pr_result = $conn->query($pr_query);
   $total_record = mysqli_num_rows($pr_result);
 

@@ -26,10 +26,10 @@ if (isset($_POST['edit_picture'])) {
             $path = $path . strtolower($final_img);
 
             if (move_uploaded_file($tmp, $path)) {
-                $update = "UPDATE admin set avatarAdmin='$path' where adminId = '$id'";
+                $update = "UPDATE users set avatarAdmin='$path' where adminId = '$id'";
                 $update_picture = mysqli_query($conn,$update);
 
-                $select_img = "SELECT * from admin where adminId = '$id'";
+                $select_img = "SELECT * from users where userId = '$id'";
                 $img_admin = mysqli_query($conn,$select_img);
                 $admin = mysqli_fetch_assoc($img_admin);
 

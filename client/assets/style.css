@@ -219,6 +219,16 @@ p{margin-bottom: 1em;line-height: 1.5em;}
     margin-bottom: 20px;
 }
 
+.formEdit.active{
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+}
+
+.fa.plus{
+    padding-left: 20px;
+    cursor: pointer;
+}
 /* booking room */
 .booking{
     position: relative;
