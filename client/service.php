@@ -30,7 +30,7 @@ $start = ($page - 1) * $num_per_page;
         <div class="rooms"><img src="<?php echo $path . $row['img'] ?>" class="img-responsive">
           <div class="info">
             <h3><?php echo $row['productName'] ?></h3>
-            <p><?php echo $row['content'] ?>
+            <p><?php echo $row['content'] ?> </p><a href="room-details.php?id=<?php echo $row['productId'] ?>" class="btn btn-default">Xem chi tiết</a>
           </div>
         </div>
       </div>
@@ -46,13 +46,13 @@ $start = ($page - 1) * $num_per_page;
   echo "<div class='text-center'>
     <ul class='pagination'>";
   if ($page > 1) {
-    echo "<li><a href='dich-vu.php?page=" . ($page - 1) . "'>«</a></li>";
+    echo "<li><a href='service.php?page=" . ($page - 1) . "'>«</a></li>";
   }
   for ($i = 1; $i <= $total_page; $i++) {
-    echo "<li class='active'><a href='dich-vu.php?page=$i'> $i <span class='sr-only'>(current)</span></a></li>";
+    echo "<li class='active'><a href='service.php?page=$i'> $i <span class='sr-only'>(current)</span></a></li>";
   }
   if ($page < $total_page) {
-    echo "<li><a href='dich-vu.php?page=" . ($page + 1) . "'>»</a></li>";
+    echo "<li><a href='service.php?page=" . ($page + 1) . "'>»</a></li>";
   }
   echo "</ul>";
   echo "</div>";

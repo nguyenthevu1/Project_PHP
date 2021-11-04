@@ -86,7 +86,7 @@ if (!$_SESSION['user']) {
                 <img class="img-user" src="<?php
                                             $path = "../../admin/";
                                             echo $path . $_SESSION['user']['avatarUser'];
-                                            ?>" style="height: 40px;width:40px;object-fit:cover">
+                                            ?>" style="height: 35px;width:35px;object-fit:cover">
                 <?php echo $_SESSION['user']['fullName'] ?>
                 <!-- <span class="caret"></span> -->
               </button>

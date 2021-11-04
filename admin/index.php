@@ -71,8 +71,13 @@ require('../db/config.php');
                 <div class="card" style="height:150px;">
                     <div class="stat-widget-two card-body">
                         <div class="stat-content">
-                            <div class="stat-text">Task Completed</div>
-                            <div class="stat-digit">650</div>
+                            <div class="stat-text">Số lượng người dùng</div>
+                            <?php
+                                $sql = "SELECT * from users";
+                                $select_user = mysqli_query($conn,$sql);
+                                $count_user = mysqli_num_rows($select_user);
+                            ?>
+                            <div class="stat-digit"><?php echo $count_user; ?></div>
                         </div>
                     </div>
                 </div>

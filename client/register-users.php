@@ -11,6 +11,7 @@ if (isset($_POST['btnRegister'])) {
   $queryDb = mysqli_query($conn, $takeEmail);
   $checkEmail = mysqli_num_rows($queryDb);
   $err = [];
+
   if (empty($name)) {
     $err['emptyName'] = "Bạn chưa nhập tên của mình";
   }
@@ -29,12 +30,17 @@ if (isset($_POST['btnRegister'])) {
   if (empty($phone)) {
     $err['emptyPhone'] = 'Bạn chưa nhập số điện thoại';
   }
+
   if (empty($err)) {
+
     $hashpwd = password_hash($pwd, PASSWORD_DEFAULT);
     $vkey = md5(time() . $name);
     $path = '../admin/uploads/incognito.png';
-    $sql = "INSERT INTO users(email,phone , passWord,fullname,avatarUser,vkey) VALUES('$email','$phone' , '$hashpwd' , '$name','$path','$vkey')";
+    $sql = "INSERT INTO users(email,phone , passWord,fullname,avatarUser,vkey) 
+            VALUES('$email','$phone' , '$hashpwd' , '$name','$path','$vkey')";
+
     $query = mysqli_query($conn, $sql);
+
     if ($query) {
       header('location:../admin/login.php');
 
@@ -181,7 +187,7 @@ if (isset($_POST['btnRegister'])) {
                       </div>
                     </div>
 
-                  
+
 
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>

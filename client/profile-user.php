@@ -1,5 +1,6 @@
 <?php include 'header.php';
 $path = '../admin/';
+
 ?>
 <div class="container">
     <div class="profile">
@@ -8,15 +9,16 @@ $path = '../admin/';
                 <div class="img_profile">
                     <div class="first-left">
                         <div class="picture_user">
-                            <img src="<?php echo $path . $_SESSION['user']['avatarUser'] ?>" alt="">
+                            <img src="<?php echo  isset($_SESSION['user']['avatarUser'])?$path .$_SESSION['user']['avatarUser']:''; ?>" alt="">
                             <form action="update_avatar.php" method="POST" style="margin-top:10px;" id="formChange" enctype="multipart/form-data">
-                                <input type="file" id="file" name="file">
-                                <input type="hidden" name="id" value="<?php echo $_SESSION['user']['userId']; ?>">
+                                <input type="file" id="file" name="file" style="width: 250px;">
+                                <input type="hidden" name="id" value="<?php isset($_SESSION['user']['userId'])?$_SESSION['user']['userId']:'';; ?>" >
                                 <button type="submit" name="changeImg">lưu</button>
                             </form>
                         </div>
-                        <div class="user_name"><span><?php echo $_SESSION['user']['fullName'] ?></span>
-                            <p><?php echo $_SESSION['user']['phone'] ?></p>
+                        <div class="user_name"><span><?php echo isset($_SESSION['user']['fullName'])?$_SESSION['user']['fullName']:''; ?></span>
+                            
+                            <p><?php echo isset($_SESSION['user']['phone'])?$_SESSION['user']['phone']:''; ?></p>
                         </div>
                     </div>
                     <a href="profile-user.php?route=order">
