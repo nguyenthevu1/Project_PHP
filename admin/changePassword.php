@@ -15,18 +15,24 @@ include('./layout/header.php');
             <form method="POST" action="./process-change.php" enctype="multipart/form-data" style="color:black;">
                 <div class="mb-3">
                     <label for="currentPass" class="form-label">Mật khẩu hiện tại</label>
-                    <input type="password" class="form-control" id="currentPass" name="currentPass" placeholder="Nhập mật khẩu hiện tại" required>
-                    <div class="form-text"><?php echo isset($error['currentPass']) ? $error['currentPass'] : ''; ?></div>
+                    <input type="password" class="form-control" id="currentPass" name="currentPass" placeholder="Nhập mật khẩu hiện tại">
+                    <div class="form-text"><?php echo isset($_SESSION['currentPass']) ? $_SESSION['currentPass'] : ''; 
+                                            unset($_SESSION['currentPass']);
+                    ?></div>
                 </div>
                 <div class="mb-3">
                     <label for="newPass" class="form-label">Mật khẩu mới</label>
-                    <input type="password" class="form-control" id="newPass" name="newPass" placeholder="Nhập mật khẩu mới" required>
-                    <div class="form-text"><?php echo isset($error['newPass']) ? $error['newPass'] : ''; ?></div>
+                    <input type="password" class="form-control" id="newPass" name="newPass" placeholder="Nhập mật khẩu mới">
+                    <div class="form-text"><?php echo isset($_SESSION['newPass']) ? $_SESSION['newPass'] : ''; 
+                    unset($_SESSION['newPass'])
+                    ?></div>
                 </div>
                 <div class="mb-3">
                     <label for="confirmPass" class="form-label">xác nhận lại mật khẩu</label>
-                    <input type="password" class="form-control" id="confirmPass" name="confirmPass" placeholder="Xác nhận mật khẩu" required>
-                    <div class="form-text"><?php echo isset($error['confirmPass']) ? $error['confirmPass'] : ''; ?></div>
+                    <input type="password" class="form-control" id="confirmPass" name="confirmPass" placeholder="Xác nhận mật khẩu">
+                    <div class="form-text"><?php echo isset($_SESSION['confirmPass']) ? $_SESSION['confirmPass'] : ''; 
+                    unset($_SESSION['confirmPass'])
+                    ?></div>
                 </div>
                 <?php
                 if (isset($_GET['id'])) {
