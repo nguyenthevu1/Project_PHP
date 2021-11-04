@@ -146,10 +146,12 @@ if (!isset($_SESSION['isAdmin']) || !isset($_SESSION['admin'])) {
                             <li><a href="./addCategories.php">Thêm danh mục</a></li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-shop"></i><span class="nav-text">Dịch vụ</span></a>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-shop"></i><span class="nav-text">Sản phẩm</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="./room-table.php">Danh sách dịch vụ</a></li>
-                            <li><a href="./addRoom.php">Thêm dịch vụ</a></li>
+                            <li><a href="./room-table.php">Danh sách phòng</a></li>
+                            <li><a href="./event-table.php">Danh sách sự kiện</a></li>
+                            <li><a href="./service-table.php">Danh sách dịch vụ</a></li>
+                            <li><a href="./addProduct.php">Thêm sản phẩm</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-cart2"></i><span class="nav-text">Đơn hàng</span></a>

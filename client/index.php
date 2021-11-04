@@ -112,10 +112,10 @@
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
                             <?php
-
-
                             $sql = "SELECT * FROM comment,users WHERE comment.userId = users.userId ";
                             $result = mysqli_query($conn, $sql);
+                            if(mysqli_num_rows($result) > 0) {
+
                             $row = mysqli_fetch_assoc($result)
                             ?>
                             <div class="text-center cmt">
@@ -137,10 +137,11 @@
                                     <p><?php echo $row['comment'] ?></p>
                                 </div>
                             </div>
+                            <?php } ?>
 
                         </div>
                         <?php
-                        $sql = "SELECT * FROM comment,users WHERE comment.userId = users.userId LIMIT 1,10";
+                        $sql = "SELECT * FROM comment,users WHERE comment.userId = users.userId LIMIT 1,50";
                         $result = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_assoc($result)) {
 

@@ -73,7 +73,7 @@ require('../db/config.php');
                         <div class="stat-content">
                             <div class="stat-text">Số lượng người dùng</div>
                             <?php
-                            $sql = "SELECT * from users";
+                            $sql = "SELECT * from users where isAdmin = 0";
                             $select_user = mysqli_query($conn, $sql);
                             $count_user = mysqli_num_rows($select_user);
                             ?>
