@@ -1,8 +1,6 @@
 <?php
-// include('./layout/header.php');
 require('../db/config.php');
 session_start();
-$error = [];
 if (isset($_POST['update_pass'])) {
 
     $currentPass = $_POST['currentPass'];
@@ -10,31 +8,45 @@ if (isset($_POST['update_pass'])) {
     $confirmPass = $_POST['confirmPass'];
     $id = $_POST['id'];
 
-    if (empty($currentPass)) $error['currentPass'] = "Vui lòng nhập trường này!";
-    if (empty($newPass)) $error['newPass'] = "Vui lòng nhập trường này!";
-    if (empty($confirmPass)) $error['confirmPass'] = "Vui lòng nhập trường này!";
+    if (empty($currentPass)){
+        $_SESSION['currentPass'] = "Vui lòng nhập trường này!";
+        header('location: changePassword.php?id='.$id);
+    } 
 
-    $select_pass = "SELECT * from admin where adminId = '$id'";
+    if (empty($newPass)){
+        $_SESSION['newPass'] = "Vui lòng nhập trường này!";
+        header('location: changePassword.php?id='.$id);
+    } 
+    if (empty($confirmPass)){
+        $_SESSION['confirmPass'] = "Vui lòng nhập trường này!";
+        header('location: changePassword.php?id='.$id);
+    } 
+
+    $select_pass = "SELECT * from users where userId = '$id'";
+
     $forgotPas = mysqli_query($conn, $select_pass);
+
     $pass_hash = mysqli_fetch_assoc($forgotPas);
 
-    if (password_verify($currentPass, $pass_hash['password'])) {
+    if (password_verify($currentPass, $pass_hash['passWord'])) {
         if ($currentPass != '' && $newPass != '' && $confirmPass != '') {
             if($newPass === $confirmPass) {
                 $hasPwd = password_hash($newPass, PASSWORD_DEFAULT);
-                $changePass = "UPDATE admin set password = '$hasPwd' where adminId='$id'";
+                $changePass = "UPDATE users set password = '$hasPwd' where userId='$id'";
                 mysqli_query($conn,$changePass);
-                if($_SESSION['admin']['adminId'] == $id){
+                if($_SESSION['admin']['userId'] == $id){
                     unset($_SESSION['admin']);
                 }
                 header('location: login.php');
             }
             else{
-                $error['confirmPass'] = "Vui lòng nhập lại!";
+                $_SESSION['confirmPass'] = "Vui lòng nhập lại!";
+                header('location: changePassword.php?id='.$id);
             }
         } 
     } else {
-        $error['currentPass'] = 'Mật khẩu sai!';
+        $_SESSION['currentPass'] = 'Mật khẩu sai!';
+        header('location: changePassword.php?id='.$id);
     }
 }
 
