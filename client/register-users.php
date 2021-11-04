@@ -100,7 +100,7 @@ if (isset($_POST['btnRegister'])) {
   
         //Read an HTML message body from an external file, convert referenced images to embedded,
         //convert HTML into a basic plain-text alternative body
-        $mail->msgHTML("<a href='http://localhost/project_BTL/project_PHP/client/verification.php?vkey=$vkey'>Click here to verification Email</a>");
+        $mail->msgHTML("<a href='http://localhost/folder/project_PHP/client/verification.php?vkey=$vkey'>Click here to verification Email</a>");
   
         //Replace the plain text body with one created manually
         // $mail->AltBody = 'This is a plain-text message body';
@@ -122,7 +122,7 @@ if (isset($_POST['btnRegister'])) {
 
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="en" >
 
 <head>
   <!-- Required meta tags -->
@@ -146,9 +146,9 @@ if (isset($_POST['btnRegister'])) {
   </style>
 </head>
 
-<body>
+<body >
   <!-- Form đăng kí -->
-  <section class="vh-100" style="background-color: #eee;">
+  <section class="vh-100" style="background-image: url(./images/photos/banner.jpg);">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-lg-12 col-xl-11">
@@ -188,7 +188,7 @@ if (isset($_POST['btnRegister'])) {
                     </div>
 
 
-
+                    <img src="" alt="">
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">

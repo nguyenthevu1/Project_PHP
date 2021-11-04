@@ -22,9 +22,9 @@ $path = '../admin/'; ?>
                 <div class="col-lg-4 col-md-4 col-sm-4">
                     <div class="img_profile">
                         <div class="first-left">
-                            <div class="picture_user"><img src="<?php echo $_SESSION['user']['avatarUser'] ?>" alt=""></div>
-                            <div class="user_name"><span><?php echo $_SESSION['user']['fullName'] ?></span>
-                                <!-- <p><?php echo $_SESSION['user']['phone'] ?></p> -->
+                            <div class="picture_user"><img src="<?php echo $_SESSION['admin']['avatarUser'] ?>" alt=""></div>
+                            <div class="user_name"><span><?php echo $_SESSION['admin']['fullName'] ?></span>
+                                <!-- <p><?php echo $_SESSION['admin']['phone'] ?></p> -->
                             </div>
                         </div>
                         <a href="app-profile.php?route=editPicture">
