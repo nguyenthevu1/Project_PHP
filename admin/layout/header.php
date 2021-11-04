@@ -93,7 +93,7 @@ if (!isset($_SESSION['isAdmin']) || !isset($_SESSION['admin'])) {
                         <ul class="navbar-nav header-right">
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <img class="avatar" src="<?php echo $_SESSION['admin']['avatarUser']; ?>" alt="">
+                                    <img class="avatar" src="<?php echo $_SESSION['admin']['avatarUser']; ?>" alt="" style="object-fit: cover;">
                                     <span><?php echo $_SESSION['admin']['fullName']; ?></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" style="margin-top: -11px;">

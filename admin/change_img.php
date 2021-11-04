@@ -19,14 +19,14 @@ if (isset($_POST['edit_picture'])) {
 
 
         $ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
-        $final_img = rand(1,100).$img ;
 
 
         if (in_array($ext, $valid_extensions)) {
-            $path = $path . strtolower($final_img);
+            $path = $path . strtolower($img);
 
             if (move_uploaded_file($tmp, $path)) {
-                $update = "UPDATE users set avatarAdmin='$path' where adminId = '$id'";
+
+                $update = "UPDATE users set avatarUser= '$path' where userId = '$id'";
                 $update_picture = mysqli_query($conn,$update);
 
                 $select_img = "SELECT * from users where userId = '$id'";

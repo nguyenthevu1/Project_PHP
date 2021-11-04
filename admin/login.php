@@ -58,7 +58,7 @@ if (isset($_POST['login'])) {
 
 </head>
 
-<body class="h-100">
+<body class="h-100" style="background-image: url(../admin/uploads/banner.jpg    );">
     <div class="authincation h-100">
         <div class="container-fluid h-100">
             <div class="row justify-content-center h-100 align-items-center">
