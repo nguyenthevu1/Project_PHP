@@ -24,7 +24,7 @@
             <h5 style=" font-size: 16px;color: black;margin-bottom: 10px;"><?php echo $row['level'] ?></h5>
             <h3><?php echo $row['productName'] ?></h3>
             <h4><?php echo number_format($row['price']) . 'VNĐ' ?></h4>
-            <p><?php echo $row['content'] ?> </p><a href="room-details.php?id=<?php echo $row['productId'] ?>" class="btn btn-default">Đặt Ngay</a>
+            <p class="content"><?php echo $row['content'] ?> </p><a href="room-details.php?id=<?php echo $row['productId'] ?>" class="btn btn-default">Đặt Ngay</a>
           </div>
         </div>
       </div>
@@ -33,7 +33,7 @@
 
   <div class="text-center">
     <div class="pagination">
-        <a href="rooms-tariff.php?page=1?>"><button class="btn btn-default">Xem thêm</button></a>
+        <a href="rooms-tariff.php?page=1"><button class="btn btn-default">Xem thêm</button></a>
     </div>
   </div>
 

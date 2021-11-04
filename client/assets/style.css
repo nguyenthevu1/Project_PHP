@@ -57,7 +57,15 @@ p{margin-bottom: 1em;line-height: 1.5em;}
 /* .carousel img{width: 100%;} */
 
 /* logout */
+/* content product */
 
+.content{
+    height: 43px;
+    overflow: hidden;    
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
 
 .button{
     background-color: rgb(13,110,253);
