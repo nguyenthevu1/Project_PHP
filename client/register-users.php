@@ -36,7 +36,7 @@ if (isset($_POST['btnRegister'])) {
     $sql = "INSERT INTO users(email,phone , passWord,fullname,avatarUser,vkey) VALUES('$email','$phone' , '$hashpwd' , '$name','$path','$vkey')";
     $query = mysqli_query($conn, $sql);
     if ($query) {
-      header('location:login-users.php');
+      header('location:../admin/login.php');
 
         //send email
         $name = $_POST['name'];
@@ -94,7 +94,7 @@ if (isset($_POST['btnRegister'])) {
   
         //Read an HTML message body from an external file, convert referenced images to embedded,
         //convert HTML into a basic plain-text alternative body
-        $mail->msgHTML("<a href='http://localhost/folder/project_PHP/client/verification.php?vkey=$vkey'>Click here to verification Email</a>");
+        $mail->msgHTML("<a href='http://localhost/project_BTL/project_PHP/client/verification.php?vkey=$vkey'>Click here to verification Email</a>");
   
         //Replace the plain text body with one created manually
         // $mail->AltBody = 'This is a plain-text message body';

@@ -46,8 +46,11 @@
                         <label for="exampleInputEmail1">Bình luận</label>
                         <textarea class="form-control" name="contentCmt" placeholder="Nội dung bình luận..." style="height: 100px;"></textarea>
                     </div>
+                    <?php if($_SESSION['user']){ ?>
                     <input type="hidden" value="<?php echo $_SESSION['user']['userId']; ?>" name="userId">
                     <button type="submit" class="btn btn-default" name="comment">Đăng bình luận</button>
+                    <?php } ?>
+                    
                 </form>
             </div>
         </div>

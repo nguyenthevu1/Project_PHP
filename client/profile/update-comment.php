@@ -3,13 +3,19 @@ require 'header2.php';
 $updateCmtId = $_GET['cmtId'];
 if (isset($_POST['contentCmt'])) {
     $newContent = $_POST['contentCmt'];
-    $rating = $_POST['rating'];
-    $sql = "UPDATE comment SET comment = '$newContent',rating = '$rating' WHERE cmtId = $updateCmtId ";
-    $query = $conn->query($sql);
-    if ($query) {
-        echo 'Sửa đổi thành công';
-    } else {
-        echo "Sủa đổi thất bại";
+    
+    if(isset($_POST['rating'])){
+        $rating = $_POST['rating'];
+        $sql = "UPDATE comment SET comment = '$newContent',rating = '$rating' WHERE cmtId = $updateCmtId ";
+        $query = $conn->query($sql);
+        if ($query) {
+            echo 'Sửa đổi thành công';
+        } else {
+            echo "Sủa đổi thất bại";
+        }
+    }
+    else{
+        echo "<p class ='danger'>Bạn chưa đánh giá sao</p>";
     }
 }
 $sql2 = "SELECT comment,rating from comment WHERE cmtId = $updateCmtId";
