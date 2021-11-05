@@ -32,7 +32,7 @@
                         <tr>
                             <td><?php echo $i; ?></td>
                             <td><?php echo $row['fullName'] ?></td>
-                            <td><?php echo $row['rating``'] ?></td>
+                            <td><?php echo $row['rating'] ?></td>
                             <td><?php echo $row['comment'] ?></td>
 
                             <td class="action">

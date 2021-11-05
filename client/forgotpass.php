@@ -40,7 +40,7 @@ session_start();
                                             unset($_SESSION['errorEmail']);
                                             ?> </span>
                 </div>
-                <button type="submit" name="forgot" class="btn btn-success">Đổi mật khẩu</button>
+                <button type="submit" name="forgot" class="btn btn-success">Lấy lại mật khẩu</button>
             </form>
             <div>
                 <p class="mt-3">Bạn chưa có tài khoản?<a href="./register-users.php">Đăng ký</a></p>
