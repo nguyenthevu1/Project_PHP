@@ -13,7 +13,7 @@ if (isset($_POST['edit_picture'])) {
     if ($tmp != '') {
 
         $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp', 'pdf', 'doc', 'ppt');
-        $path = 'uploads/';
+        $path = '../admin/uploads/';
 
         $img = $_FILES['file']['name'] ? $_FILES['file']['name'] : '';
 

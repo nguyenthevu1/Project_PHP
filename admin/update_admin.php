@@ -18,7 +18,7 @@ if (isset($_POST['update_admin'])) {
         $tmp = $_FILES['file']['tmp_name'];
 
         $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp', 'pdf', 'doc', 'ppt');
-        $path = 'uploads/';
+        $path = '../admin/uploads/';
         $img = $_FILES['file']['name'] ? $_FILES['file']['name'] : '';
         $ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
 
