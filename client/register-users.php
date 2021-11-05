@@ -87,20 +87,20 @@ if (isset($_POST['btnRegister'])) {
         $mail->Password = "baazbgbjxxlcotyt";
   
         //Set who the message is to be sent from
-        $mail->setFrom('satthumaulanh2001@gmail.com', 'Send email');
+        $mail->setFrom('satthumaulanh2001@gmail.com', 'Khach san Holiday Crown');
   
         //Set an alternative reply-to address
-        $mail->addReplyTo('satthumaulanh2001@gmail.com', 'second Last');
+        $mail->addReplyTo('satthumaulanh2001@gmail.com', 'xac minh tai khoan');
   
         //Set who the message is to be sent to
         $mail->addAddress($email, $name);
   
         //Set the subject line
-        $mail->Subject = "My automatic send email";
+        $mail->Subject = "Xac minh tai khoan";
   
         //Read an HTML message body from an external file, convert referenced images to embedded,
         //convert HTML into a basic plain-text alternative body
-        $mail->msgHTML("<a href='http://localhost/folder/project_PHP/client/verification.php?vkey=$vkey'>Click here to verification Email</a>");
+        $mail->msgHTML("<a href='http://localhost/project_BTL/project_PHP/client/verification.php?vkey=$vkey'>Click here to verification Email</a>");
   
         //Replace the plain text body with one created manually
         // $mail->AltBody = 'This is a plain-text message body';
