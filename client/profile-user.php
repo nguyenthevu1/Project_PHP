@@ -12,7 +12,7 @@ $path = '../admin/';
                             <img src="<?php echo  isset($_SESSION['user']['avatarUser'])?$path .$_SESSION['user']['avatarUser']:''; ?>" alt="">
                             <form action="update_avatar.php" method="POST" style="margin-top:10px;" id="formChange" enctype="multipart/form-data">
                                 <input type="file" id="file" name="file" style="width: 250px;">
-                                <input type="hidden" name="id" value="<?php isset($_SESSION['user']['userId'])?$_SESSION['user']['userId']:'';; ?>" >
+                                <input type="hidden" name="id" value="<?php echo isset($_SESSION['user']['userId'])?$_SESSION['user']['userId']:''; ?>" >
                                 <button type="submit" name="changeImg">lưu</button>
                             </form>
                         </div>
