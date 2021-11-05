@@ -11,7 +11,7 @@
             rel="stylesheet"
             integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
             crossorigin="anonymous">
-
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <title>Hello, world!</title>
     </head>
     <body>
@@ -26,7 +26,12 @@ if(isset($_GET['vkey'])){
         $update = "UPDATE users SET status = 1 WHERE vkey = '$vkey' LIMIT 1";
         $querydb = mysqli_query($conn , $update);
         if($querydb){
-            echo "Your account have been verified";
+          
+            echo'<div class="container text-center mt-5">
+                    <h6>Đã đăng ký tài khoản thành công</h6>
+                    <p>Vui lòng bấm vào link bên dưới để về trang đăng nhập</p>
+                    <button class="btn btn-success"><h6><a href="../admin/login.php" style="text-decoration: none; color:white;">Quay về trang đăng nhập</a></h6></button>
+                </div> ' ;
         }
         
     }
