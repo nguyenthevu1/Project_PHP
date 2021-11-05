@@ -1,7 +1,7 @@
 <style>
     .star_chk {
         width: 30px;
-        color: rgb(222,219,211);
+        color: rgb(222, 219, 211);
     }
 
     .star_chk.active {
@@ -9,6 +9,98 @@
         width: 30px;
     }
 </style>
+<div class="comment">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <?php
+
+                            $sql = "SELECT * FROM comment,users WHERE comment.userId = users.userId ";
+                            $result = mysqli_query($conn, $sql);
+                            $row = mysqli_fetch_assoc($result);
+
+                            ?>
+                            <div class="text-center cmt">
+                                <img src="<?php echo $row['avatarUser']; ?>" alt="picture" class="img_user">
+                                <div class="cmtText">
+                                    <?php if (!empty($row['fullName']) || !empty($row['date']) || !empty($row['rating'])) { ?>
+                                        <span style="color:black"><?php echo $row['fullName'] ?></span>
+                                        <span style="font-size: 80%;"><?php echo $row['date'] ?></span>
+                                        <p>
+                                            <?php
+                                            $rating = $row['rating'];
+                                            for ($i = 0; $i < $rating; $i++) {
+                                                echo '<i class="fa fa-star"></i>';
+                                            }
+                                            for ($i = 5; $i > $rating; $i--) {
+                                                echo '<i class="fa fa-star-o" aria-hidden="true"></i>';
+                                            }
+                                            ?>
+                                        </p>
+
+                                        <p style="user-select:auto"><?php echo $row['comment'] ?></p>
+                                    <?php } else {
+                                    ?>
+                                        <p style="user-select:auto"> Không có bình luận để hiển thị</p>
+                                    <?php } ?>
+                                </div>
+                            </div>
+
+                        </div>
+                        <?php
+                        $sql = "SELECT * FROM comment,users WHERE comment.userId = users.userId LIMIT 1,50";
+                        $result = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_assoc($result)) {
+
+                        ?>
+                            <div class="item">
+                                <div class="text-center cmt">
+
+                                    <img src="./images/photos/incognito.png" alt="picture" class="img_user">
+                                    <div class="cmtText">
+                                        <span style="color:black"><?php echo $row['fullName'] ?></span>
+                                        <span style="font-size: 80%;"><?php echo $row['date'] ?></span>
+                                        <p>
+                                            <?php
+                                            $rating = $row['rating'];
+                                            for ($i = 0; $i < $rating; $i++) {
+                                                echo '<i class="fa fa-star"></i>';
+                                            }
+                                            for ($i = 5; $i > $rating; $i--) {
+                                                echo '<i class="fa fa-star-o" aria-hidden="true"></i>';
+                                            }
+
+                                            ?>
+                                        </p>
+                                        <p><?php echo $row['comment'] ?></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        <?php } ?>
+                    </div>
+
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <!-- <span class="sr-only">Previous</span> -->
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <!-- <span class="sr-only">Next</span> -->
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer class="spacer">
     <div class="container">
         <div class="row">
@@ -46,11 +138,11 @@
                         <label for="exampleInputEmail1">Bình luận</label>
                         <textarea class="form-control" name="contentCmt" placeholder="Nội dung bình luận..." style="height: 100px;" required></textarea>
                     </div>
-                    <?php if(isset($_SESSION['user'])){ ?>
-                    <input type="hidden" value="<?php echo $_SESSION['user']['userId']; ?>" name="userId">
-                    <button type="submit" class="btn btn-default" name="comment">Đăng bình luận</button>
+                    <?php if (isset($_SESSION['user'])) { ?>
+                        <input type="hidden" value="<?php echo $_SESSION['user']['userId']; ?>" name="userId">
+                        <button type="submit" class="btn btn-default" name="comment">Đăng bình luận</button>
                     <?php } ?>
-                    
+
                 </form>
             </div>
         </div>
@@ -108,7 +200,7 @@
             for (let i = 0; i <= index; i++) {
                 stars[i].classList.add('active');
             }
-            for (let i = index + 1; i <5; i++) {
+            for (let i = index + 1; i < 5; i++) {
                 stars[i].classList.remove('active');
             }
         }

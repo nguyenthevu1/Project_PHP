@@ -23,7 +23,7 @@ if (!isset($_SESSION['isAdmin']) || !isset($_SESSION['admin'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link href="./css/style.css" rel="stylesheet">
     <link href="./css/profile.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <!-- <link rel="shortcut icon" href="../../client/images/favicon.png" >
     <link rel="icon" href="../../client/images/favicon.png" > -->
 
@@ -121,7 +121,7 @@ if (!isset($_SESSION['isAdmin']) || !isset($_SESSION['admin'])) {
             <div class="quixnav-scroll">
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Bảng điều kiển chính</li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-speedometer"></i><span class="nav-text">Bảng điều kiển</span></a>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="fa fa-tachometer" aria-hidden="true"></i><span class="nav-text">Bảng điều kiển</span></a>
                         <ul aria-expanded="false">
                             <li><a href="./index.php">Bảng điều kiển</a></li>
                         </ul>

@@ -9,6 +9,7 @@ include_once('./layout/header.php');
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Họ Tên</th>
+                <th scope="col">Số điện thoại</th>
                 <th scope="col">Tên dịch vụ</th>
                 <th scope="col">Cấp độ</th>
                 <th scope="col">Tổng Tiền</th>
@@ -28,6 +29,7 @@ include_once('./layout/header.php');
                 <tr>
                     <td><?php echo $i; ?></td>
                     <td><?php echo $row['fullName']; ?></td>
+                    <td><?php echo $row['phone']; ?></td>
                     <td><?php echo $row['productName']; ?></td>
                     <td><?php echo $row['level']; ?></td>
                     <td><?php echo number_format($row['total']).'VNĐ'; ?></td>

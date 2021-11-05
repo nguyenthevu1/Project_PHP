@@ -53,5 +53,5 @@ $row2 = $result2->fetch_assoc();
 </div>
 <?php
 
-include '../footer.php';
+include './footer2.php';
 ?>

@@ -11,8 +11,15 @@ if (isset($_POST['add_hotel'])) {
     $catId = $_POST['catId'];
     $level = $_POST['level'];
 
+    if($catId==10 || $catId==8) {
+        $price = '0';
+        $level = '';
+    }
+    else{
+        if (empty($price)) $error['price'] = "Vui lòng nhập trường này!";
+    }
+
     if (empty($title)) $error['title'] = "Vui lòng nhập trường này!";
-    if (empty($price)) $error['price'] = "Vui lòng nhập trường này!";
     if (empty($content)) $error['content'] = "Vui lòng nhập trường này!";
 
     if ($title != '' && $price != '' && $content != '') {
@@ -66,6 +73,22 @@ if (isset($_POST['add_hotel'])) {
         <div class="container">
             <form method="POST" action="" enctype="multipart/form-data" style="color:black;">
                 <div class="mb-3">
+                    <label for="cat">Danh mục</label>
+                    <?php
+                    $select_cats = "SELECT * from categories";
+                    $cats = mysqli_query($conn, $select_cats);
+                    ?>
+                    <select name="catId" id="cat" class="form-select">
+                        <option>
+                            --Chọn danh mục--
+                        </option>
+                        <?php
+                        while ($row = mysqli_fetch_assoc($cats)) {
+                            echo '<option value="' . ($row['catId']) . '">' . ($row['catName']) . '</option>';
+                        } ?>
+                    </select>
+                </div>
+                <div class="mb-3">
                     <label for="title" class="form-label">Tiêu đề</label>
                     <input type="text" class="form-control" id="title" name="title" placeholder="Nhập tiêu đề">
                     <div class="form-text"><?php echo isset($error['title']) ? $error['title'] : ''; ?></div>
@@ -87,23 +110,9 @@ if (isset($_POST['add_hotel'])) {
                     <div class="form-text"><?php echo isset($error['file']) ? $error['file'] : ''; ?></div>
                 </div>
 
+
                 <div class="mb-3">
-                    <?php
-                    $select_cats = "SELECT * from categories";
-                    $cats = mysqli_query($conn, $select_cats);
-                    ?>
-                    <select name="catId" id="">
-                        <option>
-                            --Chọn danh mục--
-                        </option>
-                        <?php
-                        while ($row = mysqli_fetch_assoc($cats)) {
-                            echo '<option value="' . ($row['catId']) . '">' . ($row['catName']) . '</option>';
-                        } ?>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <select name="level" id="">
+                    <select name="level" id="select_level" class="form-select">
                         <option>
                             --Chọn Mức phòng--
                         </option>
@@ -131,6 +140,18 @@ if (isset($_POST['add_hotel'])) {
             preview.append(newImage);
         })
     })
+
+    const cat = document.getElementById('cat')
+    const price = document.getElementById('price');
+    const select_level = document.getElementById('select_level');
+    
+    
+    cat.onchange = function() {
+        if(cat.value == 10 || cat.value == 8){
+            price.setAttribute('disabled',true);
+            select_level.setAttribute('disabled',true);
+        }
+    }
 </script>
 <?php
 include('./layout/footer.php');

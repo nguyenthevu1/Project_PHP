@@ -11,9 +11,11 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th scope="col">Id bình luận</th>
+                    <th scope="col">#</th>
                     <th scope="col">Họ Tên</th>
+                    <th scope="col">Số sao</th>
                     <th scope="col">Bình luận của bạn</th>
+                    <th scope="col">Hành động</th>
                 </tr>
 
             </thead>
@@ -23,11 +25,14 @@
                 if ($id) {
                     $sql = "SELECT * FROM comment,users WHERE comment.userId = users.userId and users.userId = $id";
                     $result = $conn->query($sql);
+                    $i = 0;
                     while ($row = $result->fetch_assoc()) {
+                        $i += 1;
                 ?>
                         <tr>
-                            <td><?php echo $row['cmtId'] ?></td>
+                            <td><?php echo $i; ?></td>
                             <td><?php echo $row['fullName'] ?></td>
+                            <td><?php echo $row['rating``'] ?></td>
                             <td><?php echo $row['comment'] ?></td>
 
                             <td class="action">

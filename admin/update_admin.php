@@ -1,7 +1,7 @@
 <?php
 include('./layout/header.php');
 require('../db/config.php');
-// session_start()
+session_start();
 $error = [];
 
 if (isset($_POST['update_admin'])) {
@@ -13,39 +13,35 @@ if (isset($_POST['update_admin'])) {
     if (empty($email)) $error['email'] = "Vui lòng nhập trường này!";
     if (empty($fullName)) $error['fullName'] = "Vui lòng nhập trường này!";
     if (empty($password)) $error['password'] = "Vui lòng nhập trường này!";
+    if (!empty($email) || !empty($fullName) || !empty($password)) {
 
-    $tmp = $_FILES['file']['tmp_name'];
-
-    if ($tmp != '') {
+        $tmp = $_FILES['file']['tmp_name'];
 
         $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp', 'pdf', 'doc', 'ppt');
         $path = 'uploads/';
-
         $img = $_FILES['file']['name'] ? $_FILES['file']['name'] : '';
-
-
         $ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
 
-        if (in_array($ext, $valid_extensions)) {
-            $path = $path . strtolower($img);
-            if (move_uploaded_file($tmp, $path)) {
-                $update = "UPDATE uses set email = '$email',fullName = '$fullName',avatarUser='$path' where userId = '$id'";
+        if (!empty($tmp)) {
+            if (in_array($ext, $valid_extensions)) {
+                $path = $path . strtolower($img);
+                if (move_uploaded_file($tmp, $path)) {
+                    $update = "UPDATE users set email = '$email',fullName = '$fullName',avatarUser='$path' where userId = '$id'";
+                    mysqli_query($conn, $update);
+                }
+            } else {
+                $error['file'] = 'file không đúng định dạng';
             }
+
         } else {
-            $error['file'] = 'file không đúng định dạng';
+            $update = "UPDATE users set email = '$email',fullName = '$fullName' where userId = '$id'";
+            mysqli_query($conn, $update);
         }
-    } else {
+        $selectImg = "SELECT * FROM users where userId = '$id'";
+        $update_img = mysqli_query($conn, $selectImg);
+        $admin = mysqli_fetch_assoc($update_img);
 
-        $update = "UPDATE users set email = '$email',fullName = '$fullName' where userId = '$id'";
-    }
-
-    $selectImg = "SELECT * FROM users where userId = '$id'";
-    $update_img = mysqli_query($conn, $selectImg);
-    $admin = mysqli_fetch_assoc($update_img);
-    
-    if (mysqli_query($conn, $update)) {
         $_SESSION['admin'] = $admin;
-        header('location: admin-table.php');
     }
 }
 
@@ -90,7 +86,7 @@ if (isset($_POST['update_admin'])) {
                         </div>
                         <input type="hidden" class="form-control" id="file" name="id" value="<?php echo $row['userId']; ?>">
                         <?Php
-                        if ($_SESSION['admin']['role'] == 1) {
+                        if ($_SESSION['admin']['userId'] == $id) {
                             echo '<button type="submit" class="btn btn-primary" name="update_admin">Cập nhật</button>';
                         } else {
                             echo '<button type="submit" class="btn btn-primary" name="update_admin" disabled>Cập nhật</button>';
