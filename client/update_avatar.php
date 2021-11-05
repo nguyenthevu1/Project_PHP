@@ -11,7 +11,9 @@ if (isset($_POST['changeImg'])) {
     $img = $_FILES['file']['name'];
 
     $tmp = $_FILES['file']['tmp_name'];
-
+    if($tmp == '') {
+        header('location: profile-user.php?route=editProfile');
+    }
     if ($tmp != '') {
 
         $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp', 'pdf', 'doc', 'ppt');

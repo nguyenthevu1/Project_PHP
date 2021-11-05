@@ -94,9 +94,9 @@
             if ($page_current < $page_next) {
 
             ?>
-                <a href="index.php?page=<?php echo($page_current + 1) ?>"><button class="btn btn-default">Xem thêm</button></a>
+                <a href="index.php?page=<?php echo ($page_current + 1) ?>"><button class="btn btn-default">Xem thêm</button></a>
             <?php } else { ?>
-               <button class="btn btn-default">Xem thêm</button>
+                <button class="btn btn-default">Xem thêm</button>
             <?php } ?>
         </div>
     </div>
@@ -112,42 +112,38 @@
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
                             <?php
-                          
+
                             $sql = "SELECT * FROM comment,users WHERE comment.userId = users.userId ";
                             $result = mysqli_query($conn, $sql);
                             $row = mysqli_fetch_assoc($result);
-                            
+
                             ?>
                             <div class="text-center cmt">
-                                <img src="./images/photos/incognito.png" alt="picture" class="img_user">
+                                <img src="<?php echo isset($row['avatarUser'])?$row['avatarUser']:'./images/photos/incognito.png'; ?>" alt="picture" class="img_user" >
                                 <div class="cmtText">
-                                    <?php if(!empty($row['fullName']) || !empty($row['date']) || !empty($row['rating'])){ ?>
-                                    <span style="color:black"><?php echo $row['fullName'] ?></span>
-                                    <span style="font-size: 80%;"><?php echo $row['date'] ?></span>
-                                    
-                                    <p>
-                                        <?php
-                                        $rating = $row['rating'];
-                                        for ($i = 0; $i < $rating; $i++) {
-                                            echo '<i class="fa fa-star"></i>';
-                                        }
-                                        for ($i = 5; $i > $rating; $i--) {
-                                            echo '<i class="fa fa-star-o" aria-hidden="true"></i>';
-                                        }
-                                        ?>
-                                    </p>                         
-                                   
-                                    <p style="user-select:auto"><?php echo $row['comment'] ?></p>
-                                    <?php } 
-                                        else{ 
-                                    ?>
+                                    <?php if (!empty($row['fullName']) || !empty($row['date']) || !empty($row['rating'])) { ?>
+                                        <span style="color:black"><?php echo $row['fullName'] ?></span>
+                                        <span style="font-size: 80%;"><?php echo $row['date'] ?></span>
+                                        <p>
+                                            <?php
+                                            $rating = $row['rating'];
+                                            for ($i = 0; $i < $rating; $i++) {
+                                                echo '<i class="fa fa-star"></i>';
+                                            }
+                                            for ($i = 5; $i > $rating; $i--) {
+                                                echo '<i class="fa fa-star-o" aria-hidden="true"></i>';
+                                            }
+                                            ?>
+                                        </p>
 
-                                    
+                                        <p style="user-select:auto"><?php echo $row['comment'] ?></p>
+                                    <?php } else {
+                                    ?>
                                         <p style="user-select:auto"> Không có bình luận để hiển thị</p>
-                                        <?php } ?>
+                                    <?php } ?>
                                 </div>
                             </div>
-                            
+
                         </div>
                         <?php
                         $sql = "SELECT * FROM comment,users WHERE comment.userId = users.userId LIMIT 1,50";

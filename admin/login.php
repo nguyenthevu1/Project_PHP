@@ -90,7 +90,7 @@ if (isset($_POST['login'])) {
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <a href="page-forgot-password.html">Quên mật khẩu?</a>
+                                                <a href="../client/forgotpass.php">Quên mật khẩu?</a>
                                             </div>
                                         </div>
                                         <div class="text-center">

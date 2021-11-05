@@ -92,6 +92,7 @@ p{margin-bottom: 1em;line-height: 1.5em;}
     height: 60px;
     border: 1.5px solid rgb(238,238,238);
     border-radius: 50%;
+    object-fit: cover;
 }
 .cmtText{
     width: 360px;
@@ -143,7 +144,35 @@ p{margin-bottom: 1em;line-height: 1.5em;}
 #formChange{
     display: flex;
     width: 328px;
-    justify-content: center;
+    justify-content:start;
+    margin-left: 20px;
+}
+#file_img{
+    width: 0.1px;
+    height: 0.1px;
+    overflow: hidden;
+    opacity: 0;  
+    visibility: hidden;
+    color: #0f6dd8;
+    position: absolute;
+	z-index: -1;
+}
+
+#file_img + label{
+    margin-right: 15px;
+    background-color: rgb(175, 65, 65);
+    color: white;
+    line-height: 25px;
+    margin-bottom: 0px;
+    padding: 0 5px;
+}
+
+.button_file{
+    background-color: rgb(51,122,183);
+    color: white;
+    border: none;   
+    position: relative;
+    z-index: 2;
 }
 
 .user_name{
@@ -228,6 +257,9 @@ p{margin-bottom: 1em;line-height: 1.5em;}
 .fa.plus{
     padding-left: 20px;
     cursor: pointer;
+}
+.fa.plus:hover{
+    color: rgb(99, 171, 233);
 }
 /* booking room */
 .booking{
