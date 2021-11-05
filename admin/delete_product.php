@@ -10,6 +10,6 @@ if(isset($_GET['id'])) {
     $deletePr = "DELETE from product where productId = '$id'";
     mysqli_query($conn,$deletePr);
     
-    header('location: room-table.php');
+    header('location: update_product.php?id='.$id);
 }
 ?>

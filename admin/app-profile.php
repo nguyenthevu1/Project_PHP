@@ -24,7 +24,7 @@ $path = '../admin/'; ?>
                         <div class="first-left">
                             <div class="picture_user"><img src="<?php echo $_SESSION['admin']['avatarUser'] ?>" alt=""></div>
                             <div class="user_name"><span><?php echo $_SESSION['admin']['fullName'] ?></span>
-                                <!-- <p><?php echo $_SESSION['admin']['phone'] ?></p> -->
+                                <p style="font-size:15px"><?php echo $_SESSION['admin']['phone'] ?></p>
                             </div>
                         </div>
                         <a href="app-profile.php?route=editPicture">

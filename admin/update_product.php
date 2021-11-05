@@ -13,10 +13,15 @@ if (isset($_POST['update_room'])) {
     $level = $_POST['level'];
 
     $id = $_POST['id'];
-    // echo $level;
-    // print_r($_POST['id']);
-    // die();
-    if (empty($title)) $error['title'] = "Vui lòng nhập trường này!";
+
+    if ($catId == 10 || $catId == 8) {
+        $price = '00000';
+        $level = '';
+        $error['price'] = '';
+    } else {
+        if (empty($price)) $error['price'] = "Vui lòng nhập trường này!";
+    }
+
     if (empty($price)) $error['price'] = "Vui lòng nhập trường này!";
     if (empty($content)) $error['content'] = "Vui lòng nhập trường này!";
 
@@ -50,7 +55,7 @@ if (isset($_POST['update_room'])) {
         mysqli_query($conn, $update);
 
         // $id_pro =  mysqli_insert_id($conn);
-        
+
         foreach ($pathImg as $key => $value) {
             mysqli_query($conn, "INSERT into img_product(productId,img) values('$id','$value')");
         }
@@ -87,6 +92,8 @@ if (isset($_POST['update_room'])) {
 <div class="content-body">
     <div class="container-fluid">
         <div class="container">
+        <a href="./addProduct.php"><button class="btn btn-primary mb-3">Thêm sản phẩm</button></a>
+
             <?php
             if (isset($_GET['id'])) {
                 $id = $_GET['id'];
@@ -96,6 +103,27 @@ if (isset($_POST['update_room'])) {
                     $catId = $row['catId'];
             ?>
                     <form method="POST" action="" enctype="multipart/form-data" style="color:black;">
+                        <div class="mb-3">
+                            <label for="cat">Danh mục</label>
+                            <?php
+                            $select_cats = "SELECT * from categories";
+                            $cats = mysqli_query($conn, $select_cats);
+                            ?>
+                            <select name="catId" id="cat" class="form-select">
+                                <option>
+                                    --Chọn danh mục--
+                                </option>
+                                <?php
+
+                                while ($row_cat = mysqli_fetch_assoc($cats)) {
+                                    if ($catId == $row_cat['catId']) {
+                                        echo '<option value="' . ($row_cat['catId']) . '" selected>' . ($row_cat['catName']) . '</option>';
+                                    } else {
+                                        echo '<option value="' . ($row_cat['catId']) . '">' . ($row_cat['catName']) . '</option>';
+                                    }
+                                } ?>
+                            </select>
+                        </div>
                         <input type="hidden" value="<?php echo $row['productId']; ?>" name="id">
                         <div class="mb-3">
                             <label for="title" class="form-label">Tiêu đề</label>
@@ -108,7 +136,7 @@ if (isset($_POST['update_room'])) {
                             <div class="form-text"><?php echo isset($error['price']) ? $error['price'] : ''; ?></div>
                         </div>
                         <div class="mb-3">
-                            <textarea name="content" id="content" class="form-control" placeholder="Nhận nội dung" style="height: 146px;"><?php echo $row['productName']; ?></textarea>
+                            <textarea name="content" id="content" class="form-control" placeholder="Nhận nội dung" style="height: 146px;"><?php echo $row['content']; ?></textarea>
                             <div class="form-text"><?php echo isset($error['content']) ? $error['content'] : ''; ?></div>
                         </div>
 
@@ -127,34 +155,15 @@ if (isset($_POST['update_room'])) {
                             <input type="file" class="form-control" id="files" name="files[]" multiple>
                             <div class="form-text"><?php echo isset($error['file']) ? $error['file'] : ''; ?></div>
                         </div>
-                        <div class="mb-3">
-                            <?php
-                            $select_cats = "SELECT * from categories";
-                            $cats = mysqli_query($conn, $select_cats);
-                            ?>
-                            <select name="catId" id="">
-                                <option>
-                                    --Chọn danh mục--
-                                </option>
-                                <?php
 
-                                while ($row = mysqli_fetch_assoc($cats)) {
-                                    if ($catId == $row['catId']) {
-                                        echo '<option value="' . ($row['catId']) . '" selected>' . ($row['catName']) . '</option>';
-                                    } else {
-                                        echo '<option value="' . ($row['catId']) . '">' . ($row['catName']) . '</option>';
-                                    }
-                                } ?>
-                            </select>
-                        </div>
                         <div class="mb-3">
-                            <select name="level" id="">
+                            <select name="level" id="select_level" class="form-select">
                                 <option>
                                     --Chọn Mức phòng--
                                 </option>
-                                <option value="1" selected>Tiêu chuẩn</option>
-                                <option value="2">Phòng club</option>
-                                <option value="3">Suite</option>
+                                <option value="Tiêu chuẩn" selected>Tiêu chuẩn</option>
+                                <option value="Phòng club">Phòng club</option>
+                                <option value="Suite">Suite</option>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-primary" name="update_room">cập nhật</button>
@@ -180,6 +189,21 @@ if (isset($_POST['update_room'])) {
             preview.append(newImage);
         })
     })
+    const cat = document.getElementById('cat')
+    const price = document.getElementById('price');
+    const select_level = document.getElementById('select_level');
+
+    if (cat.value == 10 || cat.value == 8) {
+        price.setAttribute('disabled', true);
+        select_level.setAttribute('disabled', true);
+    }
+
+    cat.onchange = function() {
+        if (cat.value == 10 || cat.value == 8) {
+            price.setAttribute('disabled', true);
+            select_level.setAttribute('disabled', true);
+        }
+    }
 </script>
 <?php
 include('./layout/footer.php');

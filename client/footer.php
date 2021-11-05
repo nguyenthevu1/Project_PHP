@@ -1,4 +1,14 @@
+<style>
+    .star_chk {
+        width: 30px;
+        color: rgb(222,219,211);
+    }
 
+    .star_chk.active {
+        color: rgb(226, 226, 14);
+        width: 30px;
+    }
+</style>
 <footer class="spacer">
     <div class="container">
         <div class="row">
@@ -30,7 +40,7 @@
                         <label class="star_chk" for="star4" id="star" style="width: 30px;"><i class="fa fa-star"></i></label>
                         <input type="radio" name="rating" value="4" id="star4" style="display: none;">
                         <label class="star_chk" for="star5" id="star" style="width: 30px;"><i class="fa fa-star"></i></label>
-                        <input type="radio" name="rating" value="5" id="star5" style="display: none;">
+                        <input type="radio" name="rating" value="5" id="star5" style="display: none;" checked>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Bình luận</label>

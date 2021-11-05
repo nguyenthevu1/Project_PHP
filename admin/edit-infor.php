@@ -1,5 +1,5 @@
 <?php 
-    include '../../db/config.php';
+    include '../db/config.php';
     session_start();
     $id = $_SESSION['user']['userId'];
     if(isset($_POST['fullName'])){
@@ -9,8 +9,8 @@
         $select = "SELECT * FROM users WHERE userId = $id";
         $query = $conn->query($select);
         $newData = $query->fetch_assoc();
-        $_SESSION['user'] = $newData;
-        header('location:../profile-user.php?route=editProfile');
+        $_SESSION['admin'] = $newData;
+        header('location:../admin/app-profile.php?route=editProfile');
     }
 
     if(isset($_POST['phone'])){
@@ -20,8 +20,8 @@
         $select = "SELECT * FROM users WHERE userId = $id";
         $query = $conn->query($select);
         $newData = $query->fetch_assoc();
-        $_SESSION['user'] = $newData;
-        header('location:../profile-user.php?route=editProfile');
+        $_SESSION['admin'] = $newData;
+        header('location:../admin/app-profile.php?route=editProfile');
     }
 
     if(isset($_POST['email'])){
@@ -31,6 +31,6 @@
         $select = "SELECT * FROM users WHERE userId = $id";
         $query = $conn->query($select);
         $newData = $query->fetch_assoc();
-        $_SESSION['user'] = $newData;
-        header('location:../profile-user.php?route=editProfile');
+        $_SESSION['admin'] = $newData;
+        header('location:../admin/app-profile.php?route=editProfile');
     }

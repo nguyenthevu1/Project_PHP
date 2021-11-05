@@ -12,7 +12,7 @@ if (isset($_POST['add_hotel'])) {
     $level = $_POST['level'];
 
     if($catId==10 || $catId==8) {
-        $price = '0';
+        $price = '0000';
         $level = '';
     }
     else{
