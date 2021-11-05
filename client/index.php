@@ -154,7 +154,7 @@
                             <div class="item">
                                 <div class="text-center cmt">
 
-                                    <img src="./images/photos/incognito.png" alt="picture" class="img_user">
+                                    <img src="<?php echo isset($row['avatarUser'])?$row['avatarUser']:'./images/photos/incognito.png' ?>" alt="picture" class="img_user">
                                     <div class="cmtText">
                                         <span style="color:black"><?php echo $row['fullName'] ?></span>
                                         <span style="font-size: 80%;"><?php echo $row['date'] ?></span>
