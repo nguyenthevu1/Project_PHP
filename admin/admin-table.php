@@ -50,7 +50,6 @@ include_once('./layout/header.php');
                     </td>
                     <td>
                         <a href="./changePassword.php?id=<?php echo $row['userId'] ?>"><button class="btn btn-primary">Đổi mật khẩu</button></a>
-                        <a href="./update_admin.php?id=<?php echo $row['userId'] ?>"><button class="btn btn-success">cập nhật</button></a>
                         <?Php
                         if ($_SESSION['admin']['role'] == 1) {
                             echo '

@@ -21,9 +21,9 @@
                 <h4>Đường dẫn</h4>
                 <ul class="list-unstyled">
                     <li><a href="rooms-tariff.php">Phòng</a></li>
-                    <li><a href="introduction.php">Sự kiện</a></li>
-                    <li><a href="tour.php">Dịch vụ</a></li>
-                    <li><a href="gallery.php">Giới thiệu</a></li>
+                    <li><a href="gallery.php">Sự kiện</a></li>
+                    <li><a href="service.php">Dịch vụ</a></li>
+                    <li><a href="introduction.php">Giới thiệu</a></li>
                     <li><a href="contact.php">Liên hệ</a></li>
                 </ul>
             </div>

@@ -119,7 +119,7 @@
 
                             ?>
                             <div class="text-center cmt">
-                                <img src="<?php echo isset($row['avatarUser'])?$row['avatarUser']:'./images/photos/incognito.png'; ?>" alt="picture" class="img_user" >
+                                <img src="<?php echo isset($row['avatarUser'])?$row['avatarUser']:'./images/incognito.png'; ?>" alt="picture" class="img_user" >
                                 <div class="cmtText">
                                     <?php if (!empty($row['fullName']) || !empty($row['date']) || !empty($row['rating'])) { ?>
                                         <span style="color:black"><?php echo $row['fullName'] ?></span>

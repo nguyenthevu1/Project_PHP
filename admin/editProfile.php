@@ -1,24 +1,24 @@
 <div class="editProfile">
     <div class="edit">
         <div class="Name">
-            <i class="fa fa-user" aria-hidden="true"></i>
+            <i class="fas fa-user"></i>
             <span>
                 <h3><?php echo $_SESSION['admin']['fullName'] ?></h3>
             </span>
         </div>
-        <form method="POST" id="form1" action = './edit-infor.php'>
+        <form method="POST" id="form1" action='./edit-infor.php'>
             <div class="form-group">
                 <label for="fullName">Họ và tên</label>
                 <input type="text" class="form-control" id="fullName" placeholder="Nhập họ và tên mới" name="fullName" required>
             </div>
             <button type="submit" class="btn btn-primary" name="edit_name">Lưu</button>
-            <button class="btn btn-danger cancel_update" type="button" >hủy</button>
+            <button class="btn btn-danger cancel_update" type="button">hủy</button>
         </form>
     </div>
     <div class="edit">
-        <form method="POST" id="form2" action = './edit-infor.php'>
+        <form method="POST" id="form2" action='./edit-infor.php'>
             <div class="Name">
-                <i class="fa fa-mobile" aria-hidden="true"></i>
+                <i class="fas fa-mobile"></i>
                 <span>
                     <h3>Số Điện Thoại</h3>
                 </span>
@@ -32,16 +32,16 @@
         </form>
     </div>
     <div class="edit">
-        <form method="POST" id="form3" action = './edit-infor.php'>
+        <form method="POST" id="form3" action='./edit-infor.php'>
             <div class="Name">
-                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                <i class="fas fa-envelope"></i>
                 <span>
                     <h3>Email</h3>
                 </span>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="text" class="form-control" id="email" placeholder="Nhập Emai mới" name="email" required>
+                <input type="text" class="form-control" id="email" placeholder="Nhập Email mới" name="email" required>
             </div>
             <button type="submit" class="btn btn-primary" name="edit_email">Lưu</button>
             <button class="btn btn-danger cancel_update" type="button">hủy</button>
@@ -55,12 +55,12 @@
     const form2 = document.querySelector('#form2');
     const form3 = document.querySelector('#form3');
 
-    cancel_update.forEach(function(e,index){
-        e.onclick = function(){
-            if(index = 1) form1.reset();
-            if(index = 2) form2.reset();
-            if(index = 3) form3.reset();
-            
+    cancel_update.forEach(function(e, index) {
+        e.onclick = function() {
+            if (index = 1) form1.reset();
+            if (index = 2) form2.reset();
+            if (index = 3) form3.reset();
+
         }
-    }) 
+    })
 </script>

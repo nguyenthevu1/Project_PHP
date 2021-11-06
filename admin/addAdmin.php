@@ -28,7 +28,7 @@ if (isset($_POST['add_admin'])) {
             if ($img != '') {
 
                 $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp', 'pdf', 'doc', 'ppt');
-                $path = '..admin/uploads/';
+                $path = '../admin/uploads/';
 
                 $tmp = $_FILES['file']['tmp_name'];
 

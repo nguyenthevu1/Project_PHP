@@ -28,8 +28,8 @@ include_once('./layout/header.php');
                 <tr>
                     <td><?php echo $i; ?></td>
                     <td><?php echo $row['fullName']; ?></td>
-                    <td><?php echo $row['email']; ?></td>
                     <td><?php echo $row['phone']; ?></td>
+                    <td><?php echo $row['email']; ?></td>
                     <td><?php echo $row['rating']; ?></td>
                     <td><?php echo $row['comment']; ?></td>
                     <td><?php echo $row['date']; ?></td>

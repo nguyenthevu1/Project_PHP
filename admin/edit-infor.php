@@ -2,6 +2,7 @@
     include '../db/config.php';
     session_start();
     $id = $_SESSION['user']['userId'];
+    
     if(isset($_POST['fullName'])){
         $name = mysqli_real_escape_string($conn, $_POST['fullName']);
         $sql = "UPDATE users SET fullName = '$name' WHERE userId = $id";

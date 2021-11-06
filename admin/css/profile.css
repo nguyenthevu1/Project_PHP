@@ -56,6 +56,9 @@
     background-color: #0f6dd8;
     color: white;
 }
+.comment_user:hover .fas{
+    color: white;
+}
 .comment_user span{
     color: black;
 }

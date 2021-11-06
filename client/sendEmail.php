@@ -77,7 +77,7 @@ if (isset($_POST['forgot'])) {
             $mail->msgHTML('
             <h3>Đổi mật khẩu</h3>
             <div><p>Vui lòng bấm vào link bên dưới để Đổi mật khẩu cho tài khoản của bạn</p></div>
-            http://localhost/project_BTL/project_PHP/client/updatepassword.php?code='.($code).'>
+            http://localhost/folder/project_PHP/client/updatepassword.php?code='.($code).'>
             ');
 
             //Replace the plain text body with one created manually

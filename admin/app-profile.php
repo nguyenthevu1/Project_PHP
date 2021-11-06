@@ -29,19 +29,19 @@ $path = '../admin/'; ?>
                         </div>
                         <a href="app-profile.php?route=editPicture">
                             <div class="comment_user sitting">
-                                <h3><i class="fa fa-shopping-cart" aria-hidden="true"></i></h3>
+                                <h3><i class="fas fa-user-circle"></i></h3>
                                 <span >Thay ảnh đại diện</span>
                             </div>
                         </a>
                         <a href="app-profile.php?route=editProfile">
                             <div class="comment_user sitting">
-                                <h3><i class="fa fa-cog" aria-hidden="true"></i></h3>
+                                <h3><i class="fas fa-cog"></i></h3>
                                 <span >Chỉnh sửa</span>
                             </div>
                         </a>
                         <a href="../admin/logout.php">
                             <div class="comment_user sitting">
-                                <h3><i class="fa fa-sign-out" aria-hidden="true"></i></h3>
+                                <h3><i class="fas fa-sign-out"></i></h3>
                                 <span >Đăng xuất</span>
                             </div>
                         </a>

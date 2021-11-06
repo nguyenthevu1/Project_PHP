@@ -23,7 +23,7 @@ if (!isset($_SESSION['isAdmin']) || !isset($_SESSION['admin'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link href="./css/style.css" rel="stylesheet">
     <link href="./css/profile.css" rel="stylesheet">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <!-- <link rel="shortcut icon" href="../../client/images/favicon.png" >
     <link rel="icon" href="../../client/images/favicon.png" > -->
 
@@ -121,32 +121,32 @@ if (!isset($_SESSION['isAdmin']) || !isset($_SESSION['admin'])) {
             <div class="quixnav-scroll">
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Bảng điều kiển chính</li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="fa fa-tachometer" aria-hidden="true"></i><span class="nav-text">Bảng điều kiển</span></a>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="fas fa-tachometer-alt"></i><span class="nav-text">Bảng điều kiển</span></a>
                         <ul aria-expanded="false">
                             <li><a href="./index.php">Bảng điều kiển</a></li>
                         </ul>
                     </li>
                     <li class="nav-label">Qản lý quản trị viên</li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-person-video"></i><span class="nav-text">Quản trị viên</span></a>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="fas fa-user-friends"></i><span class="nav-text">Quản trị viên</span></a>
                         <ul aria-expanded="false">
                             <li><a href="../admin/admin-table.php">Danh sách quản trị</a></li>
                             <li><a href="../admin/addAdmin.php">Thêm quản trị</a></li>
                         </ul>
                     </li>
                     <li class="nav-label">Quản lý người dùng</li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-people"></i><span class="nav-text">Người dùng</span></a>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="fas fa-user"></i><span class="nav-text">Người dùng</span></a>
                         <ul aria-expanded="false">
                             <li><a href="./user-table.php">Danh sách người dùng</a></li>
                         </ul>
                     </li>
                     <li class="nav-label">Các thành phần</li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-bookmarks"></i><span class="nav-text">Danh mục</span></a>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="fas fa-align-justify"></i><span class="nav-text">Danh mục</span></a>
                         <ul aria-expanded="false">
                             <li><a href="./categories-table.php">Danh sách danh mục</a></li>
                             <li><a href="./addCategories.php">Thêm danh mục</a></li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-shop"></i><span class="nav-text">Sản phẩm</span></a>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="fas fa-hotel"></i><span class="nav-text">Sản phẩm</span></a>
                         <ul aria-expanded="false">
                             <li><a href="./room-table.php">Danh sách phòng</a></li>
                             <li><a href="./event-table.php">Danh sách sự kiện</a></li>
@@ -154,12 +154,12 @@ if (!isset($_SESSION['isAdmin']) || !isset($_SESSION['admin'])) {
                             <li><a href="./addProduct.php">Thêm sản phẩm</a></li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-cart2"></i><span class="nav-text">Đơn hàng</span></a>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="fas fa-shopping-cart"></i><span class="nav-text">Đơn hàng</span></a>
                         <ul aria-expanded="false">
                             <li><a href="./order-table.php">Danh sách đơn hàng</a></li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="bi bi-globe2"></i><span class="nav-text">Đánh giá</span></a>
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i class="fas fa-comment-alt"></i><span class="nav-text">Đánh giá</span></a>
                         <ul aria-expanded="false">
                             <li><a href="./comment-table.php">Đánh giá</a></li>
                         </ul>
