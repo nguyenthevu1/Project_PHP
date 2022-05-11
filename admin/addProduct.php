@@ -24,7 +24,7 @@ if (isset($_POST['add_hotel'])) {
 
     if ($title != '' && $price != '' && $content != '') {
 
-        $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp', 'pdf', 'doc', 'ppt');
+        $valid_extensions = array('jpeg', 'jpg', 'png', 'gif');
 
         $path = 'uploads/';
 
