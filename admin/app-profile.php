@@ -22,27 +22,27 @@ $path = '../admin/'; ?>
                 <div class="col-lg-4 col-md-4 col-sm-4">
                     <div class="img_profile">
                         <div class="first-left">
-                            <div class="picture_user"><img src="<?php echo $_SESSION['admin']['avatarUser'] ?>" alt=""></div>
-                            <div class="user_name"><span><?php echo $_SESSION['admin']['fullName'] ?></span>
-                                <p style="font-size:15px"><?php echo $_SESSION['admin']['phone'] ?></p>
+                            <div class="picture_user"><img src="<?php echo $_SESSION['user']['avatarUser'] ?>" alt=""></div>
+                            <div class="user_name"><span><?php echo $_SESSION['user']['fullName'] ?></span>
+                                <p style="font-size:15px"><?php echo $_SESSION['user']['phone'] ?></p>
                             </div>
                         </div>
                         <a href="app-profile.php?route=editPicture">
                             <div class="comment_user sitting">
                                 <h3><i class="fas fa-user-circle"></i></h3>
-                                <span >Thay ảnh đại diện</span>
+                                <span>Thay ảnh đại diện</span>
                             </div>
                         </a>
                         <a href="app-profile.php?route=editProfile">
                             <div class="comment_user sitting">
                                 <h3><i class="fas fa-cog"></i></h3>
-                                <span >Chỉnh sửa</span>
+                                <span>Chỉnh sửa</span>
                             </div>
                         </a>
                         <a href="../admin/logout.php">
                             <div class="comment_user sitting">
                                 <h3><i class="fas fa-sign-out"></i></h3>
-                                <span >Đăng xuất</span>
+                                <span>Đăng xuất</span>
                             </div>
                         </a>
                     </div>

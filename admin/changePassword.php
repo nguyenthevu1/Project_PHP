@@ -5,6 +5,7 @@ include('./layout/header.php');
     .form-text {
         color: red;
     }
+
     #preview img {
         width: 150px;
     }
@@ -16,32 +17,31 @@ include('./layout/header.php');
                 <div class="mb-3">
                     <label for="currentPass" class="form-label">Mật khẩu hiện tại</label>
                     <input type="password" class="form-control" id="currentPass" name="currentPass" placeholder="Nhập mật khẩu hiện tại">
-                    <div class="form-text"><?php echo isset($_SESSION['currentPass']) ? $_SESSION['currentPass'] : ''; 
+                    <div class="form-text"><?php echo isset($_SESSION['currentPass']) ? $_SESSION['currentPass'] : '';
                                             unset($_SESSION['currentPass']);
-                    ?></div>
+                                            ?></div>
                 </div>
                 <div class="mb-3">
                     <label for="newPass" class="form-label">Mật khẩu mới</label>
                     <input type="password" class="form-control" id="newPass" name="newPass" placeholder="Nhập mật khẩu mới">
-                    <div class="form-text"><?php echo isset($_SESSION['newPass']) ? $_SESSION['newPass'] : ''; 
-                    unset($_SESSION['newPass'])
-                    ?></div>
+                    <div class="form-text"><?php echo isset($_SESSION['newPass']) ? $_SESSION['newPass'] : '';
+                                            unset($_SESSION['newPass'])
+                                            ?></div>
                 </div>
                 <div class="mb-3">
                     <label for="confirmPass" class="form-label">xác nhận lại mật khẩu</label>
                     <input type="password" class="form-control" id="confirmPass" name="confirmPass" placeholder="Xác nhận mật khẩu">
-                    <div class="form-text"><?php echo isset($_SESSION['confirmPass']) ? $_SESSION['confirmPass'] : ''; 
-                    unset($_SESSION['confirmPass'])
-                    ?></div>
+                    <div class="form-text"><?php echo isset($_SESSION['confirmPass']) ? $_SESSION['confirmPass'] : '';
+                                            unset($_SESSION['confirmPass'])
+                                            ?></div>
                 </div>
                 <?php
                 if (isset($_GET['id'])) {
                     $id = $_GET['id'];
                     echo '<input type="hidden" value = ' . ($id) . ' name="id">';
-                    if($id == $_SESSION['admin']['userId']) {
+                    if ($id == $_SESSION['user']['userId']) {
                         echo '<button type="submit" class="btn btn-primary" name="update_pass">cập nhật</button>';
-                    }
-                    else {
+                    } else {
                         echo '<button type="button" class="btn btn-primary" name="update_pass" disabled>cập nhật</button>';
                     }
                 }

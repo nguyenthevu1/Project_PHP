@@ -21,15 +21,16 @@ if (isset($_POST['login'])) {
         if ($user['status'] == 1) {
             $passVerify = password_verify($password, $user['passWord']);
             if ($passVerify) {
-                if( $user['isAdmin'] == 1) {
-                    $_SESSION['admin'] = $user;
-                    $_SESSION['isAdmin'] = 'isAdmin';
-                    header('location: index.php');
-                }
-                else{
-                    $_SESSION['user'] = $user;
-                    header('location: ../client/index.php?page=1');
-                }
+                $_SESSION['user'] = $user;
+                header('location: ../client/index.php?page=1');
+                // if ($user['isAdmin'] == 1) {
+                //     $_SESSION['user'] = $user;
+                //     $_SESSION['isAdmin'] = 'isAdmin';
+                //     header('location: index.php');
+                // } else {
+                //     $_SESSION['user'] = $user;
+                //     header('location: ../client/index.php?page=1');
+                // }
             } else {
                 $error['notMatchPwd'] = 'sai mật khẩu !';
             }

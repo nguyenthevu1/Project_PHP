@@ -32,7 +32,6 @@ if (isset($_POST['update_admin'])) {
             } else {
                 $error['file'] = 'file không đúng định dạng';
             }
-
         } else {
             $update = "UPDATE users set email = '$email',fullName = '$fullName' where userId = '$id'";
             mysqli_query($conn, $update);
@@ -41,7 +40,7 @@ if (isset($_POST['update_admin'])) {
         $update_img = mysqli_query($conn, $selectImg);
         $admin = mysqli_fetch_assoc($update_img);
 
-        $_SESSION['admin'] = $admin;
+        $_SESSION['user'] = $admin;
     }
 }
 
@@ -86,7 +85,7 @@ if (isset($_POST['update_admin'])) {
                         </div>
                         <input type="hidden" class="form-control" id="file" name="id" value="<?php echo $row['userId']; ?>">
                         <?Php
-                        if ($_SESSION['admin']['userId'] == $id) {
+                        if ($_SESSION['user']['userId'] == $id) {
                             echo '<button type="submit" class="btn btn-primary" name="update_admin">Cập nhật</button>';
                         } else {
                             echo '<button type="submit" class="btn btn-primary" name="update_admin" disabled>Cập nhật</button>';

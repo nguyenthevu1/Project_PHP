@@ -1,7 +1,7 @@
 <style>
     .star_chk {
         width: 30px;
-        color: rgb(222,219,211);
+        color: rgb(222, 219, 211);
     }
 
     .star_chk.active {

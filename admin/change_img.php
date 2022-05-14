@@ -27,18 +27,18 @@ if (isset($_POST['edit_picture'])) {
             if (move_uploaded_file($tmp, $path)) {
 
                 $update = "UPDATE users set avatarUser= '$path' where userId = '$id'";
-                $update_picture = mysqli_query($conn,$update);
+                $update_picture = mysqli_query($conn, $update);
 
                 $select_img = "SELECT * from users where userId = '$id'";
-                $img_admin = mysqli_query($conn,$select_img);
+                $img_admin = mysqli_query($conn, $select_img);
                 $admin = mysqli_fetch_assoc($img_admin);
 
-                $_SESSION['admin'] = $admin;
+                $_SESSION['user'] = $admin;
 
                 header('location: app-profile.php?route=editPicture');
             }
         } else {
             $error['file'] = 'file không đúng định dạng';
         }
-    } 
+    }
 }

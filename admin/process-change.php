@@ -34,8 +34,8 @@ if (isset($_POST['update_pass'])) {
                 $hasPwd = password_hash($newPass, PASSWORD_DEFAULT);
                 $changePass = "UPDATE users set password = '$hasPwd' where userId='$id'";
                 mysqli_query($conn,$changePass);
-                if($_SESSION['admin']['userId'] == $id){
-                    unset($_SESSION['admin']);
+                if($_SESSION['user']['userId'] == $id){
+                    unset($_SESSION['user']);
                 }
                 header('location: login.php');
             }
@@ -49,6 +49,3 @@ if (isset($_POST['update_pass'])) {
         header('location: changePassword.php?id='.$id);
     }
 }
-
-
-?>

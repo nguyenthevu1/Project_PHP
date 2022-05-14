@@ -3,7 +3,7 @@
         <div class="Name">
             <i class="fas fa-user"></i>
             <span>
-                <h3><?php echo $_SESSION['admin']['fullName'] ?></h3>
+                <h3><?php echo $_SESSION['user']['fullName'] ?></h3>
             </span>
         </div>
         <form method="POST" id="form1" action='./edit-infor.php'>

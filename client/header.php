@@ -71,10 +71,10 @@ session_start();
         <ul class="nav navbar-nav" style="width:750px;position: relative;left: 46px;">
           <li>
             <form action="search.php?page=1" method="POST">
-                <div class="search" style="margin-top: 25px;display:flex">
-                  <input type="text" class="form-control" name="searchInput" placeholder="Tìm Kiếm Phòng,Sự Kiện..." style="width: 203px;" required>
-                  <button name="searchSubmit" class="button"><i class="fa fa-search" aria-hidden="true"></i></button>
-                </div>
+              <div class="search" style="margin-top: 25px;display:flex">
+                <input type="text" class="form-control" name="searchInput" placeholder="Tìm Kiếm Phòng,Sự Kiện..." style="width: 203px;" required>
+                <button name="searchSubmit" class="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+              </div>
             </form>
           </li>
           <li><a href="index.php">Trang chủ </a></li>
@@ -85,49 +85,50 @@ session_start();
           <li><a href="contact.php">Liên hệ</a></li>
 
         </ul>
-        <?php if(isset($_SESSION['user'])){ ?>
-        <ul class="nav navbar-nav" style="margin-left: 60px;width:100px">
-          <li class="account" style="margin-top:20px">
-            <!-- style="margin-left: 25px;margin-top: 25px;" -->
-            <div class="dropdown">
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="color:rgb(115,114,108); background-color:rgb(238,238,238); font-size:17px">
-             
-                <img class="img-user" src="<?php
-                                            $path = "../admin/";
-                                            echo $path . $_SESSION['user']['avatarUser'];
-                                            ?>" style="height: 35px;width:35px;object-fit:cover">
-                <?php echo $_SESSION['user']['fullName'] ?>
-                
-                
-                <!-- <span class="caret"></span> -->
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="color:rgb(115,114,108);">
-                <li><a href="profile-user.php?route=editProfile">Tài khoản</a></li>
-                <li><a href="log-out-users.php">Đăng xuất</a></li>
-              </ul>
-             
-             
-            </div>
-          </li>
-        </ul>
+        <?php if (isset($_SESSION['user'])) { ?>
+          <ul class="nav navbar-nav" style="margin-left: 60px;width:100px">
+            <li class="account" style="margin-top:20px">
+              <!-- style="margin-left: 25px;margin-top: 25px;" -->
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="color:rgb(115,114,108); background-color:rgb(238,238,238); font-size:17px">
+
+                  <img class="img-user" src="<?php
+                                              $path = "../admin/";
+                                              echo $path . $_SESSION['user']['avatarUser'];
+                                              ?>" style="height: 35px;width:35px;object-fit:cover">
+                  <?php echo $_SESSION['user']['fullName'] ?>
+
+
+                  <!-- <span class="caret"></span> -->
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="color:rgb(115,114,108);">
+                  <li><a href="profile-user.php?route=editProfile">Tài khoản</a></li>
+                  <li><a href="#">Bảng điều kiển</a></li>
+                  <li><a href="log-out-users.php">Đăng xuất</a></li>
+                </ul>
+
+
+              </div>
+            </li>
+          </ul>
         <?php } ?>
 
-        <?php if(!isset($_SESSION['user'])){ ?>
-        <ul class="nav navbar-nav" style="margin-left: 60px;width:100px">
-          <li class="account" style="margin-top:20px">
-            <!-- style="margin-left: 25px;margin-top: 25px;" -->
-            <div class="dropdown">
-            
+        <?php if (!isset($_SESSION['user'])) { ?>
+          <ul class="nav navbar-nav" style="margin-left: 60px;width:100px">
+            <li class="account" style="margin-top:20px">
+              <!-- style="margin-left: 25px;margin-top: 25px;" -->
+              <div class="dropdown">
+
                 <div class="login-register">
                   <a href="../admin/login.php">Đăng nhập</a>
                   <a href="register-users.php">Đăng kí</a>
                 </div>
-              
+
                 <!-- <span class="caret"></span> -->
 
-            </div>
-          </li>
-        </ul>
+              </div>
+            </li>
+          </ul>
         <?php } ?>
       </div><!-- Wnavbar-collapse -->
     </div><!-- container-fluid -->

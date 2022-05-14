@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['isAdmin']) || !isset($_SESSION['admin'])) {
+if (!isset($_SESSION['user']) || $_SESSION['user']['isAdmin'] != 1) {
     header('location: login.php');
 }
 
@@ -17,19 +17,20 @@ if (!isset($_SESSION['isAdmin']) || !isset($_SESSION['admin'])) {
     <!-- <link rel="stylesheet" href="./vendor/owl-carousel/css/owl.carousel.min.css">
     <link rel="stylesheet" href="./vendor/owl-carousel/css/owl.theme.default.min.css"> -->
     <link href="./vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link href="./css/style.css" rel="stylesheet">
     <link href="./css/profile.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- <link rel="shortcut icon" href="../../client/images/favicon.png" >
     <link rel="icon" href="../../client/images/favicon.png" > -->
 
 
 </head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
 <body>
 
     <!--*******************
@@ -93,12 +94,15 @@ if (!isset($_SESSION['isAdmin']) || !isset($_SESSION['admin'])) {
                         <ul class="navbar-nav header-right">
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <img class="avatar" src="<?php echo $_SESSION['admin']['avatarUser']; ?>" alt="" style="object-fit: cover;">
-                                    <span><?php echo $_SESSION['admin']['fullName']; ?></span>
+                                    <img class="avatar" src="<?php echo $_SESSION['user']['avatarUser']; ?>" alt="" style="object-fit: cover;">
+                                    <span><?php echo $_SESSION['user']['fullName']; ?></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" style="margin-top: -11px;">
                                     <a href="../admin/app-profile.php?route=editProfile" class="dropdown-item">
                                         <span class="ml-2">Quản trị viên</span>
+                                    </a>
+                                    <a href="../client/index.php" class="dropdown-item">
+                                        <span class="ml-2">Trang chủ</span>
                                     </a>
                                     <a href="./logout.php" class="dropdown-item">
                                         <span class="ml-2">Đăng xuất</span>

@@ -102,7 +102,7 @@ if (isset($_POST['add_admin'])) {
                     <div class="form-text"><?php echo isset($error['file']) ? $error['file'] : ''; ?></div>
                 </div>
                 <?Php
-                if ($_SESSION['admin']['role'] == 1) {
+                if ($_SESSION['user']['role'] == 1) {
                     echo '<button type="submit" class="btn btn-primary" name="add_admin">Thêm</button>';
                 } else {
                     echo '<button type="submit" class="btn btn-primary" name="add_admin" disabled>Thêm</button>';
